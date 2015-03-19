@@ -21,7 +21,7 @@ RemotePlayer = function (index, game, player, startX, startY) {
 
 
 RemotePlayer.prototype.update = function() {
-    console.log("player.x",this.player.x,"lastPos",this.lastPosition.x);
+    //console.log("player.x",this.player.x,"lastPos",this.lastPosition.x);
     if(this.lastPosition.x>this.player.x) {
         this.player.animations.play('left');
     } else if(this.lastPosition.x<this.player.x){
