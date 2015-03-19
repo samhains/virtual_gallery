@@ -16,7 +16,7 @@ app.get('/', function(req, res){
 });
 
 
-http.listen(8000, function(){
+http.listen(process.env.PORT || 8000, function(){
   console.log('listening on *:8000');
 });
 
