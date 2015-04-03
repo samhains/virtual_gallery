@@ -21,7 +21,6 @@ RemotePlayer = function (index, game, player, startX, startY) {
 
 
 RemotePlayer.prototype.update = function() {
-    //console.log("player.x",this.player.x,"lastPos",this.lastPosition.x);
     if(this.lastPosition.x>this.player.x) {
         this.player.animations.play('left');
     } else if(this.lastPosition.x<this.player.x){
@@ -62,6 +61,7 @@ var jumpButton;
 var bg;
 var remotePlayers = [];
 var socket;
+var pointer;
 
 function create() {
     socket = io();
@@ -69,7 +69,7 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.stage.backgroundColor = '#000000';
-    
+
 
     bg = game.add.tileSprite(0, 0, 800, 600, 'background');
     bg.fixedToCamera = true;
@@ -92,7 +92,7 @@ function create() {
 
     player = game.add.sprite(32, 32, 'dude');
     game.physics.enable(player, Phaser.Physics.ARCADE);
-
+    player.lastPosition = { x: player.x, y: player.y };
     player.body.bounce.y = 0.2;
     player.body.collideWorldBounds = true;
     player.body.setSize(20, 32, 5, 16);
@@ -118,12 +118,11 @@ function update() {
             remotePlayers[i].update();
             //game.physics.collide(player, remotePlayers[i].player);
     }
-
     game.physics.arcade.collide(player, layer);
-
     player.body.velocity.x = 0;
+    //console.log(this.input.activePointer.x,this.input.activePointer.isDown );
 
-    if (cursors.left.isDown)
+    if (cursors.left.isDown || (this.input.activePointer.x < 399 && this.input.activePointer.isDown))
     {
         player.body.velocity.x = -150;
 
@@ -133,7 +132,7 @@ function update() {
             facing = 'left';
         }
     }
-    else if (cursors.right.isDown)
+    else if (cursors.right.isDown || (this.input.activePointer.x > 400 && this.input.activePointer.isDown))
     {
         player.body.velocity.x = 150;
 
@@ -167,7 +166,10 @@ function update() {
         player.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
     }
-    socket.emit("move player", {x: player.x, y:player.y});
+    if (player.lastPosition.x !== player.x || player.lastPosition.y !== player.y){
+        socket.emit("move player", {x: player.x, y:player.y});
+    }
+    player.lastPosition = { x: player.x, y: player.y };
 
 }
 
