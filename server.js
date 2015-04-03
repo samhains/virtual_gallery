@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var Player = require("./Player").Player;
+var _ = require("lodash");
 var socket,
     players;
 
@@ -35,7 +36,7 @@ function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
-    socket.on("move player", onMovePlayer);
+    socket.on("move player", onMovePlayer.bind(socket));
     //socket.on("remove player", onRemovePlayer);
 }
 function onSocketDisconnect() {
@@ -78,7 +79,7 @@ function onNewPlayer(data) {
 
 function onMovePlayer(socket) {
 	var movePlayer = playerById(this.id);
-	//console.log("move player ID", this.id);
+
 
 	if (!movePlayer) {
 	    console.log("move Player not found: "+this.id);
@@ -93,14 +94,8 @@ function onMovePlayer(socket) {
 }
 
 function playerById(id) {
-    var i;
-    for (i = 0; i < players.length; i++) {
-        if (players[i].id == id)
-            return players[i];
-    };
-
-    return false;
-};
+   return _(players).find({"id": id});
+}
 
 init();
 

@@ -1,4 +1,4 @@
-RemotePlayer = function (index, game, player, startX, startY) {
+RemotePlayer = function (id, game, player, startX, startY) {
     var x = startX;
     var y = startY;
     this.game = game;
@@ -6,12 +6,13 @@ RemotePlayer = function (index, game, player, startX, startY) {
     this.player = player;
     this.alive = true;
     this.player = game.add.sprite(x, y, 'dude');
+    this.id = id;
 
     this.player.animations.add('left', [0, 1, 2, 3], 10, true);
     this.player.animations.add('turn', [4], 20, true);
     this.player.animations.add('right', [5, 6, 7, 8], 10, true);
     //this.player.anchor.setTo(0.5, 0.5);
-    this.player.name = index.toString();
+    this.player.name = id.toString();
 
 
     //this.player.body.immovable = true;
@@ -39,6 +40,7 @@ RemotePlayer.prototype.update = function() {
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
+    game.time.advancedTiming = true;
 
     game.load.tilemap('level1', 'assets/starstruck/level1.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('tiles-1', 'assets/starstruck/tiles-1.png');
@@ -177,6 +179,7 @@ function update() {
 
 
 function render () {
+     game.debug.text(game.time.fps || '--', 2, 14, "#00ff00");   
 
     // game.debug.text(game.time.physicsElapsed, 32, 32);
     // game.debug.body(player);
@@ -228,7 +231,7 @@ function onMovePlayer(data) {
 };
 
 function onRemovePlayer(data) {
-    var removePlayer = playerById(data.id);
+    var removePlayer = (data.id);
 
     if (!removePlayer) {
         console.log("Player not found: "+data.id);
@@ -240,13 +243,11 @@ function onRemovePlayer(data) {
 };
 
 // Find player by ID
-function playerById(id) {
-    var i;
-    for (i = 0; i < remotePlayers.length; i++) {
-        if (remotePlayers[i].player.name == id)
-            return remotePlayers[i];
-    };
 
-    return false;
-};
+function playerById(id) {
+    
+    var retVal = _(remotePlayers).find({"id": id});
+    return retVal;
+}
+
 
