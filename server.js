@@ -23,8 +23,9 @@ http.listen(process.env.PORT || 5000, function(){
 
 
 function init() {
-	players = [];
+	players = {};
 	setEventHandlers();
+
 
 }
 
@@ -44,14 +45,14 @@ function onSocketDisconnect() {
     console.log("on socket Player has disconnected: "+this.id);
     //onRemovePlayer();
     //this.emit("remove player", {id: this.id});
-    var removePlayer = playerById(this.id);
+    var removePlayer = players[this.id];
 
 	if (!removePlayer) {
 	    console.log(" on socket Player not found: "+this.id);
 	    return;
 	}
 
-	players.splice(players.indexOf(removePlayer), 1);
+	delete players[this.id];
 	//?
 	this.broadcast.emit("remove player", {id: this.id});
 
@@ -68,17 +69,19 @@ function onNewPlayer(data) {
 
 	//to this particular socket, update the existing player information
 	var i, existingPlayer;
-	for (i = 0; i < players.length; i++) {
-	    existingPlayer = players[i];
+	for (var player in players) {
+	    existingPlayer = players[player];
 	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.getX(), y: existingPlayer.getY()});
 	}
-	players.push(newPlayer);
+	players[this.id] = newPlayer;
 
 
 }
 
 function onMovePlayer(socket) {
-	var movePlayer = playerById(this.id);
+	//could use an object which was indexed with the ID instead for instant lookup.
+	// each player will aslo exist inside a room.
+	var movePlayer = players[this.id];
 
 
 	if (!movePlayer) {
@@ -93,9 +96,7 @@ function onMovePlayer(socket) {
 
 }
 
-function playerById(id) {
-   return _(players).find({"id": id});
-}
+
 
 init();
 

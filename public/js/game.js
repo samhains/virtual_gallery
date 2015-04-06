@@ -61,7 +61,7 @@ var jumpTimer = 0;
 var cursors;
 var jumpButton;
 var bg;
-var remotePlayers = [];
+var remotePlayers = {};
 var socket;
 var pointer;
 
@@ -114,11 +114,13 @@ function create() {
 }
 
 function update() {
-    for (var i = 0; i < remotePlayers.length; i++)
+
+    for (var id in remotePlayers)
     {
-        if (remotePlayers[i].alive)
-            remotePlayers[i].update();
-            //game.physics.collide(player, remotePlayers[i].player);
+        
+        if (remotePlayers[id].alive)
+            //could this be done asyncronously?
+            remotePlayers[id].update();
     }
     game.physics.arcade.collide(player, layer);
     player.body.velocity.x = 0;
@@ -213,12 +215,12 @@ function onSocketDisconnect() {
 
 function onNewPlayer(data) {
     console.log("New player connected: "+data.id);
-    remotePlayers.push(new RemotePlayer(data.id,game,player,data.x,data.y));
+    remotePlayers[data.id] = new RemotePlayer(data.id,game,player,data.x,data.y);
 
 };
 
 function onMovePlayer(data) {
-    var movePlayer = playerById(data.id);
+    var movePlayer = remotePlayers[data.id];
 
     if (!movePlayer) {
         console.log("Player not found: "+data.id);
@@ -231,23 +233,15 @@ function onMovePlayer(data) {
 };
 
 function onRemovePlayer(data) {
-    var removePlayer = (data.id);
+    var removePlayer = remotePlayers[data.id];
 
     if (!removePlayer) {
         console.log("Player not found: "+data.id);
         return;
     }
 
-    remotePlayers.splice(remotePlayers.indexOf(removePlayer), 1);
+    delete remotePlayers[data.id];
 
 };
-
-// Find player by ID
-
-function playerById(id) {
-    
-    var retVal = _(remotePlayers).find({"id": id});
-    return retVal;
-}
 
 
