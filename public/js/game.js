@@ -91,6 +91,7 @@ gameLevels.lobby.prototype = {
     create: function(){
         socket = io();
        $( document ).ready(function() {
+            console.log("READY");
             $('.minimized-bar').hide();
             $('form').submit(function(e){
 
