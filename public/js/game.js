@@ -100,8 +100,9 @@ gameLevels.lobby.prototype = {
                 return false;
               });
               socket.on('chat message', function(msg){
-                $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
+                
                 $('#messages').append($('<li>').text(msg));
+                $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
         });
 
         });
@@ -116,7 +117,7 @@ gameLevels.lobby.prototype = {
 
         map.addTilesetImage('tiles-1');
 
-        map.setCollisionByExclusion([ 13, 14, 15, 16, 46, 47, 48, 49, 50, 51 ]);
+        map.setCollisionBetween(9, 50);
 
         layer = map.createLayer('Tile Layer 1');
 
@@ -131,7 +132,7 @@ gameLevels.lobby.prototype = {
         player.lastPosition = { x: player.x, y: player.y };
         player.body.drag.set(0.2);
         player.body.collideWorldBounds = true;
-        player.body.setSize(20, 32, 5, 16);
+        player.body.setSize(5, 32, 5, 16);
         player.position.x = 100;
         player.position.y = 300;
 

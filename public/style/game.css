@@ -9,6 +9,7 @@ canvas {
   position:absolute;
   width:800px;
   height:600px;
+  border:solid 10px;
 }
 /*
 .chat-form{
@@ -28,11 +29,11 @@ canvas {
 * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font: 13px Helvetica, Arial;}
   form {
-    background: #000;
-    padding-top: 4px;
-    position: fixed;
-    width: 795px;
-    top: 560px;
+      background: #000;
+      padding-top: 4px;
+      position: fixed;
+      width: 775px;
+      top: 549px;
   }
   form input {
     border: 0;
@@ -61,7 +62,7 @@ canvas {
 
 
       overflow: scroll;
-      height: 154px;
+      height: 150px;
       padding-top: 20px;
 
 
@@ -73,11 +74,11 @@ canvas {
   #messages li:nth-child(odd) { background: #eee; }
 
 .chat-bar{
-      top: 0;
+      top: -10px;
       background-color: black;
       border: none;
       height: 20px;
-      width: 800px;
+      width: 778px;
       opacity: 1.0;
       transform: translate(-5px,403px);
       position: fixed;
@@ -100,11 +101,11 @@ canvas {
   opacity: 1.0;
 }
 .chat-box {
-  width: 800px;
+  width: 780px;
   height: 200px;
   position: absolute;
   bottom: 0px;
-  background-color:white;
+  background-color: white;
   border-style: solid;
   border-width: 4px;
   border-color: black;
