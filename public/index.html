@@ -11,12 +11,28 @@
 	</head>
 
 	<body>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script src="http://cdn.jsdelivr.net/lodash/3.5.0/lodash.compat.min.js"></script>
 		<script src="js/phaser.min.js"></script>
 		<script src="js/game.js"></script>
 		<script type="Player.js"></script>
 		<script src="/socket.io/socket.io.js">
 		</script>
+		<script src="js/chat.js"></script>
+		<div class="phaser-canvas">
+		<div class="chat-box">
+			<div class="chat-bar">
+				<div class="chat-bar-btns">
+					<button class="chat-bar-btn">_</button>
+					<button class="chat-bar-btn">x</button>
+				</div>
+			</div>
+			 <div class="message-list">
+			 <ul id="messages"></ul></div>
+		    <form action="">
+		      <input id="m" autocomplete="off" /><button >SEND</button>
+		    </form>
+		</div></div>
 
 
 

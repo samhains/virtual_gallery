@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var Player = require("./Player").Player;
-var _ = require("lodash");
 var socket,
     players;
 
@@ -38,6 +37,9 @@ function onSocketConnection(socket) {
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
+    socket.on('chat message', function(msg){
+    	io.emit('chat message', msg);
+  	});
     //socket.on("remove player", onRemovePlayer);
 }
 function onSocketDisconnect() {
@@ -79,8 +81,7 @@ function onNewPlayer(data) {
 }
 
 function onMovePlayer(socket) {
-	//could use an object which was indexed with the ID instead for instant lookup.
-	// each player will aslo exist inside a room.
+
 	var movePlayer = players[this.id];
 
 

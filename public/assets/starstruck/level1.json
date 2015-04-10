@@ -10,12 +10,90 @@
          "width":64,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":64,
+         "name":"Object Layer 1",
+         "objects":[
+                {
+                 "gid":69,
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":419,
+                 "y":223
+                }, 
+                {
+                 "gid":69,
+                 "height":0,
+                 "id":8,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":407,
+                 "y":214
+                }, 
+                {
+                 "gid":69,
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":0,
+                 "x":417,
+                 "y":207
+                }, 
+                {
+                 "gid":69,
+                 "height":0,
+                 "id":11,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":428,
+                 "y":215
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
         }],
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "properties":
     {
 
     },
+ "renderorder":"right-down",
  "tileheight":16,
  "tilesets":[
         {
@@ -25,6 +103,36 @@
          "imagewidth":272,
          "margin":0,
          "name":"tiles-1",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":16,
+         "tilewidth":16
+        }, 
+        {
+         "firstgid":69,
+         "image":"star.png",
+         "imageheight":16,
+         "imagewidth":16,
+         "margin":0,
+         "name":"star",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":16,
+         "tilewidth":16
+        }, 
+        {
+         "firstgid":70,
+         "image":"star2.png",
+         "imageheight":22,
+         "imagewidth":24,
+         "margin":0,
+         "name":"star2",
          "properties":
             {
 
