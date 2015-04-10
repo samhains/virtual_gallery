@@ -94,6 +94,7 @@ gameLevels.lobby.prototype = {
             console.log("READY");
             $('.minimized-bar').hide();
             $('form').submit(function(e){
+                console.log("form submit!");
 
 
                 e.preventDefault();
