@@ -58,6 +58,15 @@ canvas {
   input:hover{
 
   }
+
+  .chat-bar.minimized-bar{
+    display:none;
+    margin-left: 15px;
+    width: 780px;
+    position: absolute;
+
+    top: 167px;
+    }
   .message-list{
 
 

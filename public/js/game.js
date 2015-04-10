@@ -91,6 +91,7 @@ gameLevels.lobby.prototype = {
     create: function(){
         socket = io();
        $( document ).ready(function() {
+            $('.minimized-bar').hide();
             $('form').submit(function(e){
 
 
@@ -104,6 +105,14 @@ gameLevels.lobby.prototype = {
                 $('#messages').append($('<li>').text(msg));
                 $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
         });
+              $('.minimize').on('click',function(){
+                $('.chat-box').hide();
+                $('.minimized-bar').show();
+              });
+              $('.maximize').on('click',function(){
+                $('.chat-box').show();
+                $('.minimized-bar').hide();
+              });
 
         });
 
