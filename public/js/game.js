@@ -80,6 +80,7 @@ gameLevels.lobby.prototype = {
         socket = io();
        $( document ).ready(function() {
             console.log("READY");
+            $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             $('.minimized-bar').hide();
             $('form').submit(function(e){
                 console.log("form submit!");
