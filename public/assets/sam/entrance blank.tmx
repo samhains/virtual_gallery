@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="BAW copy" tilewidth="32" tileheight="32">
+  <image source="BAW copy.png" width="96" height="224"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBg4AdiQRrSICxEY5qW7h/1B+k0PxQLA7EIFbEo1Fzk8OICYm4qYh4kPzCP4lE8ikcxFTAA0AoQGA==
+  </data>
+ </layer>
+</map>

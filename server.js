@@ -5,14 +5,25 @@ var io = require('socket.io')(http);
 var Player = require("./Player").Player;
 var socket,
     players;
+var models = require('./models');
+var Message = models.Message;
+var mongoose = require('mongoose');
+var swig = require('swig');
 
-
+//set up swig as render engine
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
 
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
 
-app.get('/', function(req, res){
-  res.sendfile('index.html');
+app.get('/y', function(req, res){
+	console.log("HEY");
+  var messages = Message.find(function(err,messages){
+  	 console.log(messages);
+     res.render('index',{messages:messages});
+  });
 });
 
 
@@ -38,7 +49,12 @@ function onSocketConnection(socket) {
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
     socket.on('chat message', function(msg){
-    	io.emit('chat message', msg);
+    	var message = new Message({ body: msg });
+		message.save(function(err){
+  		if(err) console.log(err);
+  		else
+			io.emit('chat message', msg);
+  		});
   	});
     //socket.on("remove player", onRemovePlayer);
 }

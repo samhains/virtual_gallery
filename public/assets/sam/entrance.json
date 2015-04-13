@@ -10,8 +10,52 @@
          "width":25,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":0,
+         "name":"Object Layer 1",
+         "objects":[
+                {
+                 "gid":22,
+                 "height":0,
+                 "id":25,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":0,
+                 "x":288,
+                 "y":256
+                }, 
+                {
+                 "gid":22,
+                 "height":0,
+                 "id":29,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":0,
+                 "x":512,
+                 "y":256
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":0,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":1,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "properties":
     {
@@ -34,6 +78,21 @@
          "spacing":0,
          "tileheight":32,
          "tilewidth":32
+        }, 
+        {
+         "firstgid":22,
+         "image":"door.png",
+         "imageheight":25,
+         "imagewidth":16,
+         "margin":0,
+         "name":"tiles-1",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":25,
+         "tilewidth":16
         }],
  "tilewidth":32,
  "version":1,

@@ -3,7 +3,7 @@
 <html lang="en">
 
 	<head>
-		<title>wzz2022</title>
+		<title>gallery</title>
 		<meta charset="utf-8">
 
 		<link rel="stylesheet" href="style/reset.css">
@@ -28,7 +28,14 @@
 				</div>
 			</div>
 			 <div class="message-list">
-			 <ul id="messages"></ul></div>
+						  {% block content %}
+			    <ul id="messages">
+
+			        {% for message in messages %}
+			        <li>{{ message.body }}</li>
+			        {% endfor %}
+			    </ul>
+    		{% endblock %}</div>
 		    <form action="">
 		      <input id="m" autocomplete="off" /><button >SEND</button>
 		    </form>
