@@ -23,6 +23,10 @@
                  "name":"",
                  "properties":
                     {
+                     "sprite":"door",
+                     "targetX":"16",
+                     "targetY":"25",
+                     "type":"door"
 
                     },
                  "rotation":0,
@@ -30,7 +34,7 @@
                  "visible":true,
                  "width":0,
                  "x":288,
-                 "y":256
+                 "y":263
                 }, 
                 {
                  "gid":22,
@@ -39,6 +43,10 @@
                  "name":"",
                  "properties":
                     {
+                     "sprite":"door",
+                     "targetX":"16",
+                     "targetY":"25",
+                     "type":"door"
 
                     },
                  "rotation":0,
@@ -46,7 +54,7 @@
                  "visible":true,
                  "width":0,
                  "x":512,
-                 "y":256
+                 "y":263
                 }],
          "opacity":1,
          "type":"objectgroup",
