@@ -6,7 +6,7 @@ artGame.lobby = function(){};
 artGame.lobby.prototype = {
 
     create: function(){
-        socket = io();
+        socket = new io.connect("http://localhost:5000");
 
         //jQuery and Chat funcitonality
         $( document ).ready(function() {
@@ -120,8 +120,9 @@ artGame.lobby.prototype = {
   },
   enterDoor: function(player, door) {
     console.log('entering door that will take you to on x:'+door.targetX+' and y:'+door.targetY);
+    socket.emit('leave room', 'lobby');
+    socket.emit('join room', 'viewing1');
     this.state.start('viewing1');
-    socket.emit("viewing1",{id: this.player.id});
 
 
   },
@@ -216,7 +217,7 @@ artGame.lobby.prototype = {
         }
 
         if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
-            socket.emit("move player", {x: this.player.x, y:this.player.y});
+            socket.emit("move player", {x: this.player.x, y:this.player.y, room: 'lobby'});
         }
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         }

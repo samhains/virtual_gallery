@@ -32,6 +32,9 @@ function onMovePlayer(data) {
         console.log("Player not found: "+data.id);
         return;
     }
+    if(data.room ==='lobby'){
+        
+    }
 
     movePlayer.player.x = data.x;
     movePlayer.player.y = data.y;

@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+console.log('IO',io);
+console.log('io',io.io);
 var Player = require("./Player").Player;
 var socket,
     players;
@@ -38,19 +40,33 @@ var setEventHandlers = function() {
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
+    socket.join('lobby');
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
-    socket.on('chat message', function(msg){
+    socket.on('chat message', chatMessage);
+    //socket.on("remove player", onRemovePlayer);
+    socket.on('join room', joinRoom.bind(socket) );
+    socket.on('leave room', leaveRoom.bind(socket));
+}
+
+function chatMessage(msg){
     	var message = new Message({ body: msg });
 		message.save(function(err){
   		if(err) console.log(err);
   		else
 			io.emit('chat message', msg);
   		});
-  	});
-    //socket.on("remove player", onRemovePlayer);
 }
+
+function joinRoom(room){
+
+	this.join(room);
+}
+function leaveRoom(room){
+	this.leave(room);
+}
+
 function onSocketDisconnect() {
 
     console.log("on socket Player has disconnected: "+this.id);
