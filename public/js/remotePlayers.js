@@ -8,6 +8,7 @@ var socket;
 var RemotePlayer = function (id, game, player, startX, startY) {
     var x = startX;
     var y = startY;
+    this.level = "lobby";
     this.game = game;
     this.health = 3;
     this.player = player;

@@ -14,17 +14,10 @@ var swig = require('swig');
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 
-
+app.get('/', require('./routes'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
 
-app.get('/y', function(req, res){
-	console.log("HEY");
-  var messages = Message.find(function(err,messages){
-  	 console.log(messages);
-     res.render('index',{messages:messages});
-  });
-});
 
 
 http.listen(process.env.PORT || 5000, function(){
@@ -71,7 +64,7 @@ function onSocketDisconnect() {
 	}
 
 	delete players[this.id];
-	//?
+
 	this.broadcast.emit("remove player", {id: this.id});
 
 }

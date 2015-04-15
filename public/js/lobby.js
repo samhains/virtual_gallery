@@ -54,6 +54,8 @@ artGame.lobby.prototype = {
         this.map.setCollisionBetween(9, 50);
 
 
+
+
         this.layer = this.map.createLayer('Tile Layer 1');
 
 
@@ -85,8 +87,9 @@ artGame.lobby.prototype = {
          // Start listening for events
         
         console.log(this);
-        setEventHandlers.bind(this)();
         this.createDoors();
+        setEventHandlers.bind(this)();
+
 
         //Object.keys(doorsObj)
         // doorsArr.forEach(function(element){
@@ -105,6 +108,10 @@ artGame.lobby.prototype = {
         result.forEach(function(element){
           this.createFromTiledObject(element, this.doors);
         }, this);
+  },
+  enterDoor: function(player, door) {
+    console.log('entering door that will take you to on x:'+door.targetX+' and y:'+door.targetY);
+    this.state.start('viewing1');
   },
 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
@@ -141,6 +148,7 @@ artGame.lobby.prototype = {
                 remotePlayers[id].update();
         }
         this.game.physics.arcade.collide(this.player, this.layer);
+        this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
         this.player.body.velocity.x = 0;
         this.player.body.velocity.y = 0;
         //console.log(this.input.activePointer.x,this.input.activePointer.isDown );

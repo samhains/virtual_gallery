@@ -13,6 +13,10 @@
  </layer>
  <objectgroup name="Object Layer 1">
   <object id="25" type="door" gid="22" x="288" y="256"/>
-  <object id="29" type="door" gid="22" x="512" y="256"/>
+  <object id="29" type="door" gid="22" x="512" y="256">
+   <properties>
+    <property name="sprite" value="door"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
