@@ -12,6 +12,8 @@ var RemotePlayer = function (id, game, player, startX, startY) {
     this.game = game;
     this.health = 3;
     this.player = player;
+    //console.log("REMOTE PLAYER", this.player, id);
+    this.player.id = id;
     this.alive = true;
     this.player = game.add.sprite(x, y, 'dude');
     this.id = id;

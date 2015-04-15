@@ -37,6 +37,14 @@ artGame.lobby.prototype = {
                 $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             });
 
+            // var assignPlayerId = function(player){
+            //         if(!this.player.id)
+            //             this.player.id = player.id;
+            //         console.log("PLAYER",this.player);
+            // };
+            // socket.on('new player', assignPlayerId.bind(this));
+           
+
 
         });
 
@@ -70,6 +78,7 @@ artGame.lobby.prototype = {
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         this.player.body.drag.set(0.2);
+        this.player.level = "lobby";
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 100;
@@ -86,7 +95,7 @@ artGame.lobby.prototype = {
 
          // Start listening for events
         
-        console.log(this);
+
         this.createDoors();
         setEventHandlers.bind(this)();
 
@@ -112,6 +121,9 @@ artGame.lobby.prototype = {
   enterDoor: function(player, door) {
     console.log('entering door that will take you to on x:'+door.targetX+' and y:'+door.targetY);
     this.state.start('viewing1');
+    socket.emit("viewing1",{id: this.player.id});
+
+
   },
 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
@@ -144,7 +156,6 @@ artGame.lobby.prototype = {
         {
 
             if (remotePlayers[id].alive)
-                //could this be done asyncronously?
                 remotePlayers[id].update();
         }
         this.game.physics.arcade.collide(this.player, this.layer);
@@ -156,6 +167,7 @@ artGame.lobby.prototype = {
         if (this.cursors.left.isDown )
         {
             this.player.body.velocity.x = -150;
+            console.log(this.player.level, this.player.id);
 
             if (this.facing != 'left')
             {

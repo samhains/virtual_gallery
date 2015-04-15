@@ -61,6 +61,7 @@ artGame.viewing1.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 100;
         this.player.position.y = 300;
+        this.player.level = 'viewing1';
 
         this.player.animations.add('left', [0, 1, 2, 3], 10, true);
         this.player.animations.add('turn', [4], 20, true);
@@ -77,6 +78,10 @@ artGame.viewing1.prototype = {
 
     },
     update: function(){
+        socket.on('viewing1',function(data){
+            console.log(data);
+        });
+
 
         for (var id in remotePlayers)
         {
@@ -92,6 +97,7 @@ artGame.viewing1.prototype = {
 
         if (this.cursors.left.isDown )
         {
+            
             this.player.body.velocity.x = -150;
 
             if (this.facing != 'left')
