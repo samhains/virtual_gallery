@@ -5,7 +5,7 @@ var Message = models.Message;
 router.get('/', function(req,res,next){
 	//console.log("HEY");
 	var messages = Message.find(function(err,messages){
-		console.log(messages);
+		
      	res.render('index',{messages:messages});
   });
 
