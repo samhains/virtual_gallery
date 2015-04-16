@@ -15,12 +15,11 @@ var swig = require('swig');
 //set up swig as render engine
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
-app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+
 
 app.get('/', require('./routes'));
-
-
 
 
 http.listen(process.env.PORT || 5000, function(){
