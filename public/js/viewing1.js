@@ -34,8 +34,6 @@ artGame.viewing1.prototype = {
         for(var id in lobbyPlayers){
             lobbyPlayers[id].alive = false;
 
-
-
         }
         this.facing = "left";
         this.level = 'viewing1';
