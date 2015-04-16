@@ -47,7 +47,6 @@ function onSocketDisconnect() {
 };
 
 function onNewPlayer(data) {
-    debugger;
     console.log("New player connected: "+data.id);
     lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,this.player,data.x,data.y);
 

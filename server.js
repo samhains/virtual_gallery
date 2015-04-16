@@ -126,12 +126,10 @@ function onMovePlayer(socket) {
 
 	var movePlayer = players[this.id];
 
-
 	if (!movePlayer) {
 	    console.log("move Player not found: "+this.id);
 	    return;
 	}
-
 	movePlayer.setX(socket.x);
 	movePlayer.setY(socket.y);
 	movePlayer.setRoom(socket.room);
