@@ -2,8 +2,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-console.log('IO',io);
-console.log('io',io.io);
 var Player = require("./Player").Player;
 var socket,
     players;
