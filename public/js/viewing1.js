@@ -3,13 +3,11 @@ artGame.viewing1 = function(){};
 
 artGame.viewing1.prototype = {
     create: function(){
-        console.log('viewing players', viewingPlayers);
-        socket = io();
+        socket = io("http://localhost:5000/viewing1");
        $( document ).ready(function() {
             console.log("READY");
             $('.minimized-bar').hide();
             $('form').submit(function(e){
-                console.log("form submit!");
 
 
                 e.preventDefault();
@@ -27,13 +25,20 @@ artGame.viewing1.prototype = {
             });
             socket.on('chat message', function(msg){
 
-                console.log('msg',msg);
                 $('#messages').append($('<li>').text(msg));
                 $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             });
 
         });
+       console.log('lobby',lobbyPlayers);
+        for(var id in lobbyPlayers){
+            lobbyPlayers[id].alive = false;
+
+
+
+        }
         this.facing = "left";
+        this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
@@ -75,9 +80,11 @@ artGame.viewing1.prototype = {
          // Start listening for events
         setEventHandlers.bind(this)();
         //createDoors(map);
+        
 
     },
     update: function(){
+        
 
         for (var id in viewingPlayers)
         {
@@ -85,6 +92,7 @@ artGame.viewing1.prototype = {
             if (viewingPlayers[id].alive)
                 //could this be done asyncronously?
                 viewingPlayers[id].update();
+
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.player.body.velocity.x = 0;
@@ -94,6 +102,7 @@ artGame.viewing1.prototype = {
         if (this.cursors.left.isDown )
         {
             console.log('vP',viewingPlayers);
+            console.log('lP',lobbyPlayers);
             this.player.body.velocity.x = -150;
 
             if (this.facing != 'left')

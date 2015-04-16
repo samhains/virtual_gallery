@@ -12,12 +12,14 @@ var setEventHandlers = function() {
 
 function onSocketConnected() {
     console.log("Connected to socket server");
-    socket.emit("new player", {x: this.player.x, y: this.player.y});
+    console.log(this.level);
+    if(this.level ==='lobby'){
+         socket.emit("new player", {x: this.player.x, y: this.player.y});
+    }
 
 
 };
 function leaveRoom(data){
-    console.log('leaving_data',data);
     if(data.room ==='lobby'){
         remotePlayer = lobbyPlayers[data.id];
         remotePlayer.player.kill();
@@ -28,7 +30,6 @@ function leaveRoom(data){
 }
 
 function joinRoom(data){
-    console.log('joining_data',data);
     if(data.room ==='viewing1'){
 
         leavingPlayer = lobbyPlayers[data.id];
@@ -46,6 +47,7 @@ function onSocketDisconnect() {
 };
 
 function onNewPlayer(data) {
+    debugger;
     console.log("New player connected: "+data.id);
     lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,this.player,data.x,data.y);
 
@@ -74,6 +76,7 @@ function onMovePlayer(data) {
 };
 
 function onRemovePlayer(data) {
+
      if(data.room ==='lobby'){
         remotePlayer = lobbyPlayers[data.id];
         console.log(remotePlayer);

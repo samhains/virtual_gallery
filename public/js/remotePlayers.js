@@ -46,3 +46,7 @@ RemotePlayer.prototype.update = function() {
     this.lastPosition.y = this.player.y;
 
 };
+
+RemotePlayer.prototype.kill = function(){
+    this.alive = false;
+};

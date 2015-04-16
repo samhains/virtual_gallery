@@ -6,16 +6,17 @@ artGame.lobby = function(){};
 artGame.lobby.prototype = {
 
     create: function(){
-        socket = new io.connect("http://localhost:5000");
+        socket = new io.connect("http://localhost:5000/lobby");
+        for(var id in viewingPlayers){
+            var remotePlayer = viewingPlayers[id];
+            remotePlayer.kill();
+        }
 
         //jQuery and Chat funcitonality
         $( document ).ready(function() {
-            console.log("READY");
             $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             $('.minimized-bar').hide();
             $('form').submit(function(e){
-                console.log("form submit!");
-
 
                 e.preventDefault();
                 socket.emit('chat message', $('#m').val());
@@ -32,19 +33,9 @@ artGame.lobby.prototype = {
             });
             socket.on('chat message', function(msg){
 
-                console.log('msg',msg);
                 $('#messages').append($('<li>').text(msg));
                 $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             });
-
-            // var assignPlayerId = function(player){
-            //         if(!this.player.id)
-            //             this.player.id = player.id;
-            //         console.log("PLAYER",this.player);
-            // };
-            // socket.on('new player', assignPlayerId.bind(this));
-           
-
 
         });
 
@@ -53,7 +44,7 @@ artGame.lobby.prototype = {
         this.game.stage.backgroundColor = '#ffffff';
         this.facing = 'left';
 
-
+        this.level = 'lobby';
 
         this.map = this.game.add.tilemap('level1');
 
@@ -119,7 +110,6 @@ artGame.lobby.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    console.log('entering door that will take you to on x:'+door.targetX+' and y:'+door.targetY);
     socket.emit('join room', {room:'viewing1', id: socket.id});
     socket.emit('leave room', {room:'lobby', id: socket.id});
     socket.emit("remove player", {id: socket.id, room: 'lobby'});
@@ -169,9 +159,9 @@ artGame.lobby.prototype = {
 
         if (this.cursors.left.isDown )
         {
-            console.log(lobbyPlayers);
+            console.log('lobbyplayers',lobbyPlayers);
+            console.log('viewingplayers',viewingPlayers);
             this.player.body.velocity.x = -150;
-            console.log(this.player.level, this.player.id);
 
             if (this.facing != 'left')
             {

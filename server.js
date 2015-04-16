@@ -33,13 +33,14 @@ function init() {
 }
 
 var setEventHandlers = function() {
-	//var lobby = io.of('/lobby');
-    io.on("connection", onSocketConnection);
+	var lobby = io.of('/lobby');
+	lobby.on('connection', onSocketConnection);
+	var viewing1 = io.of('/viewing1');
+	viewing1.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
-    
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
@@ -72,7 +73,6 @@ function joinRoom(data){
 
 }
 function leaveRoom(data){
-	console.log('leaving',data);
 	this.broadcast.emit('leave room', data);
 	//this.emit('leave room');
 	//this.leave(data.room)
@@ -96,9 +96,9 @@ function onSocketDisconnect() {
 
 }
 
-function  onRemovePlayer(){
+function  onRemovePlayer(data){
 
-	this.broadcast.emit("remove player", {id: this.id, room: this.room});
+	this.broadcast.emit("remove player", {id: data.id, room: data.room});
 
 }
 
@@ -135,7 +135,6 @@ function onMovePlayer(socket) {
 	movePlayer.setX(socket.x);
 	movePlayer.setY(socket.y);
 	movePlayer.setRoom(socket.room);
-
 	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.getX(), y: movePlayer.getY(), room:movePlayer.getRoom()});
 
 }
