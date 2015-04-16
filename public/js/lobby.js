@@ -169,6 +169,7 @@ artGame.lobby.prototype = {
 
         if (this.cursors.left.isDown )
         {
+            console.log(lobbyPlayers);
             this.player.body.velocity.x = -150;
             console.log(this.player.level, this.player.id);
 

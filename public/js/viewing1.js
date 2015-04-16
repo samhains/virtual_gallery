@@ -3,6 +3,7 @@ artGame.viewing1 = function(){};
 
 artGame.viewing1.prototype = {
     create: function(){
+        console.log('viewing players', viewingPlayers);
         socket = io();
        $( document ).ready(function() {
             console.log("READY");
@@ -61,7 +62,6 @@ artGame.viewing1.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 100;
         this.player.position.y = 300;
-        this.player.level = 'viewing1';
 
         this.player.animations.add('left', [0, 1, 2, 3], 10, true);
         this.player.animations.add('turn', [4], 20, true);
@@ -78,10 +78,6 @@ artGame.viewing1.prototype = {
 
     },
     update: function(){
-        socket.on('viewing1',function(data){
-            console.log(data);
-        });
-
 
         for (var id in viewingPlayers)
         {
@@ -97,7 +93,7 @@ artGame.viewing1.prototype = {
 
         if (this.cursors.left.isDown )
         {
-            
+            console.log('vP',viewingPlayers);
             this.player.body.velocity.x = -150;
 
             if (this.facing != 'left')
@@ -147,7 +143,7 @@ artGame.viewing1.prototype = {
         }
 
         if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
-            socket.emit("move player", {x: this.player.x, y:this.player.y});
+            socket.emit("move player", {x: this.player.x, y:this.player.y, room:'viewing1'});
         }
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         }

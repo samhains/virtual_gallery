@@ -33,12 +33,13 @@ function init() {
 }
 
 var setEventHandlers = function() {
+	//var lobby = io.of('/lobby');
     io.on("connection", onSocketConnection);
 };
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
-    socket.join('lobby');
+    
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
@@ -64,13 +65,15 @@ function joinRoom(data){
 	joinPlayer.setRoom(data.room);
 	//then transmit the join room message to everyone with data necessary
 	//for remote player update
-	console.log('join room', data);
+
+
 	this.broadcast.emit('join room', data);
 	//this.join(data.room);
 
 }
 function leaveRoom(data){
 	console.log('leaving',data);
+	this.broadcast.emit('leave room', data);
 	//this.emit('leave room');
 	//this.leave(data.room)
 }
@@ -89,7 +92,7 @@ function onSocketDisconnect() {
 
 	delete players[this.id];
 
-	this.broadcast.emit("remove player", {id: remotePlayer.id, room: removePlayer.getRoom()});
+	this.broadcast.emit("remove player", {id: removePlayer.id, room: removePlayer.getRoom()});
 
 }
 

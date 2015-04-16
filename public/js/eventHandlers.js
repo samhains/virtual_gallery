@@ -32,7 +32,7 @@ function joinRoom(data){
     if(data.room ==='viewing1'){
 
         leavingPlayer = lobbyPlayers[data.id];
-        var joiningPlayer = jQuery.extend({}, leavingPlayer);
+        var joiningPlayer = new RemotePlayer(data.id,this.game,leavingPlayer, data.x,data.y);
         viewingPlayers[data.id] = joiningPlayer;
 
 
