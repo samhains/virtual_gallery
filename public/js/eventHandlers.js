@@ -5,6 +5,8 @@ var setEventHandlers = function() {
     socket.on("new player", onNewPlayer.bind(this));
     socket.on("move player", onMovePlayer.bind(this));
     socket.on("remove player", onRemovePlayer.bind(this));
+    socket.on("leave room", leaveRoom.bind(this));
+    socket.on("join room", joinRoom.bind(this));
 };
 
 
@@ -14,6 +16,30 @@ function onSocketConnected() {
 
 
 };
+function leaveRoom(data){
+    console.log('leaving_data',data);
+    if(data.room ==='lobby'){
+        remotePlayer = lobbyPlayers[data.id];
+        remotePlayer.player.kill();
+
+    }
+
+
+}
+
+function joinRoom(data){
+    console.log('joining_data',data);
+    if(data.room ==='viewing1'){
+
+        leavingPlayer = lobbyPlayers[data.id];
+        var joiningPlayer = jQuery.extend({}, leavingPlayer);
+        viewingPlayers[data.id] = joiningPlayer;
+
+
+    }
+
+
+}
 
 function onSocketDisconnect() {
     console.log("Disconnected from socket server");
@@ -21,19 +47,25 @@ function onSocketDisconnect() {
 
 function onNewPlayer(data) {
     console.log("New player connected: "+data.id);
-    remotePlayers[data.id] = new RemotePlayer(data.id,this.game,this.player,data.x,data.y);
+    lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,this.player,data.x,data.y);
 
 };
 
 function onMovePlayer(data) {
-    var movePlayer = remotePlayers[data.id];
+    var movePlayer;
 
-    if (!movePlayer) {
-        console.log("Player not found: "+data.id);
-        return;
-    }
+   
     if(data.room ==='lobby'){
-        
+        movePlayer = lobbyPlayers[data.id];
+
+    }
+    if(data.room ==='viewing1'){
+        movePlayer = viewingPlayers[data.id];
+
+    }
+     if (!movePlayer) {
+        console.log("Move Player not found: "+data.id);
+        return;
     }
 
     movePlayer.player.x = data.x;
@@ -42,13 +74,19 @@ function onMovePlayer(data) {
 };
 
 function onRemovePlayer(data) {
-    var removePlayer = remotePlayers[data.id];
+     if(data.room ==='lobby'){
+        remotePlayer = lobbyPlayers[data.id];
+        console.log(remotePlayer);
+        remotePlayer.player.kill();
+        delete lobbyPlayers[data.id];
 
-    if (!removePlayer) {
-        console.log("Player not found: "+data.id);
-        return;
+    }
+    if(data.room ==='viewing1'){
+        removePlayer = viewingPlayers[data.id];
+        delete viewingPlayers[data.id];
+
     }
 
-    delete remotePlayers[data.id];
+
 
 };

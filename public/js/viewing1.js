@@ -83,12 +83,12 @@ artGame.viewing1.prototype = {
         });
 
 
-        for (var id in remotePlayers)
+        for (var id in viewingPlayers)
         {
 
-            if (remotePlayers[id].alive)
+            if (viewingPlayers[id].alive)
                 //could this be done asyncronously?
-                remotePlayers[id].update();
+                viewingPlayers[id].update();
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.player.body.velocity.x = 0;

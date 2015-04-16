@@ -1,4 +1,5 @@
-var remotePlayers = {};
+var lobbyPlayers = {};
+var viewingPlayers = {};
 var socket;
 
 

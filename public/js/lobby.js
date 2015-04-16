@@ -120,8 +120,10 @@ artGame.lobby.prototype = {
   },
   enterDoor: function(player, door) {
     console.log('entering door that will take you to on x:'+door.targetX+' and y:'+door.targetY);
-    socket.emit('leave room', 'lobby');
-    socket.emit('join room', 'viewing1');
+    socket.emit('join room', {room:'viewing1', id: socket.id});
+    socket.emit('leave room', {room:'lobby', id: socket.id});
+    socket.emit("remove player", {id: socket.id, room: 'lobby'});
+    
     this.state.start('viewing1');
 
 
@@ -153,11 +155,11 @@ artGame.lobby.prototype = {
   },
     update: function(){
 
-        for (var id in remotePlayers)
+        for (var id in lobbyPlayers)
         {
 
-            if (remotePlayers[id].alive)
-                remotePlayers[id].update();
+            if (lobbyPlayers[id].alive)
+                lobbyPlayers[id].update();
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);

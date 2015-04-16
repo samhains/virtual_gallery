@@ -15,10 +15,11 @@ var swig = require('swig');
 //set up swig as render engine
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/views');
 
 app.get('/', require('./routes'));
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/views'));
+
 
 
 
@@ -45,7 +46,7 @@ function onSocketConnection(socket) {
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
     socket.on('chat message', chatMessage);
-    //socket.on("remove player", onRemovePlayer);
+    socket.on("remove player", onRemovePlayer.bind(socket));
     socket.on('join room', joinRoom.bind(socket) );
     socket.on('leave room', leaveRoom.bind(socket));
 }
@@ -59,12 +60,22 @@ function chatMessage(msg){
   		});
 }
 
-function joinRoom(room){
+function joinRoom(data){
+	console.log('joining',data);
+	var joinPlayer = players[this.id];
+	//first set the server room information
+	joinPlayer.setRoom(data.room);
+	//then transmit the join room message to everyone with data necessary
+	//for remote player update
+	console.log('join room', data);
+	this.broadcast.emit('join room', data);
+	//this.join(data.room);
 
-	this.join(room);
 }
-function leaveRoom(room){
-	this.leave(room);
+function leaveRoom(data){
+	console.log('leaving',data);
+	//this.emit('leave room');
+	//this.leave(data.room)
 }
 
 function onSocketDisconnect() {
@@ -81,7 +92,13 @@ function onSocketDisconnect() {
 
 	delete players[this.id];
 
-	this.broadcast.emit("remove player", {id: this.id});
+	this.broadcast.emit("remove player", {id: remotePlayer.id, room: removePlayer.getRoom()});
+
+}
+
+function  onRemovePlayer(){
+
+	this.broadcast.emit("remove player", {id: this.id, room: this.room});
 
 }
 
@@ -92,13 +109,13 @@ function onNewPlayer(data) {
 	//broadcast to all the open sockets/clients
 	this.broadcast.emit("new player",
 		{id: newPlayer.id, x: newPlayer.getX(),
-			y: newPlayer.getY()});
+			y: newPlayer.getY(), room: 'lobby'});
 
 	//to this particular socket, update the existing player information
 	var i, existingPlayer;
 	for (var player in players) {
 	    existingPlayer = players[player];
-	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.getX(), y: existingPlayer.getY()});
+	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.getX(), y: existingPlayer.getY(), room:'lobby'});
 	}
 	players[this.id] = newPlayer;
 
@@ -117,8 +134,9 @@ function onMovePlayer(socket) {
 
 	movePlayer.setX(socket.x);
 	movePlayer.setY(socket.y);
+	movePlayer.setRoom(socket.room);
 
-	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.getX(), y: movePlayer.getY()});
+	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.getX(), y: movePlayer.getY(), room:movePlayer.getRoom()});
 
 }
 
