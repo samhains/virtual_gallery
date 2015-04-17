@@ -61,6 +61,7 @@ function chatMessage(msg){
 
 function joinRoom(data){
 	console.log('joining',data);
+	var obj = {data: data, players: players};
 	var joinPlayer = players[this.id];
 	//first set the server room information
 	joinPlayer.setRoom(data.room);
@@ -68,7 +69,7 @@ function joinRoom(data){
 	//for remote player update
 
 
-	this.broadcast.emit('join room', data);
+	this.broadcast.emit('join room', obj);
 	//this.join(data.room);
 
 }

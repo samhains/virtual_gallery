@@ -30,11 +30,7 @@ artGame.viewing1.prototype = {
             });
 
         });
-       console.log('lobby',lobbyPlayers);
-        for(var id in lobbyPlayers){
-            lobbyPlayers[id].alive = false;
 
-        }
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -66,10 +62,13 @@ artGame.viewing1.prototype = {
         this.player.position.x = 100;
         this.player.position.y = 300;
 
+
         this.player.animations.add('left', [0, 1, 2, 3], 10, true);
         this.player.animations.add('turn', [4], 20, true);
         this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
+        console.log('remote players',viewingPlayers);
+        this.initializeRemotePlayers();
         this.game.camera.follow(this.player);
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -78,8 +77,15 @@ artGame.viewing1.prototype = {
          // Start listening for events
         setEventHandlers.bind(this)();
         //createDoors(map);
-        
 
+
+    },
+    initializeRemotePlayers: function(){
+         for(var id in viewingPlayers){
+            var player = viewingPlayers[id];
+            viewingPlayers[id] = new RemotePlayer(player.id,this.game, player.position.x,player.position.y);
+
+        }
     },
     update: function(){
         
@@ -99,10 +105,8 @@ artGame.viewing1.prototype = {
 
         if (this.cursors.left.isDown )
         {
-            console.log('vP',viewingPlayers);
-            console.log('lP',lobbyPlayers);
-            this.player.body.velocity.x = -150;
 
+            this.player.body.velocity.x = -150;
             if (this.facing != 'left')
             {
                 this.player.animations.play('left');

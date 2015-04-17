@@ -12,7 +12,7 @@ var setEventHandlers = function() {
 
 function onSocketConnected() {
     console.log("Connected to socket server");
-    console.log(this.level);
+
     if(this.level ==='lobby'){
          socket.emit("new player", {x: this.player.x, y: this.player.y});
     }
@@ -22,7 +22,7 @@ function onSocketConnected() {
 function leaveRoom(data){
     if(data.room ==='lobby'){
         remotePlayer = lobbyPlayers[data.id];
-        remotePlayer.player.kill();
+        remotePlayer.destroy();
 
     }
 
@@ -30,10 +30,13 @@ function leaveRoom(data){
 }
 
 function joinRoom(data){
-    if(data.room ==='viewing1'){
+
+    var players = data.players;
+    console.log(players);
+    if(data.data.room ==='viewing1'){
 
         leavingPlayer = lobbyPlayers[data.id];
-        var joiningPlayer = new RemotePlayer(data.id,this.game,leavingPlayer, data.x,data.y);
+        var joiningPlayer = new RemotePlayer(data.id,this.game, data.x,data.y);
         viewingPlayers[data.id] = joiningPlayer;
 
 
@@ -48,12 +51,12 @@ function onSocketDisconnect() {
 
 function onNewPlayer(data) {
     console.log("New player connected: "+data.id);
-    lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,this.player,data.x,data.y);
-
+    lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
 };
 
 function onMovePlayer(data) {
     var movePlayer;
+
 
    
     if(data.room ==='lobby'){
@@ -69,8 +72,8 @@ function onMovePlayer(data) {
         return;
     }
 
-    movePlayer.player.x = data.x;
-    movePlayer.player.y = data.y;
+    movePlayer.position.x = data.x;
+    movePlayer.position.y = data.y;
 
 };
 
@@ -78,9 +81,12 @@ function onRemovePlayer(data) {
 
      if(data.room ==='lobby'){
         remotePlayer = lobbyPlayers[data.id];
-        console.log(remotePlayer);
-        remotePlayer.player.kill();
-        delete lobbyPlayers[data.id];
+        if(remotePlayer){
+            remotePlayer.destroy();
+            delete lobbyPlayers[data.id];
+
+        }
+       
 
     }
     if(data.room ==='viewing1'){

@@ -12,7 +12,6 @@ artGame.lobby.prototype = {
             remotePlayer.kill();
         }
 
-        //jQuery and Chat funcitonality
         $( document ).ready(function() {
             $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
             $('.minimized-bar').hide();
@@ -66,6 +65,8 @@ artGame.lobby.prototype = {
         this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
+
+
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         this.player.body.drag.set(0.2);
@@ -75,8 +76,9 @@ artGame.lobby.prototype = {
         this.player.position.x = 100;
         this.player.position.y = 300;
 
+
+
         this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-        this.player.animations.add('turn', [4], 20, true);
         this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         this.game.camera.follow(this.player);
@@ -158,9 +160,8 @@ artGame.lobby.prototype = {
         //console.log(this.input.activePointer.x,this.input.activePointer.isDown );
 
         if (this.cursors.left.isDown )
-        {
-            console.log('lobbyplayers',lobbyPlayers);
-            console.log('viewingplayers',viewingPlayers);
+        {   
+           
             this.player.body.velocity.x = -150;
 
             if (this.facing != 'left')
