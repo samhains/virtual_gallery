@@ -1,10 +1,24 @@
 var socket;
+var players;
 
 
 artGame.lobby = function(){};
 
 artGame.lobby.prototype = {
+    preload: function(){
+        $.ajax({
+            url:'getPlayers',
+            type: 'get',
+            async: false,
+            success: function(playerData){
+                players = playerData;
 
+
+            }
+        });
+
+
+    },
     create: function(){
         socket = new io.connect("http://localhost:5000/lobby");
         // for(var id in viewingPlayers){
@@ -88,7 +102,7 @@ artGame.lobby.prototype = {
 
          // Start listening for events
         
-
+        this.initializeRemotePlayers();
         this.createDoors();
         setEventHandlers.bind(this)();
 
@@ -100,6 +114,18 @@ artGame.lobby.prototype = {
 
 
 
+    },
+    initializeRemotePlayers: function(){
+        lobbyPlayers = {};
+        for(var id in players){
+            var player = players[id];
+            if(player.room==="lobby"){
+                console.log("player",player);
+                lobbyPlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
+            }
+           
+
+        }
     },
     createDoors: function() {
     //create doors

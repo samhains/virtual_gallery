@@ -1,8 +1,24 @@
 
 artGame.viewing1 = function(){};
 
+
 artGame.viewing1.prototype = {
+    preload: function(){
+        $.ajax({
+            url:'getPlayers',
+            type: 'get',
+            async: false,
+            success: function(playerData){
+                players = playerData;
+            }
+        });
+
+
+    },
+
     create: function(){
+        console.log("PLAYERS", players);
+
         socket = io("http://localhost:5000/viewing1");
        $( document ).ready(function() {
             console.log("READY");
@@ -81,9 +97,14 @@ artGame.viewing1.prototype = {
 
     },
     initializeRemotePlayers: function(){
-         for(var id in viewingPlayers){
-            var player = viewingPlayers[id];
-            viewingPlayers[id] = new RemotePlayer(player.id,this.game, player.position.x,player.position.y);
+        viewingPlayers = {};
+        for(var id in players){
+            var player = players[id];
+            if(player.room==="viewing1"){
+                console.log("player",player);
+                viewingPlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
+            }
+           
 
         }
     },

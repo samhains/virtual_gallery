@@ -14,7 +14,7 @@ function onSocketConnected() {
     console.log("Connected to socket server");
 
     if(this.level ==='lobby'){
-         socket.emit("new player", {x: this.player.x, y: this.player.y});
+         //socket.emit("new player", {x: this.player.x, y: this.player.y, room:'lobby'});
     }
 
 

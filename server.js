@@ -16,8 +16,12 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
+app.get('/getPlayers',function(req,res,next){
+	res.send(players);
+});
 
 app.get('/', require('./routes'));
+
 
 
 http.listen(process.env.PORT || 5000, function(){
@@ -28,8 +32,6 @@ http.listen(process.env.PORT || 5000, function(){
 function init() {
 	players = {};
 	setEventHandlers();
-
-
 }
 
 var setEventHandlers = function() {
@@ -45,9 +47,16 @@ function onSocketConnection(socket) {
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
     socket.on('chat message', chatMessage);
+    socket.on('get players', getPlayers.bind(socket));
     socket.on("remove player", onRemovePlayer.bind(socket));
     socket.on('join room', joinRoom.bind(socket) );
     socket.on('leave room', leaveRoom.bind(socket));
+}
+
+function getPlayers(){
+	console.log('getitng players');
+	this.emit('get players', players);
+
 }
 
 function chatMessage(msg){
@@ -71,7 +80,6 @@ function joinRoom(data){
 
 	this.broadcast.emit('join room', obj);
 	//this.join(data.room);
-
 }
 function leaveRoom(data){
 	this.broadcast.emit('leave room', data);

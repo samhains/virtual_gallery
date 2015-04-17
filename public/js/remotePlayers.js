@@ -1,7 +1,6 @@
+var socket;
 var lobbyPlayers = {};
 var viewingPlayers = {};
-var socket;
-
 
 
 
