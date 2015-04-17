@@ -64,7 +64,7 @@ function joinRoom(data){
 	var obj = {data: data, players: players};
 	var joinPlayer = players[this.id];
 	//first set the server room information
-	joinPlayer.setRoom(data.room);
+	joinPlayer.room = data.room;
 	//then transmit the join room message to everyone with data necessary
 	//for remote player update
 
@@ -93,7 +93,7 @@ function onSocketDisconnect() {
 
 	delete players[this.id];
 
-	this.broadcast.emit("remove player", {id: removePlayer.id, room: removePlayer.getRoom()});
+	this.broadcast.emit("remove player", {id: removePlayer.id, room: removePlayer.room});
 
 }
 
@@ -109,14 +109,14 @@ function onNewPlayer(data) {
 	newPlayer.id = this.id;
 	//broadcast to all the open sockets/clients
 	this.broadcast.emit("new player",
-		{id: newPlayer.id, x: newPlayer.getX(),
-			y: newPlayer.getY(), room: 'lobby'});
+		{id: newPlayer.id, x: newPlayer.x,
+			y: newPlayer.y, room: 'lobby'});
 
 	//to this particular socket, update the existing player information
 	var i, existingPlayer;
 	for (var player in players) {
 	    existingPlayer = players[player];
-	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.getX(), y: existingPlayer.getY(), room:'lobby'});
+	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'lobby'});
 	}
 	players[this.id] = newPlayer;
 
@@ -126,15 +126,16 @@ function onNewPlayer(data) {
 function onMovePlayer(socket) {
 
 	var movePlayer = players[this.id];
+	console.log(movePlayer);
 
 	if (!movePlayer) {
 	    console.log("move Player not found: "+this.id);
 	    return;
 	}
-	movePlayer.setX(socket.x);
-	movePlayer.setY(socket.y);
-	movePlayer.setRoom(socket.room);
-	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.getX(), y: movePlayer.getY(), room:movePlayer.getRoom()});
+	movePlayer.x = socket.x;
+	movePlayer.y = socket.y;
+	movePlayer.room = socket.room;
+	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.x, y: movePlayer.y, room:movePlayer.room});
 
 }
 

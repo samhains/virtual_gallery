@@ -33,8 +33,8 @@ function joinRoom(data){
 
     var players = data.players;
     console.log(players);
-    if(data.data.room ==='viewing1'){
-
+    data = data.data;
+    if(data.room ==='viewing1'){
         leavingPlayer = lobbyPlayers[data.id];
         var joiningPlayer = new RemotePlayer(data.id,this.game, data.x,data.y);
         viewingPlayers[data.id] = joiningPlayer;

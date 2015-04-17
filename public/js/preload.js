@@ -6,7 +6,7 @@ artGame.Preload.prototype = {
 
 	preload: function(){
         this.game.time.advancedTiming = true;
-   
+        this.game.load.image("viewing1-background", "assets/sam/viewing1.png");
         this.game.load.tilemap('level1', 'assets/sam/entrance.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('level2', 'assets/sam/firstArtRoom.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.image('tiles-1', 'assets/sam/BAW.png');

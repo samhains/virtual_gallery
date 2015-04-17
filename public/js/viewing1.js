@@ -37,21 +37,21 @@ artGame.viewing1.prototype = {
 
         this.game.stage.backgroundColor = '#ffffff';
 
+        //this.game.add.tileSprite(0, 0, 800, 608, 'viewing1-background');
 
+        this.map =  this.game.add.tileSprite(0, 0, 800, 608, 'viewing1-background');
 
-        this.map = this.game.add.tilemap('level2');
+        //this.map.addTilesetImage('tiles-2');
 
-        this.map.addTilesetImage('tiles-2');
+        //this.map.setCollisionBetween(9, 50);
 
-        this.map.setCollisionBetween(9, 50);
-
-        this.layer = this.map.createLayer('Tile Layer 1');
+        //this.layer = this.map.createLayer('Tile Layer 1');
 
         //  Un-comment this on to see the collision tiles
         // layer.debug = true;
 
 
-        this.layer.resizeWorld();
+        //this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);

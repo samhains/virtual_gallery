@@ -7,10 +7,10 @@ artGame.lobby.prototype = {
 
     create: function(){
         socket = new io.connect("http://localhost:5000/lobby");
-        for(var id in viewingPlayers){
-            var remotePlayer = viewingPlayers[id];
-            remotePlayer.kill();
-        }
+        // for(var id in viewingPlayers){
+        //     var remotePlayer = viewingPlayers[id];
+        //     remotePlayer.kill();
+        // }
 
         $( document ).ready(function() {
             $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
