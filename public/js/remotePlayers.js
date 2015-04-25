@@ -1,6 +1,6 @@
 var socket;
-var lobbyPlayers = {};
-var viewingPlayers = {};
+var remotePlayers = {};
+var players = {};
 
 
 

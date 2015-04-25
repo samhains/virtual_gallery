@@ -12,36 +12,33 @@ var setEventHandlers = function() {
 
 function onSocketConnected() {
     console.log("Connected to socket server");
+    this.player.id = socket.id;
 
-    if(this.level ==='lobby'){
-         //socket.emit("new player", {x: this.player.x, y: this.player.y, room:'lobby'});
-    }
+}
 
-
-};
 function leaveRoom(data){
-    if(data.room ==='lobby'){
-        remotePlayer = lobbyPlayers[data.id];
-        remotePlayer.destroy();
+    console.log('leave room data', data,this.player);
 
-    }
+    remotePlayers[data.id].destroy();
+    delete remotePlayers[data.id];
+
 
 
 }
 
 function joinRoom(data){
+    
+
 
     var players = data.players;
-    console.log(players);
     data = data.data;
-    if(data.room ==='viewing1'){
-        leavingPlayer = lobbyPlayers[data.id];
-        var joiningPlayer = new RemotePlayer(data.id,this.game, data.x,data.y);
-        viewingPlayers[data.id] = joiningPlayer;
+    //if the player joining is joining the same room that the client is in
+    if(this.player.room === data.room){
+        //add newly joined player to clients remote array
 
-
+        var joiningPlayer = new RemotePlayer(data.id,this.game, players[data.id].x,players[data.id].y);
+        remotePlayers[data.id] = joiningPlayer;
     }
-
 
 }
 
@@ -51,49 +48,41 @@ function onSocketDisconnect() {
 
 function onNewPlayer(data) {
     console.log("New player connected: "+data.id);
-    lobbyPlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
+    if(this.player.room === data.room)
+        remotePlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
+
 };
 
 function onMovePlayer(data) {
     var movePlayer;
-
-
-   
-    if(data.room ==='lobby'){
-        movePlayer = lobbyPlayers[data.id];
-
-    }
-    if(data.room ==='viewing1'){
-        movePlayer = viewingPlayers[data.id];
-
-    }
-     if (!movePlayer) {
-        console.log("Move Player not found: "+data.id);
-        return;
+    //console.log('move play',this.player);
+   // console.log('data',data,this.player.room);
+    console.log('remote Players',remotePlayers);
+    movePlayer = remotePlayers[data.id];
+    if(this.player.room === data.room){
+         if (!movePlayer) {
+            console.log("Move Player not found: "+data.id);
+            return;
     }
 
     movePlayer.position.x = data.x;
     movePlayer.position.y = data.y;
 
+
+    }
+
 };
 
 function onRemovePlayer(data) {
 
-     if(data.room ==='lobby'){
-        remotePlayer = lobbyPlayers[data.id];
-        if(remotePlayer){
-            remotePlayer.destroy();
-            delete lobbyPlayers[data.id];
 
-        }
-       
+    var remotePlayer = remotePlayers[data.id];
+    if(remotePlayer){
+        remotePlayer.destroy();
+        delete remotePlayers[data.id];
 
     }
-    if(data.room ==='viewing1'){
-        removePlayer = viewingPlayers[data.id];
-        delete viewingPlayers[data.id];
 
-    }
 
 
 

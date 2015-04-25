@@ -134,7 +134,7 @@ function onNewPlayer(data) {
 function onMovePlayer(socket) {
 
 	var movePlayer = players[this.id];
-	console.log(movePlayer);
+	//console.log(movePlayer);
 
 	if (!movePlayer) {
 	    console.log("move Player not found: "+this.id);

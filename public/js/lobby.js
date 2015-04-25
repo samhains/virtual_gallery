@@ -1,5 +1,5 @@
 var socket;
-var players;
+
 
 
 artGame.lobby = function(){};
@@ -25,6 +25,8 @@ artGame.lobby.prototype = {
         //     var remotePlayer = viewingPlayers[id];
         //     remotePlayer.kill();
         // }
+
+        
 
         $( document ).ready(function() {
             $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
@@ -89,6 +91,8 @@ artGame.lobby.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 100;
         this.player.position.y = 300;
+        this.player.room = 'lobby';
+        socket.emit("new player", {x: this.player.x, y: this.player.y, room:'lobby'});
 
 
 
@@ -101,8 +105,8 @@ artGame.lobby.prototype = {
         // jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
          // Start listening for events
-        
-        this.initializeRemotePlayers();
+
+        //this.initializeRemotePlayers();
         this.createDoors();
         setEventHandlers.bind(this)();
 
@@ -116,16 +120,19 @@ artGame.lobby.prototype = {
 
     },
     initializeRemotePlayers: function(){
-        lobbyPlayers = {};
+        remotePlayers = {};
+
         for(var id in players){
             var player = players[id];
-            if(player.room==="lobby"){
-                console.log("player",player);
-                lobbyPlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
+            //&& this.player.id !== player.id
+            if(player.room==="lobby" ){
+                console.log(this.player, this.player.id,'player', player.id);
+                remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
-           
+
 
         }
+        console.log('just printed remote players',players, remotePlayers);
     },
     createDoors: function() {
     //create doors
@@ -138,10 +145,11 @@ artGame.lobby.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('join room', {room:'viewing1', id: socket.id});
     socket.emit('leave room', {room:'lobby', id: socket.id});
-    socket.emit("remove player", {id: socket.id, room: 'lobby'});
+    socket.emit('join room', {room:'viewing1', id: socket.id});
     
+    //socket.emit("remove player", {id: socket.id, room: 'lobby'});
+    this.player.room = 'viewing1';
     this.state.start('viewing1');
 
 
@@ -173,11 +181,11 @@ artGame.lobby.prototype = {
   },
     update: function(){
 
-        for (var id in lobbyPlayers)
+        for (var id in remotePlayers)
         {
 
-            if (lobbyPlayers[id].alive)
-                lobbyPlayers[id].update();
+            if (remotePlayers[id].alive)
+                remotePlayers[id].update();
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
@@ -186,8 +194,9 @@ artGame.lobby.prototype = {
         //console.log(this.input.activePointer.x,this.input.activePointer.isDown );
 
         if (this.cursors.left.isDown )
-        {   
-           
+        {
+            console.log(remotePlayers);
+
             this.player.body.velocity.x = -150;
 
             if (this.facing != 'left')

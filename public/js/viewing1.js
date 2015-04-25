@@ -18,6 +18,7 @@ artGame.viewing1.prototype = {
 
     create: function(){
         console.log("PLAYERS", players);
+        //remotePlayers = {};
 
         socket = io("http://localhost:5000/viewing1");
        $( document ).ready(function() {
@@ -77,13 +78,14 @@ artGame.viewing1.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 100;
         this.player.position.y = 300;
+        this.player.room = 'viewing1';
 
 
         this.player.animations.add('left', [0, 1, 2, 3], 10, true);
         this.player.animations.add('turn', [4], 20, true);
         this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-        console.log('remote players',viewingPlayers);
+        console.log('remote players',remotePlayers);
         this.initializeRemotePlayers();
         this.game.camera.follow(this.player);
 
@@ -97,26 +99,27 @@ artGame.viewing1.prototype = {
 
     },
     initializeRemotePlayers: function(){
-        viewingPlayers = {};
+        remotePlayers = {};
         for(var id in players){
             var player = players[id];
             if(player.room==="viewing1"){
                 console.log("player",player);
-                viewingPlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
+                remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
-           
+
 
         }
     },
     update: function(){
-        
 
-        for (var id in viewingPlayers)
+
+
+        for (var id in remotePlayers)
         {
 
-            if (viewingPlayers[id].alive)
+            if (remotePlayers[id].alive)
                 //could this be done asyncronously?
-                viewingPlayers[id].update();
+                remotePlayers[id].update();
 
         }
         this.game.physics.arcade.collide(this.player, this.layer);
