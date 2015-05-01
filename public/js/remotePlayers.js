@@ -15,9 +15,11 @@ var RemotePlayer = function (id, game, startX, startY, test) {
     Phaser.Sprite.call(this, game, x, y, 'dude');
 
 
-    this.animations.add('left', [0, 1, 2, 3], 10, true);
-    this.animations.add('turn', [4], 20, true);
-    this.animations.add('right', [5, 6, 7, 8], 10, true);
+ 
+    this.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
+    this.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 5, true);
+    this.animations.add('idleRight', [8], 5, true);
+    this.animations.add('idleLeft', [0], 5, true);
     //this.player.anchor.setTo(0.5, 0.5);
     this.name = id.toString();
     game.add.existing(this);
@@ -30,15 +32,16 @@ RemotePlayer.prototype = Object.create(Phaser.Sprite.prototype);
 
 
 RemotePlayer.prototype.update = function() {
-    // if(this.lastPosition.x>this.player.x) {
-    //     this.player.animations.play('left');
-    // } else if(this.lastPosition.x<this.player.x){
-    //     this.player.animations.play('right');
+    if(this.lastPosition.x>this.position.x) {
+        this.animations.play('left');
+    } else if(this.lastPosition.x<this.position.x){
+        this.animations.play('right');
 
-    // }
-    // else if(this.lastPosition.x==this.player.x){
-    //     this.player.animations.stop();
-    // }
+    }
+    else if(this.lastPosition.x==this.position.x){
+         this.animations.stop();
+         this.animations.play('idle');
+    }
 
     this.lastPosition.x = this.position.x;
     this.lastPosition.y = this.position.y;

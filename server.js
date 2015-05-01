@@ -35,10 +35,12 @@ function init() {
 }
 
 var setEventHandlers = function() {
-	var lobby = io.of('/lobby');
-	lobby.on('connection', onSocketConnection);
+	var entrance = io.of('/entrance');
+	entrance.on('connection', onSocketConnection);
 	var viewing1 = io.of('/viewing1');
 	viewing1.on('connection',onSocketConnection);
+	var viewingEnd = io.of('/viewingEnd');
+	viewingEnd.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
@@ -47,17 +49,11 @@ function onSocketConnection(socket) {
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
     socket.on('chat message', chatMessage);
-    socket.on('get players', getPlayers.bind(socket));
     socket.on("remove player", onRemovePlayer.bind(socket));
     socket.on('join room', joinRoom.bind(socket) );
     socket.on('leave room', leaveRoom.bind(socket));
 }
 
-function getPlayers(){
-	console.log('getitng players');
-	this.emit('get players', players);
-
-}
 
 function chatMessage(msg){
     	var message = new Message({ body: msg });
@@ -111,22 +107,30 @@ function  onRemovePlayer(data){
 
 }
 
+
 function onNewPlayer(data) {
+	//if the player doesnt already exist, and there is a valid ID
+	if(!players[this.id] && this.id){
+		var newPlayer = new Player(data.x,data.y);
+		newPlayer.id = this.id;
+		//broadcast to all the open sockets/clients
+		console.log('new player data', data);
+		this.broadcast.emit("new player",
+			{id: newPlayer.id, x: newPlayer.x,
+				y: newPlayer.y, room: 'entrance'});
 
-	var newPlayer = new Player(data.x,data.y);
-	newPlayer.id = this.id;
-	//broadcast to all the open sockets/clients
-	this.broadcast.emit("new player",
-		{id: newPlayer.id, x: newPlayer.x,
-			y: newPlayer.y, room: 'lobby'});
+		//to this particular socket, update the existing player information
+		var i, existingPlayer;
+		for (var player in players) {
+		    existingPlayer = players[player];
+		    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'entrance'});
+		}
+		players[this.id] = newPlayer;
 
-	//to this particular socket, update the existing player information
-	var i, existingPlayer;
-	for (var player in players) {
-	    existingPlayer = players[player];
-	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'lobby'});
+
+
 	}
-	players[this.id] = newPlayer;
+	
 
 
 }

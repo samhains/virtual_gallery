@@ -17,17 +17,22 @@ function onSocketConnected() {
 }
 
 function leaveRoom(data){
-    console.log('leave room data', data,this.player);
+    console.log('leave room data', data,this.player.id);
 
-    remotePlayers[data.id].destroy();
-    delete remotePlayers[data.id];
+    if(remotePlayers[data.id]){
+        remotePlayers[data.id].destroy();
+        delete remotePlayers[data.id];
+
+    }
+    
 
 
 
 }
 
 function joinRoom(data){
-    
+    console.log("Joining room with this data",data);
+    console.log("the current 'this' player is ",this.player.id, this.player.room);
 
 
     var players = data.players;
@@ -35,8 +40,13 @@ function joinRoom(data){
     //if the player joining is joining the same room that the client is in
     if(this.player.room === data.room){
         //add newly joined player to clients remote array
+        if(remotePlayers[data.id]){
+            console.log('the remote player already existed... destroying');
+            remotePlayers[data.id].destroy();
+        }
 
         var joiningPlayer = new RemotePlayer(data.id,this.game, players[data.id].x,players[data.id].y);
+        console.log('adding new joining player',joiningPlayer.id,joiningPlayer.room);
         remotePlayers[data.id] = joiningPlayer;
     }
 
@@ -47,9 +57,16 @@ function onSocketDisconnect() {
 };
 
 function onNewPlayer(data) {
-    console.log("New player connected: "+data.id);
-    if(this.player.room === data.room)
+    //debugger;
+    console.log("New player connected: "+data.id, data.room);
+    if(this.player.room === data.room){
+        if(remotePlayers[data.id]){
+            console.log('destroying remotePlayer that already exists');
+            remotePlayers[data.id].destroy();
+            delete remotePlayers[data.id];
+        }
         remotePlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
+        }
 
 };
 
@@ -57,7 +74,6 @@ function onMovePlayer(data) {
     var movePlayer;
     //console.log('move play',this.player);
    // console.log('data',data,this.player.room);
-    console.log('remote Players',remotePlayers);
     movePlayer = remotePlayers[data.id];
     if(this.player.room === data.room){
          if (!movePlayer) {
