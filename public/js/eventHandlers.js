@@ -31,8 +31,10 @@ function leaveRoom(data){
 }
 
 function joinRoom(data){
-    console.log("Joining room with this data",data);
-    console.log("the current 'this' player is ",this.player.id, this.player.room);
+
+    console.log("this player", data.data.id, "is joining",data.data.room);
+    console.log('join data',data);
+    console.log("YOU ARE THIS.PLAYER",this.player.id, "and you are IN", this.player.room);
 
 
     var players = data.players;
@@ -41,12 +43,11 @@ function joinRoom(data){
     if(this.player.room === data.room){
         //add newly joined player to clients remote array
         if(remotePlayers[data.id]){
-            console.log('the remote player already existed... destroying');
             remotePlayers[data.id].destroy();
         }
 
         var joiningPlayer = new RemotePlayer(data.id,this.game, players[data.id].x,players[data.id].y);
-        console.log('adding new joining player',joiningPlayer.id,joiningPlayer.room);
+       // console.log('adding new joining player',joiningPlayer.id, data.room);
         remotePlayers[data.id] = joiningPlayer;
     }
 

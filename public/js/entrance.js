@@ -55,13 +55,13 @@ artGame.entrance.prototype = {
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         this.player.body.drag.set(0.2);
-        this.player.level = "entrance";
+        this.player.room = "entrance";
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 50;
         this.player.position.y = 550;
         this.player.room = 'entrance';
-        console.log('emitting new player', this.player.id);
+
         socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
 
         this.player.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
@@ -89,8 +89,7 @@ artGame.entrance.prototype = {
         }
         remotePlayers = {};
     
-        console.log('initializing remote players', players);
-        console.log('this.player', this.player.id, this.player.room);
+
         for(var id in players){
             var player = players[id];
             //&& this.player.id !== player.id
@@ -116,6 +115,7 @@ artGame.entrance.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
+    console.log('ENTER DOOR this.player id and level',this.player.id,this.player.room);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});

@@ -78,18 +78,14 @@ artGame.viewing1.prototype = {
     },
     initializeRemotePlayers: function(){
         for(var remotePlayerId in remotePlayers){
-            console.log('destroying', remotePlayerId);
             remotePlayers[remotePlayerId].destroy();
         }
         remotePlayers = {};
-        console.log('initializing remote players', players);
-        console.log('this.player', this.player.id, this.player.room);
         for(var id in players){
             var player = players[id];
                 
 
             if(player.room==="viewing1"  && this.player !== player.id){
-                console.log('adding player',player.id);
                 
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -108,6 +104,7 @@ artGame.viewing1.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
+    console.log('ENTER DOOR this.player id and level',this.player.id,this.player.room);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     
 

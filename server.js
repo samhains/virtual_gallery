@@ -65,7 +65,7 @@ function chatMessage(msg){
 }
 
 function joinRoom(data){
-	console.log('joining',data);
+	console.log('player',data.id,'is joining',data.room);
 	var obj = {data: data, players: players};
 	var joinPlayer = players[this.id];
 	//first set the server room information
@@ -114,7 +114,7 @@ function onNewPlayer(data) {
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;
 		//broadcast to all the open sockets/clients
-		console.log('new player data', data);
+		console.log('new player', this.id,'has just joined the entrance');
 		this.broadcast.emit("new player",
 			{id: newPlayer.id, x: newPlayer.x,
 				y: newPlayer.y, room: 'entrance'});

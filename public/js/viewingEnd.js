@@ -82,7 +82,6 @@ artGame.viewingEnd.prototype = {
     },
     initializeRemotePlayers: function(){
         for(var remotePlayerId in remotePlayers){
-            console.log('destroying', remotePlayerId);
             remotePlayers[remotePlayerId].destroy();
         }
         remotePlayers = {};
@@ -107,10 +106,8 @@ artGame.viewingEnd.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
+    console.log('ENTER DOOR this.player id and level',this.player.id,this.player.room);
     socket.emit('leave room', {room:'viewingEnd', id: socket.id});
-    
-
-    
     socket.emit('join room', {room:'viewing1', id: socket.id});
     this.player.room = 'viewing1';
     this.state.start('viewing1');
