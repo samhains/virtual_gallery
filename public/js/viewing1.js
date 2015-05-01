@@ -20,7 +20,7 @@ artGame.viewing1.prototype = {
     create: function(){
 
 
-        socket = io("http://localhost:5000/viewing1");
+        socket = io(window.location.href+"viewing1");
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);

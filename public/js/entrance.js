@@ -21,7 +21,8 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
-        socket = new io.connect("http://localhost:5000/entrance");
+
+        socket = new io.connect(window.location.href+"entrance");
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';

@@ -20,7 +20,7 @@ artGame.viewingEnd.prototype = {
     create: function(){
         //remotePlayers = {};
 
-        socket = io("http://localhost:5000/viewingEnd");
+        socket = io(window.location.href+"viewingEnd");
 
 
         this.facing = "left";
