@@ -81,7 +81,23 @@ function onMovePlayer(data) {
             console.log("Move Player not found: "+data.id);
             return;
     }
+    if(movePlayer.lastPosition.x> data.x){
+        movePlayer.facing = 'left';
+        movePlayer.animations.play('left');
+    }
+    else if(movePlayer.lastPosition.x<data.x){
+        movePlayer.facing = 'right';
+        movePlayer.animations.play('right');
 
+    }
+    if(movePlayer.lastPosition.y !== data.y){
+        if(movePlayer.facing ==='left')
+            movePlayer.animations.play('left');
+        else
+            movePlayer.animations.play('right');
+    }
+
+    movePlayer.lastMoveTime = this.game.time.now;
     movePlayer.position.x = data.x;
     movePlayer.position.y = data.y;
 

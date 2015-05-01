@@ -65,8 +65,8 @@ artGame.entrance.prototype = {
 
         socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
 
-        this.player.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
-        this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 5, true);
+        this.player.animations.add('left', [0, 1, 2, 3, 4,5,6,7], 10, true);
+        this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);
         this.player.animations.add('idleRight', [8], 5, true);
          this.player.animations.add('idleLeft', [0], 5, true);
 
@@ -204,12 +204,10 @@ artGame.entrance.prototype = {
 
                 if (this.facing == 'left')
                 {
-                    this.player.frame = 0;
                     this.player.animations.play('idleLeft');
                 }
                 else
                 {
-                    this.player.frame = 5;
                     this.player.animations.play('idleRight');
                 }
 
