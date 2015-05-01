@@ -1,5 +1,6 @@
 var socket;
-
+var clientId;
+var clientRoom;
 
 
 artGame.entrance = function(){};
@@ -23,6 +24,7 @@ artGame.entrance.prototype = {
     create: function(){
 
         socket = new io.connect(window.location.href+"entrance");
+        console.log('socket info',socket.id, socket);
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
@@ -56,13 +58,13 @@ artGame.entrance.prototype = {
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         this.player.body.drag.set(0.2);
-        this.player.room = "entrance";
+
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 50;
         this.player.position.y = 550;
-        this.player.room = 'entrance';
 
+        clientRoom = "entrance";
         socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
 
         this.player.animations.add('left', [0, 1, 2, 3, 4,5,6,7], 10, true);
@@ -93,10 +95,9 @@ artGame.entrance.prototype = {
 
         for(var id in players){
             var player = players[id];
-            //&& this.player.id !== player.id
       
            
-            if(player.room==="entrance" && player.id !== this.player.id ){
+            if(player.room==="entrance" && player.id !== clientId ){
 
                
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
@@ -116,11 +117,11 @@ artGame.entrance.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    console.log('ENTER DOOR this.player id and level',this.player.id,this.player.room);
+    console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});
-    this.player.room = 'viewing1';
+    clientRoom = 'viewing1';
     this.state.start('viewing1');
 
 

@@ -45,6 +45,7 @@ var setEventHandlers = function() {
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
+    socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
@@ -72,7 +73,7 @@ function joinRoom(data){
 	joinPlayer.room = data.room;
 	//then transmit the join room message to everyone with data necessary
 	//for remote player update
-
+	console.log('emitting join room');
 
 	this.broadcast.emit('join room', obj);
 	//this.join(data.room);

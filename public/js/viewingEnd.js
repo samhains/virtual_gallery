@@ -56,7 +56,7 @@ artGame.viewingEnd.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 400;
         this.player.position.y = 520;
-        this.player.room = 'viewingEnd';
+        clientRoom = 'viewingEnd';
 
 
 
@@ -87,7 +87,7 @@ artGame.viewingEnd.prototype = {
         remotePlayers = {};
         for(var id in players){
             var player = players[id];
-            if(player.room==="viewingEnd" && this.player !== player.id){
+            if(player.room==="viewingEnd" && clientId !== player.id){
        
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -106,10 +106,10 @@ artGame.viewingEnd.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    console.log('ENTER DOOR this.player id and level',this.player.id,this.player.room);
+    console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'viewingEnd', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
-    this.player.room = 'viewing1';
+    clientRoom = 'viewing1';
     this.state.start('viewing1');
 
 
@@ -185,35 +185,41 @@ artGame.viewingEnd.prototype = {
         {   
 
             this.player.body.velocity.y = -60;
+            if(this.facing == 'left')
+                this.player.animations.play('left');
+            else 
+                this.player.animations.play('right');
+            
 
         }
         else if (this.cursors.down.isDown )
         {
             this.player.body.velocity.y = 60;
+            if(this.facing == 'right')
+                this.player.animations.play('right');
+            else
+                this.player.animations.play('left');
 
 
         }
         else
         {
-            if (this.facing != 'idle')
-            {
+           
                 this.player.animations.stop();
                 
 
                 if (this.facing == 'left')
                 {
-                    this.player.frame = 0;
                     this.player.animations.play('idleLeft');
                 }
                 else
                 {
-                    this.player.frame = 5;
                     this.player.animations.play('idleRight');
                 }
 
                 this.facing = 'idle';
 
-            }
+            
         }
 
         if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){

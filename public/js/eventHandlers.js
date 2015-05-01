@@ -12,12 +12,12 @@ var setEventHandlers = function() {
 
 function onSocketConnected() {
     console.log("Connected to socket server");
-    this.player.id = socket.id;
+    clientId = socket.id;
 
 }
 
 function leaveRoom(data){
-    console.log('leave room data', data,this.player.id);
+    console.log('leave room data', data,clientId);
 
     if(remotePlayers[data.id]){
         remotePlayers[data.id].destroy();
@@ -34,13 +34,13 @@ function joinRoom(data){
 
     console.log("this player", data.data.id, "is joining",data.data.room);
     console.log('join data',data);
-    console.log("YOU ARE THIS.PLAYER",this.player.id, "and you are IN", this.player.room);
+    console.log("YOU ARE THIS.PLAYER",clientId, "and you are IN", clientRoom);
 
 
     var players = data.players;
     data = data.data;
     //if the player joining is joining the same room that the client is in
-    if(this.player.room === data.room){
+    if(clientRoom === data.room){
         //add newly joined player to clients remote array
         if(remotePlayers[data.id]){
             remotePlayers[data.id].destroy();
@@ -60,7 +60,7 @@ function onSocketDisconnect() {
 function onNewPlayer(data) {
     //debugger;
     console.log("New player connected: "+data.id, data.room);
-    if(this.player.room === data.room){
+    if(clientRoom === data.room){
         if(remotePlayers[data.id]){
             console.log('destroying remotePlayer that already exists');
             remotePlayers[data.id].destroy();
@@ -74,9 +74,9 @@ function onNewPlayer(data) {
 function onMovePlayer(data) {
     var movePlayer;
     //console.log('move play',this.player);
-   // console.log('data',data,this.player.room);
+   // console.log('data',data,clientRoom);
     movePlayer = remotePlayers[data.id];
-    if(this.player.room === data.room){
+    if(clientRoom === data.room){
          if (!movePlayer) {
             console.log("Move Player not found: "+data.id);
             return;
