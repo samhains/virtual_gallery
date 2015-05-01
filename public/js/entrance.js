@@ -187,18 +187,26 @@ artGame.entrance.prototype = {
         {   
 
             this.player.body.velocity.y = -60;
+            if(this.facing == 'left')
+                this.player.animations.play('left');
+            else 
+                this.player.animations.play('right');
+            
 
         }
         else if (this.cursors.down.isDown )
         {
             this.player.body.velocity.y = 60;
+            if(this.facing == 'right')
+                this.player.animations.play('right');
+            else
+                this.player.animations.play('left');
 
 
         }
         else
         {
-            if (this.facing != 'idle')
-            {
+           
                 this.player.animations.stop();
                 
 
@@ -213,7 +221,7 @@ artGame.entrance.prototype = {
 
                 this.facing = 'idle';
 
-            }
+            
         }
 
         if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
