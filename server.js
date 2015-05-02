@@ -49,20 +49,17 @@ function onSocketConnection(socket) {
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
-    socket.on('chat message', chatMessage);
+    socket.on('chat message', chatMessage.bind(socket));
     socket.on("remove player", onRemovePlayer.bind(socket));
     socket.on('join room', joinRoom.bind(socket) );
     socket.on('leave room', leaveRoom.bind(socket));
 }
 
 
-function chatMessage(msg){
-    	var message = new Message({ body: msg });
-		message.save(function(err){
-  		if(err) console.log(err);
-  		else
-			io.emit('chat message', msg);
-  		});
+function chatMessage(data){	
+	console.log('here',data);
+	this.broadcast.emit('chat message', data);
+  		
 }
 
 function joinRoom(data){

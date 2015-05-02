@@ -41,6 +41,7 @@ artGame.viewing1.prototype = {
         //this.layer.debug = true;
 
          if(music && !music.isPlaying){
+            console.log('playering');
                 music.play('', 0,1,true);
           }    
         //this.layer.resizeWorld();

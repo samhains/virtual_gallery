@@ -25,6 +25,36 @@ artGame.entrance.prototype = {
         
 
         socket = new io.connect(window.location.href+"entrance");
+
+
+        $( document ).ready(function() {
+            $('form').submit(function(e){
+
+                e.preventDefault();
+                var msg = $('#m').val();
+                socket.emit('chat message', {msg: msg, room: clientRoom, user: clientId});
+                console.log(clientId, clientRoom,'says',msg );
+                chatText.setText(msg);
+                console.log(chatText);
+
+                $('#m').val('');
+                return false;
+              });
+            
+            socket.on('chat message', function(data){
+                console.log('received msg', data);
+                var remoteId = data.user;
+                remotePlayers[remoteId].setText(data.msg);
+                console.log(remotePlayers);
+
+                // $('#messages').append($('<li>').text(msg));
+                // $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
+            });
+
+        });
+
+
+
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
@@ -86,7 +116,7 @@ artGame.entrance.prototype = {
         if(!music.isPlaying){
                 music.play('', 0,1,true);
         }    
-
+        chatText = this.game.add.bitmapText(this.player.x-30, this.player.y-15, 'carrier_command','', 7);
         this.initializeRemotePlayers();
         this.createDoors();
         setEventHandlers.bind(this)();
@@ -162,6 +192,8 @@ artGame.entrance.prototype = {
       });
   },
     update: function(){
+        chatText.x = this.player.x+20 - chatText.textWidth*0.5;
+        chatText.y = this.player.y -15;
 
         for (var id in remotePlayers)
         {
