@@ -66,14 +66,12 @@ function chatMessage(msg){
 }
 
 function joinRoom(data){
-	console.log('player',data.id,'is joining',data.room);
 	var obj = {data: data, players: players};
 	var joinPlayer = players[this.id];
 	//first set the server room information
 	joinPlayer.room = data.room;
 	//then transmit the join room message to everyone with data necessary
 	//for remote player update
-	console.log('emitting join room');
 
 	this.broadcast.emit('join room', obj);
 	//this.join(data.room);
@@ -115,7 +113,6 @@ function onNewPlayer(data) {
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;
 		//broadcast to all the open sockets/clients
-		console.log('new player', this.id,'has just joined the entrance');
 		this.broadcast.emit("new player",
 			{id: newPlayer.id, x: newPlayer.x,
 				y: newPlayer.y, room: 'entrance'});
