@@ -12,7 +12,6 @@ artGame.viewingEnd.prototype = {
                 players = playerData;
             }
         });
-        console.log('just retrieved players',players);
 
 
     },
@@ -33,17 +32,14 @@ artGame.viewingEnd.prototype = {
         this.map = this.game.add.tilemap('viewingEnd');
 
         this.map.addTilesetImage('viewingEnd');
-
-        this.map.setCollisionBetween(1504, 1517);
-        this.map.setCollisionBetween(1520, 1530);
-        this.map.setCollisionBetween(1533, 1540);
-        this.map.setCollisionBetween(1533, 1545);
-        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554, 1693, 1592, 1593, 1594, 1694, 1643, 1644, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1642]);
+        this.map.setCollisionBetween(1707, 1714);
+        this.map.setCollisionBetween(1504, 1545);
+        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554,1546, 1596, 1646, 1647, 1697, 1747, 1748, 1749, 1798, 1799, 1849, 1848, 1899]);
         this.layer = this.map.createLayer('Tile Layer 1');
 
 
         //  Un-comment this on to see the collision tiles
-        this.layer.debug = true;
+        //this.layer.debug = true;
 
 
         //this.layer.resizeWorld();
@@ -66,7 +62,9 @@ artGame.viewingEnd.prototype = {
         this.player.animations.add('idleRight', [8], 5, true);
         this.player.animations.add('idleLeft', [0], 5, true);
 
-
+        if(music && !music.isPlaying){
+                music.play('', 0,1,true);
+       }    
         
         this.game.camera.follow(this.player);
 
@@ -106,7 +104,6 @@ artGame.viewingEnd.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'viewingEnd', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
     clientRoom = 'viewing1';

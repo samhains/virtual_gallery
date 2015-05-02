@@ -8,6 +8,8 @@ artGame.Preload.prototype = {
         this.game.time.advancedTiming = true;
         //this.game.load.image("viewing1-background", "assets/sam/viewing1.png");
         this.load.image('stars', 'assets/sam/stars.png');
+        this.game.load.audio('vacancy', ['assets/sam/Vacancy.mp3','assets/sam/Vacancy.ogg']);
+
         this.game.load.tilemap('level1', 'assets/sam/entrance.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('viewing1', 'assets/sam/viewing1.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.tilemap('viewingEnd', 'assets/sam/viewingEnd.json', null, Phaser.Tilemap.TILED_JSON);

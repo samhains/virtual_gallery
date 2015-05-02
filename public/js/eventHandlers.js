@@ -17,7 +17,7 @@ function onSocketConnected() {
 }
 
 function leaveRoom(data){
-    console.log('leave room data', data,clientId);
+    
 
     if(remotePlayers[data.id]){
         remotePlayers[data.id].destroy();
@@ -32,9 +32,9 @@ function leaveRoom(data){
 
 function joinRoom(data){
 
-    console.log("this player", data.data.id, "is joining",data.data.room);
-    console.log('join data',data);
-    console.log("YOU ARE THIS.PLAYER",clientId, "and you are IN", clientRoom);
+    // console.log("this player", data.data.id, "is joining",data.data.room);
+    // console.log('join data',data);
+    // console.log("YOU ARE THIS.PLAYER",clientId, "and you are IN", clientRoom);
 
 
     var players = data.players;
@@ -62,7 +62,6 @@ function onNewPlayer(data) {
     console.log("New player connected: "+data.id, data.room);
     if(clientRoom === data.room){
         if(remotePlayers[data.id]){
-            console.log('destroying remotePlayer that already exists');
             remotePlayers[data.id].destroy();
             delete remotePlayers[data.id];
         }
@@ -73,8 +72,6 @@ function onNewPlayer(data) {
 
 function onMovePlayer(data) {
     var movePlayer;
-    //console.log('move play',this.player);
-   // console.log('data',data,clientRoom);
     movePlayer = remotePlayers[data.id];
     if(clientRoom === data.room){
          if (!movePlayer) {

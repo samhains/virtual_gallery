@@ -1,6 +1,7 @@
 var socket;
 var clientId;
 var clientRoom;
+var music;
 
 
 artGame.entrance = function(){};
@@ -17,19 +18,20 @@ artGame.entrance.prototype = {
 
             }
         });
-        console.log('just retrieved players',players);
 
 
     },
     create: function(){
+        
 
         socket = new io.connect(window.location.href+"entrance");
-        console.log('socket info',socket.id, socket);
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
         this.facing = 'left';
+      
 
+        
         this.level = 'entrance';
         this.stars = this.game.add.tileSprite(0,0,800,608,'stars');
         this.stars.autoScroll(-20,0);
@@ -76,6 +78,15 @@ artGame.entrance.prototype = {
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
+        if(!music){
+             music = this.game.add.audio('vacancy',1,true);
+             
+        }
+       
+        if(!music.isPlaying){
+                music.play('', 0,1,true);
+        }    
+
         this.initializeRemotePlayers();
         this.createDoors();
         setEventHandlers.bind(this)();
@@ -117,7 +128,7 @@ artGame.entrance.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
+    //`('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});
