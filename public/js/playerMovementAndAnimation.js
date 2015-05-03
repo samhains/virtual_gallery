@@ -5,7 +5,8 @@ function playerMovementAndAnimation(socket, room){
   
 
         if (this.cursors.left.isDown )
-        {
+        {   
+
 
             this.player.body.velocity.x = -60;
 

@@ -33,9 +33,9 @@ var RemotePlayer = function (id, game, startX, startY, test) {
 };
 RemotePlayer.prototype = Object.create(Phaser.Sprite.prototype);
 
-RemotePlayer.prototype.setText = function(text){
-    this.chatText.setText(text);
-};
+// RemotePlayer.prototype.setText = function(text){
+//     this.chatText.setText(text);
+// };
 
 
 RemotePlayer.prototype.update = function() {

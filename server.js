@@ -57,7 +57,6 @@ function onSocketConnection(socket) {
 
 
 function chatMessage(data){	
-	console.log('here',data);
 	this.broadcast.emit('chat message', data);
   		
 }
@@ -110,15 +109,18 @@ function onNewPlayer(data) {
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;
 		//broadcast to all the open sockets/clients
+		//adding a new player for everyone else
 		this.broadcast.emit("new player",
 			{id: newPlayer.id, x: newPlayer.x,
 				y: newPlayer.y, room: 'entrance'});
 
 		//to this particular socket, update the existing player information
+		//this could probably be optimized as we only need to broadcast new player
 		var i, existingPlayer;
 		for (var player in players) {
 		    existingPlayer = players[player];
-		    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'entrance'});
+		    if(data.room === players[player].room)
+		    	this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:players[player].room});
 		}
 		players[this.id] = newPlayer;
 

@@ -104,9 +104,12 @@ artGame.entrance.prototype = {
         if(!music.isPlaying){
                 music.play('', 0,1,true);
         }    
-        this.initializeRemotePlayers();
+
+        //this.initializeRemotePlayers();
         this.createDoors();
+  
         setEventHandlers.bind(this)();
+        console.log('create remotePlayers',remotePlayers);
 
 
 
@@ -126,7 +129,6 @@ artGame.entrance.prototype = {
       
            
             if(player.room==="entrance" && player.id !== clientId ){
-
                
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }

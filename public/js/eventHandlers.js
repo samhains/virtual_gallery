@@ -101,7 +101,7 @@ function onMovePlayer(data) {
 
     }
 
-};
+}
 
 function onRemovePlayer(data) {
 
@@ -116,4 +116,4 @@ function onRemovePlayer(data) {
 
 
 
-};
+}

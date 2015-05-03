@@ -162,7 +162,6 @@ artGame.viewing1.prototype = {
     update: function(){
 
 
-
         for (var id in remotePlayers)
         {
 
