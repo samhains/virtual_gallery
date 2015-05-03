@@ -13,6 +13,8 @@ var RemotePlayer = function (id, game, startX, startY, test) {
     this.id = id;
     this.facing = 'right';
     this.chatText = game.add.bitmapText(null, null, 'carrier_command','', 7);
+    this.textYBuffer = 0;
+    this.textY = y-15;
 
     Phaser.Sprite.call(this, game, x, y, 'dude');
 
@@ -37,8 +39,6 @@ RemotePlayer.prototype.setText = function(text){
 
 
 RemotePlayer.prototype.update = function() {
-    this.chatText.x = this.position.x+20 - this.chatText.textWidth*0.5;
-    this.chatText.y = this.position.y -15;
 
     if(this.lastPosition.x== this.position.x && (this.game.time.now - this.lastMoveTime)>110 ){
         this.animations.stop();

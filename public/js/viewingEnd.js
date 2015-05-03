@@ -21,7 +21,7 @@ artGame.viewingEnd.prototype = {
 
         socket = io(window.location.href+"viewingEnd");
 
-
+        setUpChat.bind(this)(socket);
         this.facing = "left";
         this.level = 'viewingEnd';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -56,12 +56,16 @@ artGame.viewingEnd.prototype = {
 
 
 
-
         this.player.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
         this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 5, true);
         this.player.animations.add('idleRight', [8], 5, true);
         this.player.animations.add('idleLeft', [0], 5, true);
 
+
+        this.textMessages = game.add.group(); 
+        this.textYBuffer = 0;
+        this.textY = this.player.position.y-15;
+        this.lastChatMessageWidth;
         if(music && !music.isPlaying){
                 music.play('', 0,1,true);
        }    
@@ -153,76 +157,7 @@ artGame.viewingEnd.prototype = {
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        this.player.body.velocity.x = 0;
-        this.player.body.velocity.y = 0;
-        //console.log(this.input.activePointer.x,this.input.activePointer.isDown );
-
-        if (this.cursors.left.isDown )
-        {
-
-            this.player.body.velocity.x = -60;
-
-            if (this.facing != 'left')
-            {
-                this.player.animations.play('left');
-                this.facing = 'left';
-            }
-        }
-        else if (this.cursors.right.isDown)
-        {
-            this.player.body.velocity.x = 60;
-
-            if (this.facing != 'right')
-            {
-                this.player.animations.play('right');
-                this.facing = 'right';
-            }
-        }
-        else if (this.cursors.up.isDown )
-        {   
-
-            this.player.body.velocity.y = -60;
-            if(this.facing == 'left')
-                this.player.animations.play('left');
-            else 
-                this.player.animations.play('right');
-            
-
-        }
-        else if (this.cursors.down.isDown )
-        {
-            this.player.body.velocity.y = 60;
-            if(this.facing == 'right')
-                this.player.animations.play('right');
-            else
-                this.player.animations.play('left');
-
-
-        }
-        else
-        {
-           
-                this.player.animations.stop();
-                
-
-                if (this.facing == 'left')
-                {
-                    this.player.animations.play('idleLeft');
-                }
-                else
-                {
-                    this.player.animations.play('idleRight');
-                }
-
-                this.facing = 'idle';
-
-            
-        }
-
-        if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
-            socket.emit("move player", {x: this.player.x, y:this.player.y, room:'viewingEnd'});
-        }
-        this.player.lastPosition = { x: this.player.x, y: this.player.y };
-        }
+        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+    }
 };
 

@@ -4,6 +4,12 @@ var clientRoom;
 var music;
 
 
+var destroyText= function(){
+    chatText.destroy();
+};
+
+
+
 artGame.entrance = function(){};
 
 artGame.entrance.prototype = {
@@ -25,33 +31,9 @@ artGame.entrance.prototype = {
         
 
         socket = new io.connect(window.location.href+"entrance");
-
-
-        $( document ).ready(function() {
-            $('form').submit(function(e){
-
-                e.preventDefault();
-                var msg = $('#m').val();
-                socket.emit('chat message', {msg: msg, room: clientRoom, user: clientId});
-                console.log(clientId, clientRoom,'says',msg );
-                chatText.setText(msg);
-                console.log(chatText);
-
-                $('#m').val('');
-                return false;
-              });
-            
-            socket.on('chat message', function(data){
-                console.log('received msg', data);
-                var remoteId = data.user;
-                remotePlayers[remoteId].setText(data.msg);
-                console.log(remotePlayers);
-
-                // $('#messages').append($('<li>').text(msg));
-                // $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
-            });
-
-        });
+       
+        var self = this;
+        setUpChat.bind(this)(socket);
 
 
 
@@ -59,7 +41,7 @@ artGame.entrance.prototype = {
 
         this.game.stage.backgroundColor = '#ffffff';
         this.facing = 'left';
-      
+        game = this.game;
 
         
         this.level = 'entrance';
@@ -102,7 +84,13 @@ artGame.entrance.prototype = {
         this.player.animations.add('left', [0, 1, 2, 3, 4,5,6,7], 10, true);
         this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);
         this.player.animations.add('idleRight', [8], 5, true);
-         this.player.animations.add('idleLeft', [0], 5, true);
+         this.player.animations.add('idleLeft', [0], 5, true); 
+
+        //text settings
+        this.textMessages = game.add.group(); 
+        this.textYBuffer = 0;
+        this.textY = this.player.y-15;
+        this.lastChatMessageWidth;
 
         this.game.camera.follow(this.player);
 
@@ -116,7 +104,6 @@ artGame.entrance.prototype = {
         if(!music.isPlaying){
                 music.play('', 0,1,true);
         }    
-        chatText = this.game.add.bitmapText(this.player.x-30, this.player.y-15, 'carrier_command','', 7);
         this.initializeRemotePlayers();
         this.createDoors();
         setEventHandlers.bind(this)();
@@ -192,8 +179,9 @@ artGame.entrance.prototype = {
       });
   },
     update: function(){
-        chatText.x = this.player.x+20 - chatText.textWidth*0.5;
-        chatText.y = this.player.y -15;
+        
+
+
 
         for (var id in remotePlayers)
         {
@@ -203,76 +191,8 @@ artGame.entrance.prototype = {
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
-        this.player.body.velocity.x = 0;
-        this.player.body.velocity.y = 0;
-
-        if (this.cursors.left.isDown )
-        {
-
-            this.player.body.velocity.x = -60;
-
-            if (this.facing != 'left')
-            {
-                this.player.animations.play('left');
-                this.facing = 'left';
-            }
-        }
-        else if (this.cursors.right.isDown)
-        {
-            this.player.body.velocity.x = 60;
-
-            if (this.facing != 'right')
-            {
-                this.player.animations.play('right');
-                this.facing = 'right';
-            }
-        }
-        else if (this.cursors.up.isDown )
-        {   
-
-            this.player.body.velocity.y = -60;
-            if(this.facing == 'left')
-                this.player.animations.play('left');
-            else 
-                this.player.animations.play('right');
-            
-
-        }
-        else if (this.cursors.down.isDown )
-        {
-            this.player.body.velocity.y = 60;
-            if(this.facing == 'right')
-                this.player.animations.play('right');
-            else
-                this.player.animations.play('left');
-
-
-        }
-        else
-        {
-           
-                this.player.animations.stop();
-                
-
-                if (this.facing == 'left')
-                {
-                    this.player.animations.play('idleLeft');
-                }
-                else
-                {
-                    this.player.animations.play('idleRight');
-                }
-
-                this.facing = 'idle';
-
-            
-        }
-
-        if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
-            socket.emit("move player", {x: this.player.x, y:this.player.y, room: 'entrance'});
-        }
-        this.player.lastPosition = { x: this.player.x, y: this.player.y };
-        }
+        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+    }
 };
 
 
