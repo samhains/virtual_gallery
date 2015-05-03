@@ -35,48 +35,40 @@ function init() {
 }
 
 var setEventHandlers = function() {
-	var lobby = io.of('/lobby');
-	lobby.on('connection', onSocketConnection);
+	var entrance = io.of('/entrance');
+	entrance.on('connection', onSocketConnection);
 	var viewing1 = io.of('/viewing1');
 	viewing1.on('connection',onSocketConnection);
+	var viewingEnd = io.of('/viewingEnd');
+	viewingEnd.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
+    socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
     socket.on("move player", onMovePlayer.bind(socket));
-    socket.on('chat message', chatMessage);
-    socket.on('get players', getPlayers.bind(socket));
+    socket.on('chat message', chatMessage.bind(socket));
     socket.on("remove player", onRemovePlayer.bind(socket));
     socket.on('join room', joinRoom.bind(socket) );
     socket.on('leave room', leaveRoom.bind(socket));
 }
 
-function getPlayers(){
-	console.log('getitng players');
-	this.emit('get players', players);
 
-}
-
-function chatMessage(msg){
-    	var message = new Message({ body: msg });
-		message.save(function(err){
-  		if(err) console.log(err);
-  		else
-			io.emit('chat message', msg);
-  		});
+function chatMessage(data){	
+	console.log('here',data);
+	this.broadcast.emit('chat message', data);
+  		
 }
 
 function joinRoom(data){
-	console.log('joining',data);
 	var obj = {data: data, players: players};
 	var joinPlayer = players[this.id];
 	//first set the server room information
 	joinPlayer.room = data.room;
 	//then transmit the join room message to everyone with data necessary
 	//for remote player update
-
 
 	this.broadcast.emit('join room', obj);
 	//this.join(data.room);
@@ -111,22 +103,29 @@ function  onRemovePlayer(data){
 
 }
 
+
 function onNewPlayer(data) {
+	//if the player doesnt already exist, and there is a valid ID
+	if(!players[this.id] && this.id){
+		var newPlayer = new Player(data.x,data.y);
+		newPlayer.id = this.id;
+		//broadcast to all the open sockets/clients
+		this.broadcast.emit("new player",
+			{id: newPlayer.id, x: newPlayer.x,
+				y: newPlayer.y, room: 'entrance'});
 
-	var newPlayer = new Player(data.x,data.y);
-	newPlayer.id = this.id;
-	//broadcast to all the open sockets/clients
-	this.broadcast.emit("new player",
-		{id: newPlayer.id, x: newPlayer.x,
-			y: newPlayer.y, room: 'lobby'});
+		//to this particular socket, update the existing player information
+		var i, existingPlayer;
+		for (var player in players) {
+		    existingPlayer = players[player];
+		    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'entrance'});
+		}
+		players[this.id] = newPlayer;
 
-	//to this particular socket, update the existing player information
-	var i, existingPlayer;
-	for (var player in players) {
-	    existingPlayer = players[player];
-	    this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:'lobby'});
+
+
 	}
-	players[this.id] = newPlayer;
+	
 
 
 }
@@ -134,7 +133,7 @@ function onNewPlayer(data) {
 function onMovePlayer(socket) {
 
 	var movePlayer = players[this.id];
-	console.log(movePlayer);
+	//console.log(movePlayer);
 
 	if (!movePlayer) {
 	    console.log("move Player not found: "+this.id);

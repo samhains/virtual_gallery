@@ -1,21 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" nextobjectid="30">
- <tileset firstgid="1" name="blackAndWhiteTiles_0" tilewidth="32" tileheight="32">
-  <image source="../../../../../Dropbox/design/Tiles/blackAndWhiteTiles_0.png" width="96" height="224"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="38" tilewidth="16" tileheight="16" nextobjectid="53">
+ <tileset firstgid="1" name="entrance" tilewidth="16" tileheight="16">
+  <image source="entrance.png" width="800" height="608"/>
+  <tile id="1722">
+   <properties>
+    <property name="type" value="door"/>
+   </properties>
+  </tile>
+  <tile id="1723">
+   <properties>
+    <property name="type" value="door"/>
+   </properties>
+  </tile>
  </tileset>
- <tileset firstgid="22" name="door" tilewidth="16" tileheight="25">
-  <image source="door.png" width="16" height="25"/>
- </tileset>
- <layer name="Tile Layer 1" width="25" height="19">
+ <layer name="Tile Layer 1" width="50" height="38">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="25" type="door" gid="22" x="288" y="256"/>
-  <object id="29" type="door" gid="22" x="512" y="256">
+  <object id="1" gid="1723" x="352" y="560"/>
+  <object id="2" gid="1723" x="352" y="560"/>
+  <object id="6" gid="1723" x="352" y="560"/>
+  <object id="7" gid="1723" x="352" y="560"/>
+  <object id="9" gid="1723" x="352" y="560"/>
+  <object id="10" gid="1723" x="352" y="560"/>
+  <object id="13" gid="1724" x="368" y="560"/>
+  <object id="15" gid="1774" x="368" y="576"/>
+  <object id="17" gid="1773" x="352" y="576"/>
+  <object id="27" gid="1723" x="352" y="560">
    <properties>
-    <property name="sprite" value="door"/>
+    <property name="targetX" value="50"/>
+    <property name="targetY" value="550"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object id="28" gid="1724" x="368" y="560"/>
+  <object id="29" gid="1724" x="368" y="560">
+   <properties>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object id="31" gid="1773" x="352" y="576"/>
+  <object id="32" gid="1773" x="352" y="576"/>
+  <object id="39" gid="1773" x="352" y="576"/>
+  <object id="40" gid="1773" x="352" y="576"/>
+  <object id="41" gid="1773" x="352" y="576">
+   <properties>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object id="45" gid="1773" x="304" y="576"/>
+  <object id="46" gid="1773" x="336" y="576">
+   <properties>
+    <property name="targetX" value="50"/>
+    <property name="targetY" value="550"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object id="48" gid="1722" x="336" y="560">
+   <properties>
+    <property name="targetX" value="50"/>
+    <property name="targetY" value="550"/>
+    <property name="type" value="door"/>
    </properties>
   </object>
  </objectgroup>

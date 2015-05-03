@@ -14,39 +14,15 @@ artGame.viewing1.prototype = {
         });
 
 
+
     },
 
     create: function(){
-        console.log("PLAYERS", players);
-
-        socket = io("http://localhost:5000/viewing1");
-       $( document ).ready(function() {
-            console.log("READY");
-            $('.minimized-bar').hide();
-            $('form').submit(function(e){
 
 
-                e.preventDefault();
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                return false;
-              });
-            $('.minimize').on('click',function(){
-                $('.chat-box').hide();
-                $('.minimized-bar').show();
-            });
-            $('.maximize').on('click',function(){
-                $('.chat-box').show();
-                $('.minimized-bar').hide();
-            });
-            socket.on('chat message', function(msg){
+        socket = io(window.location.href+"viewing1");
 
-                $('#messages').append($('<li>').text(msg));
-                $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
-            });
-
-        });
-
+        setUpChat.bind(this)(socket);
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -54,19 +30,24 @@ artGame.viewing1.prototype = {
         this.game.stage.backgroundColor = '#ffffff';
 
         //this.game.add.tileSprite(0, 0, 800, 608, 'viewing1-background');
+        this.map = this.game.add.tilemap('viewing1');
 
-        this.map =  this.game.add.tileSprite(0, 0, 800, 608, 'viewing1-background');
+        this.map.addTilesetImage('viewing1');
 
-        //this.map.addTilesetImage('tiles-2');
+        this.map.setCollisionBetween(1504, 1545);
+        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554, 1693, 1592, 1593, 1594, 1694, 1695,1643, 1644, 1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1642]);
+        this.layer = this.map.createLayer('Tile Layer 1');
 
-        //this.map.setCollisionBetween(9, 50);
-
-        //this.layer = this.map.createLayer('Tile Layer 1');
 
         //  Un-comment this on to see the collision tiles
-        // layer.debug = true;
+        //this.layer.debug = true;
+        //
+      
 
-
+         if(music && !music.isPlaying){
+            console.log('playering');
+                music.play('', 0,1,true);
+          }    
         //this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
@@ -75,109 +56,127 @@ artGame.viewing1.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 100;
-        this.player.position.y = 300;
+        this.player.position.x = 400;
+        this.player.position.y = 520;
+        clientRoom = 'viewing1';
+       
 
 
-        this.player.animations.add('left', [0, 1, 2, 3], 10, true);
-        this.player.animations.add('turn', [4], 20, true);
-        this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-        console.log('remote players',viewingPlayers);
-        this.initializeRemotePlayers();
+
+        this.player.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
+        this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 5, true);
+        this.player.animations.add('idleRight', [8], 5, true);
+        this.player.animations.add('idleLeft', [0], 5, true);
+
         this.game.camera.follow(this.player);
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
         // jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
          // Start listening for events
+        this.initializeRemotePlayers();
+        this.createDoors();
+
+          //text settings
+        //this.textMessages = game.add.group(); 
+        this.textYBuffer = 0;
+        this.textY = this.player.y-15;
+        this.lastChatMessageWidth;
+
         setEventHandlers.bind(this)();
-        //createDoors(map);
 
 
     },
     initializeRemotePlayers: function(){
-        viewingPlayers = {};
+        for(var remotePlayerId in remotePlayers){
+            remotePlayers[remotePlayerId].destroy();
+        }
+        remotePlayers = {};
         for(var id in players){
             var player = players[id];
-            if(player.room==="viewing1"){
-                console.log("player",player);
-                viewingPlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
+                
+
+            if(player.room==="viewing1"  && clientId !== player.id){
+                
+                remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
-           
+
 
         }
     },
+     createDoors: function() {
+    //create doors
+        this.doors = this.game.add.group();
+        this.doors.enableBody = true;
+        result = this.findObjectsByType('door', this.map, 'Object Layer 1');
+
+        result.forEach(function(element){
+          this.createFromTiledObject(element, this.doors);
+        }, this);
+  },
+  enterDoor: function(player, door) {
+    //console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
+    socket.emit('leave room', {room:'entrance', id: socket.id});
+    
+
+    if(door.targetTilemap==='viewingEnd'){
+        socket.emit('join room', {room:'viewingEnd', id: socket.id});
+        clientRoom = 'viewingEnd';
+        this.state.start('viewingEnd');
+
+    }
+    if(door.targetTilemap==='entrance'){
+        socket.emit('join room', {room:'entrance', id: socket.id});
+        clientRoom = 'entrance';
+        this.state.start('entrance');
+    }
+    
+
+
+  },
+
+  //find objects in a Tiled layer that containt a property called "type" equal to a certain value
+  findObjectsByType: function(type, map, layer) {
+    var result = new Array();
+    map.objects[layer].forEach(function(element){
+      if(element.properties.type === type) {
+        //Phaser uses top left, Tiled bottom left so we have to adjust
+        //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
+        //so they might not be placed in the exact position as in Tiled
+        element.y -= map.tileHeight;
+        result.push(element);
+      }
+    });
+    return result;
+  },
+  //create a sprite from an object
+  createFromTiledObject: function(element, group) {
+    var sprite = group.create(element.x, element.y, element.properties.sprite);
+
+      //copy all properties to the sprite
+      Object.keys(element.properties).forEach(function(key){
+        sprite[key] = element.properties[key];
+      });
+  },
     update: function(){
-        
 
-        for (var id in viewingPlayers)
+
+
+        for (var id in remotePlayers)
         {
 
-            if (viewingPlayers[id].alive)
+            if (remotePlayers[id].alive)
                 //could this be done asyncronously?
-                viewingPlayers[id].update();
+                remotePlayers[id].update();
 
         }
+
         this.game.physics.arcade.collide(this.player, this.layer);
-        this.player.body.velocity.x = 0;
-        this.player.body.velocity.y = 0;
-        //console.log(this.input.activePointer.x,this.input.activePointer.isDown );
+        this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        if (this.cursors.left.isDown )
-        {
+        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+    }
 
-            this.player.body.velocity.x = -150;
-            if (this.facing != 'left')
-            {
-                this.player.animations.play('left');
-                this.facing = 'left';
-            }
-        }
-        else if (this.cursors.right.isDown )
-        {
-            this.player.body.velocity.x = 150;
-
-            if (this.facing != 'right')
-            {
-                this.player.animations.play('right');
-                this.facing = 'right';
-            }
-        }
-        else if (this.cursors.up.isDown)
-        {
-            this.player.body.velocity.y = -150;
-
-        }
-        else if (this.cursors.down.isDown)
-        {
-            this.player.body.velocity.y = 150;
-
-
-        }
-        else
-        {
-            if (this.facing != 'idle')
-            {
-                this.player.animations.stop();
-
-                if (this.facing == 'left')
-                {
-                    this.player.frame = 0;
-                }
-                else
-                {
-                    this.player.frame = 5;
-                }
-
-                this.facing = 'idle';
-            }
-        }
-
-        if (this.player.lastPosition.x !== this.player.x || this.player.lastPosition.y !== this.player.y){
-            socket.emit("move player", {x: this.player.x, y:this.player.y, room:'viewing1'});
-        }
-        this.player.lastPosition = { x: this.player.x, y: this.player.y };
-        }
 };
 

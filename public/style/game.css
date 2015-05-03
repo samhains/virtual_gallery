@@ -29,12 +29,14 @@ canvas {
 * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font: 13px Helvetica, Arial;}
   form {
-      background: #000;
-      padding-top: 4px;
-      position: fixed;
-      width: 775px;
-      top: 549px;
-  }
+  background: #000;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  position: fixed;
+  width: 800px;
+  top: 608px;
+}
   form input {
     border: 0;
     bottom:0;
@@ -46,7 +48,7 @@ canvas {
   }
   input:focus{
     background-color:white;
-    outline-color:black;
+    outline-color:white;
 
 -webkit-appearance:none;
 

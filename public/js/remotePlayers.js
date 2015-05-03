@@ -1,6 +1,6 @@
 var socket;
-var lobbyPlayers = {};
-var viewingPlayers = {};
+var remotePlayers = {};
+var players = {};
 
 
 
@@ -11,13 +11,18 @@ var RemotePlayer = function (id, game, startX, startY, test) {
     this.lastPosition = { x: x, y: y };
     this.alive = true;
     this.id = id;
+    this.facing = 'right';
+    this.chatText = game.add.bitmapText(null, null, 'carrier_command','', 7);
+    this.textYBuffer = 0;
+    this.textY = y-15;
 
     Phaser.Sprite.call(this, game, x, y, 'dude');
 
-
-    this.animations.add('left', [0, 1, 2, 3], 10, true);
-    this.animations.add('turn', [4], 20, true);
-    this.animations.add('right', [5, 6, 7, 8], 10, true);
+ 
+    this.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, false);
+    this.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 5, false);
+    this.animations.add('idleRight', [8], 5, true);
+    this.animations.add('idleLeft', [0], 5, true);
     //this.player.anchor.setTo(0.5, 0.5);
     this.name = id.toString();
     game.add.existing(this);
@@ -28,18 +33,22 @@ var RemotePlayer = function (id, game, startX, startY, test) {
 };
 RemotePlayer.prototype = Object.create(Phaser.Sprite.prototype);
 
+RemotePlayer.prototype.setText = function(text){
+    this.chatText.setText(text);
+};
+
 
 RemotePlayer.prototype.update = function() {
-    // if(this.lastPosition.x>this.player.x) {
-    //     this.player.animations.play('left');
-    // } else if(this.lastPosition.x<this.player.x){
-    //     this.player.animations.play('right');
 
-    // }
-    // else if(this.lastPosition.x==this.player.x){
-    //     this.player.animations.stop();
-    // }
-
+    if(this.lastPosition.x== this.position.x && (this.game.time.now - this.lastMoveTime)>110 ){
+        this.animations.stop();
+        if(this.facing=== 'left')
+            this.animations.play('idleLeft');
+        if(this.facing==='right')
+            this.animations.play('idleRight');
+    
+    }
+    
     this.lastPosition.x = this.position.x;
     this.lastPosition.y = this.position.y;
 
