@@ -9,7 +9,24 @@ canvas {
 	display: block;
 }
 
+.synchronator{
+  position:absolute;
+  display:none;
+}
 
+#pt1{
+  top:190px;
+  left:400px;
+}
+#pt3{
+  left:220px;
+
+}
+#pt4{
+  top:200px;
+  left:140px;
+
+}
 
 .phaser-canvas{
   position:absolute;

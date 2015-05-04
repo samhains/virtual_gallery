@@ -50,7 +50,7 @@ var setUpChat = function(socket, room){
                 chatText.x = remotePlayer.position.x+18- chatText.textWidth*0.5;
                 remotePlayer.textYBuffer-=MSG_Y_SPACING;
                 //add event timer to fade out text after 2 seconds
-                self.game.time.events.add(MS_TIMEOUT, function() {
+                self.game.time.events.add(MSG_TIMEOUT, function() {
                     //fade text
                    self.game.add.tween(chatText).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
                     setTimeout(function(){

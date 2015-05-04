@@ -13,7 +13,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":38,
+         "height":0,
          "name":"Object Layer 1",
          "objects":[
                 {
@@ -83,15 +83,66 @@
                  "width":0,
                  "x":416,
                  "y":496
+                }, 
+                {
+                 "gid":1513,
+                 "height":0,
+                 "id":19,
+                 "name":"",
+                 "properties":
+                    {
+                     "targetTilemap":"viewingSynchronator",
+                     "type":"door"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":192,
+                 "y":496
+                }, 
+                {
+                 "gid":1514,
+                 "height":0,
+                 "id":20,
+                 "name":"",
+                 "properties":
+                    {
+                     "targetTilemap":"viewingSynchronator",
+                     "type":"door"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":208,
+                 "y":496
+                }, 
+                {
+                 "gid":1515,
+                 "height":0,
+                 "id":21,
+                 "name":"",
+                 "properties":
+                    {
+                     "targetTilemap":"viewingSynchronator",
+                     "type":"door"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":224,
+                 "y":496
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":50,
+         "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":18,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "properties":
     {

@@ -24,6 +24,7 @@ artGame.viewing2.prototype = {
         setUpChat.call(this,socket);
 
         $('#horse-video').hide();
+        $('.synchronator').hide();
         this.facing = "left";
         this.level = 'viewing2';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -117,6 +118,13 @@ artGame.viewing2.prototype = {
         socket.emit('join room', {room:'viewingHorse', id: socket.id});
         clientRoom = 'viewingHorse';
         this.state.start('viewingHorse');
+
+    }
+
+    if(door.targetTilemap==='viewingSynchronator'){
+        socket.emit('join room', {room:'viewingSynchronator', id: socket.id});
+        clientRoom = 'viewingSynchronator';
+        this.state.start('viewingSynchronator');
 
     }
     if(door.targetTilemap==='viewing1'){
