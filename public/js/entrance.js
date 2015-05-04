@@ -33,35 +33,6 @@ artGame.entrance.prototype = {
          setUpChat.call(this,socket);
         
         var self = this;
-        
-        //  $( document ).ready(function() {
-        //     $('form').submit(function(e){
-
-        //         e.preventDefault();
-        //         var msg = $('#m').val();
-        //         console.log(msg);
-                
-        //         if(chatText){
-        //             chatText.destroy();
-        //         }
-        //         var chatText = self.game.add.bitmapText(null, self.player.y-30+self.textYBuffer, 'carrier_command',msg, 7);
-        //         chatText.x = self.player.x+18- chatText.textWidth*0.5;
-        //         console.log('chatText',chatText);
-        //         // console.log('adding text to ', self.player.x+18- chatText.textWidth*0.5, self.player.y-30+self.textYBuffer);
-        //         // console.log('adding text to (modified) ', self.player.x, self.player.y);
-
-        //         self.textMessages.add(chatText);
-        //         // console.log('chat text position',chatText.position.x, chatText.position.y);
-              
-
-        //         $('#m').val('');
-        //         return false;
-        //       });
-            
-  
-
-        // });
-
 
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -138,7 +109,6 @@ artGame.entrance.prototype = {
         this.createDoors();
   
         setEventHandlers.bind(this)();
-        console.log('create remotePlayers',remotePlayers);
 
 
 
