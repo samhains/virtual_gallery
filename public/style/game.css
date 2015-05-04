@@ -11,6 +11,13 @@ canvas {
   height:600px;
   border:solid 10px;
 }
+
+#horse-video{
+  display:none;
+  position:absolute;
+  top: 55px;
+  left: 225px;
+}
 /*
 .chat-form{
   bottom:0;

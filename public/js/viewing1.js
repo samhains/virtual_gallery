@@ -22,7 +22,8 @@ artGame.viewing1.prototype = {
 
         socket = io(window.location.href+"viewing1");
 
-        setUpChat.bind(this)(socket);
+        setUpChat.call(this,socket);
+        $('#horse-video').hide();
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -79,7 +80,7 @@ artGame.viewing1.prototype = {
         this.createDoors();
 
           //text settings
-        //this.textMessages = game.add.group(); 
+        this.textMessages = this.game.add.group(); 
         this.textYBuffer = 0;
         this.textY = this.player.y-15;
         this.lastChatMessageWidth;
@@ -174,7 +175,7 @@ artGame.viewing1.prototype = {
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+         playerMovementAndAnimation.call(this, socket, clientRoom);
     }
 
 };

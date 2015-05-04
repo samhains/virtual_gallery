@@ -21,7 +21,9 @@ artGame.viewingEnd.prototype = {
 
         socket = io(window.location.href+"viewingEnd");
 
-        setUpChat.bind(this)(socket);
+        setUpChat.call(this,socket);
+
+        $('#horse-video').show();
         this.facing = "left";
         this.level = 'viewingEnd';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -62,7 +64,7 @@ artGame.viewingEnd.prototype = {
         this.player.animations.add('idleLeft', [0], 5, true);
 
 
-        this.textMessages = game.add.group(); 
+        this.textMessages = this.game.add.group(); 
         this.textYBuffer = 0;
         this.textY = this.player.position.y-15;
         this.lastChatMessageWidth;
@@ -157,7 +159,7 @@ artGame.viewingEnd.prototype = {
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+         playerMovementAndAnimation.call(this, socket, clientRoom);
     }
 };
 

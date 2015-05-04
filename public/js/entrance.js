@@ -28,12 +28,10 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
+         socket = new io.connect(window.location.href+"entrance");
         
-
-        socket = new io.connect(window.location.href+"entrance");
-       
-        var self = this;
-        setUpChat.bind(this)(socket);
+      
+        setUpChat.call(this, socket);
 
 
 
@@ -62,6 +60,7 @@ artGame.entrance.prototype = {
         
         //  Un-comment this on to see the collision tiles
         //this.layer.debug = true;
+
 
 
         this.layer.resizeWorld();
@@ -193,7 +192,11 @@ artGame.entrance.prototype = {
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+
+        playerMovementAndAnimation.call(this, socket, clientRoom);
+    },
+    render: function(){
+       // this.game.debug.spriteInfo(this.textMessages, 32, 32);
     }
 };
 
