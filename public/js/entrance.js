@@ -10,6 +10,7 @@ var destroyText= function(){
 
 
 
+
 artGame.entrance = function(){};
 
 artGame.entrance.prototype = {
@@ -29,9 +30,37 @@ artGame.entrance.prototype = {
     },
     create: function(){
          socket = new io.connect(window.location.href+"entrance");
+         setUpChat.call(this,socket);
         
-      
-        setUpChat.call(this, socket);
+        var self = this;
+        
+        //  $( document ).ready(function() {
+        //     $('form').submit(function(e){
+
+        //         e.preventDefault();
+        //         var msg = $('#m').val();
+        //         console.log(msg);
+                
+        //         if(chatText){
+        //             chatText.destroy();
+        //         }
+        //         var chatText = self.game.add.bitmapText(null, self.player.y-30+self.textYBuffer, 'carrier_command',msg, 7);
+        //         chatText.x = self.player.x+18- chatText.textWidth*0.5;
+        //         console.log('chatText',chatText);
+        //         // console.log('adding text to ', self.player.x+18- chatText.textWidth*0.5, self.player.y-30+self.textYBuffer);
+        //         // console.log('adding text to (modified) ', self.player.x, self.player.y);
+
+        //         self.textMessages.add(chatText);
+        //         // console.log('chat text position',chatText.position.x, chatText.position.y);
+              
+
+        //         $('#m').val('');
+        //         return false;
+        //       });
+            
+  
+
+        // });
 
 
 
@@ -88,6 +117,7 @@ artGame.entrance.prototype = {
         //text settings
         this.textMessages = game.add.group(); 
         this.textYBuffer = 0;
+        this.textYBufferLineCount = 1;
         this.textY = this.player.y-15;
         this.lastChatMessageWidth;
 
@@ -152,6 +182,7 @@ artGame.entrance.prototype = {
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});
     clientRoom = 'viewing1';
     this.state.start('viewing1');
+    $('form').off('submit');
 
 
   },
@@ -180,6 +211,7 @@ artGame.entrance.prototype = {
       });
   },
     update: function(){
+
         
 
 
@@ -195,9 +227,7 @@ artGame.entrance.prototype = {
 
         playerMovementAndAnimation.call(this, socket, clientRoom);
     },
-    render: function(){
-       // this.game.debug.spriteInfo(this.textMessages, 32, 32);
-    }
+
 };
 
 

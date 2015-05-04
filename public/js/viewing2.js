@@ -111,6 +111,7 @@ artGame.viewing2.prototype = {
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewing2', id: socket.id});
+     $('form').off('submit');
     
     if(door.targetTilemap==='viewingHorse'){
         socket.emit('join room', {room:'viewingHorse', id: socket.id});

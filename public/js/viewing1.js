@@ -21,9 +21,36 @@ artGame.viewing1.prototype = {
 
 
         socket = io(window.location.href+"viewing1");
-
         setUpChat.call(this,socket);
-        $('#horse-video').hide();
+        // var self = this;
+       
+        //     $('form').submit(function(e){
+
+        //         e.preventDefault();
+        //         var msg = $('#m').val();
+        //         console.log($('#m'));
+        //         console.log('message',msg);
+                
+        //         if(chatText2){
+        //             chatText2.destroy();
+        //         }
+        //         var chatText2 = self.game.add.bitmapText(null, self.player.y-30+self.textYBuffer, 'carrier_command',msg, 7);
+        //         chatText2.x = self.player.x+18- chatText2.textWidth*0.5;
+        //         //console.log('chatText2',chatText2);
+        //         //console.log('adding text message', msg, 'to', self.player.x+18- chatText2.textWidth*0.5, self.player.y-30+self.textYBuffer);
+        //         // console.log('adding text to (modified) ', self.player.x, self.player.y);
+
+        //         //self.textMessages.add(chatText2);
+        //         // console.log('chat text position',chatText2.position.x, chatText2.position.y);
+              
+
+        //         $('#m').val('');
+        //         return false;
+              
+            
+  
+
+        // });
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -119,6 +146,7 @@ artGame.viewing1.prototype = {
   enterDoor: function(player, door) {
     //console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
+    $('form').off('submit');
     
 
     if(door.targetTilemap==='viewing2'){
