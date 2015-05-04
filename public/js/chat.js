@@ -13,16 +13,15 @@ var setUpChat = function(socket){
                 // console.log('adding text to (modified) ', self.player.x, self.player.y);
 
                 // console.log('chat text position',chatText.position.x, chatText.position.y);
-                //self.textYBuffer-=15;
+                self.textYBuffer-=15;
                 //add event timer to fade out text after 2 seconds
                 self.game.time.events.add(2000, function() {
                     //fade text
                    self.game.add.tween(chatText).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
-                  
-                       // self.textYBuffer+=15;
+                    setTimeout(function(){
+                        self.textYBuffer+=15;
                         chatText.destroy();
-                    //       setTimeout(function(){
-                    // },6000);
+                    },6000);
                 });                 
 
                 $('#m').val('');

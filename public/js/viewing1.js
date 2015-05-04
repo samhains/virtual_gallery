@@ -121,10 +121,10 @@ artGame.viewing1.prototype = {
     socket.emit('leave room', {room:'entrance', id: socket.id});
     
 
-    if(door.targetTilemap==='viewingEnd'){
-        socket.emit('join room', {room:'viewingEnd', id: socket.id});
-        clientRoom = 'viewingEnd';
-        this.state.start('viewingEnd');
+    if(door.targetTilemap==='viewing2'){
+        socket.emit('join room', {room:'viewing2', id: socket.id});
+        clientRoom = 'viewing2';
+        this.state.start('viewing2');
 
     }
     if(door.targetTilemap==='entrance'){

@@ -39,8 +39,10 @@ var setEventHandlers = function() {
 	entrance.on('connection', onSocketConnection);
 	var viewing1 = io.of('/viewing1');
 	viewing1.on('connection',onSocketConnection);
-	var viewingEnd = io.of('/viewingEnd');
-	viewingEnd.on('connection',onSocketConnection);
+	var viewing2 = io.of('/viewing2');
+	viewing2.on('connection',onSocketConnection);
+	var viewingHorse = io.of('/viewingHorse');
+	viewingHorse.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {

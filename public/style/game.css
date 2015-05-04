@@ -1,10 +1,16 @@
-body {
-	overflow: hidden;
+@font-face {
+  font-family: "Commander";
+  src: url('file:assets/sam/Minecraftia.ttf') format("truetype");
 }
+
+
 
 canvas {
 	display: block;
 }
+
+
+
 .phaser-canvas{
   position:absolute;
   width:800px;
@@ -34,7 +40,7 @@ canvas {
 }*/
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font: 13px Helvetica, Arial;}
+  body { font: 13px Commander;}
   form {
   background: #000;
   padding-top: 4px;

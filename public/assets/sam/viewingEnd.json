@@ -68,7 +68,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"viewingEnd.png",
+         "image":"viewingHorse.png",
          "imageheight":608,
          "imagewidth":800,
          "margin":0,
