@@ -30,6 +30,8 @@ artGame.entrance.prototype = {
     },
     create: function(){
          socket = new io.connect(window.location.href+"entrance");
+         console.log('socket',socket);
+         
          setUpChat.call(this,socket);
         
         var self = this;
@@ -105,7 +107,7 @@ artGame.entrance.prototype = {
                 music.play('', 0,1,true);
         }    
 
-        //this.initializeRemotePlayers();
+        this.initializeRemotePlayers();
         this.createDoors();
   
         setEventHandlers.bind(this)();
@@ -149,6 +151,7 @@ artGame.entrance.prototype = {
     //`('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     socket.emit('join room', {room:'viewing1', id: socket.id});
+
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});
     clientRoom = 'viewing1';
     this.state.start('viewing1');
