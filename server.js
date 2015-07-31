@@ -53,7 +53,7 @@ function onSocketConnection(socket) {
     socket.on("move player", onMovePlayer.bind(socket));
     socket.on('chat message', chatMessage.bind(socket));
     socket.on("remove player", onRemovePlayer.bind(socket));
-    socket.on('join room', joinRoom.bind(socket) );
+    socket.on('join room', joinRoom.bind(socket));
     socket.on('leave room', leaveRoom.bind(socket));
 }
 
@@ -64,15 +64,25 @@ function chatMessage(data){
 }
 
 function joinRoom(data){
+	console.log('joining with ', data);
 	var obj = {data: data, players: players};
+
+
 	var joinPlayer = players[this.id];
 	//first set the server room information
-	joinPlayer.room = data.room;
-	//then transmit the join room message to everyone with data necessary
-	//for remote player update
+	if(joinPlayer){
+		joinPlayer.room = data.room;
+		//then transmit the join room message to everyone with data necessary
+		//for remote player update
 
-	this.broadcast.emit('join room', obj);
-	//this.join(data.room);
+		this.broadcast.emit('join room', obj);
+		//this.join(data.room);
+
+	}
+	else{
+		console.error('join player doesnt exist',data);
+	}
+	
 }
 function leaveRoom(data){
 	this.broadcast.emit('leave room', data);
