@@ -187,8 +187,6 @@ artGame.entrance.prototype = {
 
         
 
-
-
         for (var id in remotePlayers)
         {
 
