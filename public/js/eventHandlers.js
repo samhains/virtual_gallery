@@ -31,6 +31,7 @@ function leaveRoom(data){
 }
 
 function joinRoom(data){
+    console.log('joining room',  data);
 
     // console.log("this player", data.data.id, "is joining",data.data.room);
     // console.log('join data',data);
