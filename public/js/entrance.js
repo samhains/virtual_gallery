@@ -10,6 +10,7 @@ var destroyText= function(){
 
 
 
+
 artGame.entrance = function(){};
 
 artGame.entrance.prototype = {
@@ -28,13 +29,10 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
+         socket = new io.connect(window.location.href+"entrance");
+         setUpChat.call(this,socket);
         
-
-        socket = new io.connect(window.location.href+"entrance");
-       
         var self = this;
-        setUpChat.bind(this)(socket);
-
 
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -64,6 +62,7 @@ artGame.entrance.prototype = {
         //this.layer.debug = true;
 
 
+
         this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
@@ -89,6 +88,7 @@ artGame.entrance.prototype = {
         //text settings
         this.textMessages = game.add.group(); 
         this.textYBuffer = 0;
+        this.textYBufferLineCount = 1;
         this.textY = this.player.y-15;
         this.lastChatMessageWidth;
 
@@ -104,8 +104,10 @@ artGame.entrance.prototype = {
         if(!music.isPlaying){
                 music.play('', 0,1,true);
         }    
-        this.initializeRemotePlayers();
+
+        //this.initializeRemotePlayers();
         this.createDoors();
+  
         setEventHandlers.bind(this)();
 
 
@@ -126,7 +128,6 @@ artGame.entrance.prototype = {
       
            
             if(player.room==="entrance" && player.id !== clientId ){
-
                
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -151,6 +152,7 @@ artGame.entrance.prototype = {
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});
     clientRoom = 'viewing1';
     this.state.start('viewing1');
+    $('form').off('submit');
 
 
   },
@@ -179,6 +181,7 @@ artGame.entrance.prototype = {
       });
   },
     update: function(){
+
         
 
 
@@ -191,8 +194,10 @@ artGame.entrance.prototype = {
         }
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
-    }
+
+        playerMovementAndAnimation.call(this, socket, clientRoom);
+    },
+
 };
 
 

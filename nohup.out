@@ -1,0 +1,1721 @@
+listening on *:5000
+New player has connected: EJfOSchNuBUelmZXAAAA
+New player has connected: Y5ZM7dSpXFprPb4GAAAB
+on socket Player has disconnected: Y5ZM7dSpXFprPb4GAAAB
+listening on *:5000
+New player has connected: GJ-sNt55owZ-qxaKAAAA
+on socket Player has disconnected: GJ-sNt55owZ-qxaKAAAA
+New player has connected: Cv1zPCE_e0WKEjfkAAAB
+on socket Player has disconnected: Cv1zPCE_e0WKEjfkAAAB
+New player has connected: iSJv8rRh5BMti_D2AAAC
+on socket Player has disconnected: iSJv8rRh5BMti_D2AAAC
+New player has connected: 3UZEM6F-ip4nrgnIAAAD
+on socket Player has disconnected: 3UZEM6F-ip4nrgnIAAAD
+New player has connected: 1NDUSEhUPM9OamrwAAAE
+on socket Player has disconnected: 1NDUSEhUPM9OamrwAAAE
+New player has connected: lunGdLSLYMkQPK6LAAAF
+on socket Player has disconnected: lunGdLSLYMkQPK6LAAAF
+New player has connected: kQ8tBHYYocfks5LhAAAG
+New player has connected: v0Foer_dFDX88bp0AAAH
+on socket Player has disconnected: v0Foer_dFDX88bp0AAAH
+New player has connected: hUUCdhHZ-EiSV8iPAAAI
+New player has connected: zi_OYoxiyZ1m92OhAAAJ
+on socket Player has disconnected: zi_OYoxiyZ1m92OhAAAJ
+on socket Player has disconnected: kQ8tBHYYocfks5LhAAAG
+on socket Player has disconnected: hUUCdhHZ-EiSV8iPAAAI
+New player has connected: cGoS1EURs3TdK5IcAAAK
+on socket Player has disconnected: cGoS1EURs3TdK5IcAAAK
+New player has connected: YJJ4rrK42J3jqVDKAAAL
+New player has connected: JGYBz_BPZiwuOOmCAAAM
+on socket Player has disconnected: JGYBz_BPZiwuOOmCAAAM
+New player has connected: _r20IsyJTpwO2muoAAAN
+on socket Player has disconnected: _r20IsyJTpwO2muoAAAN
+on socket Player has disconnected: YJJ4rrK42J3jqVDKAAAL
+New player has connected: W5Pb1Yo4Polp4aSOAAAO
+on socket Player has disconnected: W5Pb1Yo4Polp4aSOAAAO
+
+> wzz2022@1.0.0 start /var/www/wzz-multiplayer
+> node server.js
+
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:19:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/wzz-multiplayer/npm-debug.log
+New player has connected: syd7zcI_7LAhVtgmAAAP
+New player has connected: bSN9x3R9hEWBx6EqAAAQ
+on socket Player has disconnected: syd7zcI_7LAhVtgmAAAP
+on socket Player has disconnected: bSN9x3R9hEWBx6EqAAAQ
+New player has connected: VxRFqHmaBPIthmehAAAR
+New player has connected: oJ_szMKV2fyarpS3AAAS
+on socket Player has disconnected: oJ_szMKV2fyarpS3AAAS
+New player has connected: 9nY9Vi9egIq_tMuAAAAT
+on socket Player has disconnected: VxRFqHmaBPIthmehAAAR
+New player has connected: BvwgIT113JSZxFMUAAAU
+on socket Player has disconnected: BvwgIT113JSZxFMUAAAU
+on socket Player has disconnected: 9nY9Vi9egIq_tMuAAAAT
+New player has connected: EppHMnA3dZf5KT6zAAAV
+on socket Player has disconnected: EppHMnA3dZf5KT6zAAAV
+New player has connected: 7hRjezvAcTayXfkiAAAW
+on socket Player has disconnected: 7hRjezvAcTayXfkiAAAW
+New player has connected: o1i8DykxAuQ0HnvUAAAX
+on socket Player has disconnected: o1i8DykxAuQ0HnvUAAAX
+
+> wzz2022@1.0.0 start /var/www/wzz-multiplayer
+> node server.js
+
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module 'lodash'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:6:9)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/wzz-multiplayer/npm-debug.log
+New player has connected: FQRlZP4opYL6yhTvAAAY
+New player has connected: rgarRi8yLIZ3hliUAAAZ
+on socket Player has disconnected: FQRlZP4opYL6yhTvAAAY
+on socket Player has disconnected: rgarRi8yLIZ3hliUAAAZ
+New player has connected: 5ws9yYxxLQBKESKBAAAa
+New player has connected: SgiyE5uTGAksuWG9AAAb
+New player has connected: fJYtx9FggYjVn7myAAAc
+on socket Player has disconnected: fJYtx9FggYjVn7myAAAc
+on socket Player has disconnected: 5ws9yYxxLQBKESKBAAAa
+New player has connected: rEH06URs0L0Tiab1AAAd
+on socket Player has disconnected: rEH06URs0L0Tiab1AAAd
+on socket Player has disconnected: SgiyE5uTGAksuWG9AAAb
+
+> wzz2022@1.0.0 start /var/www/wzz-multiplayer
+> node server.js
+
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module 'lodash'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:6:9)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/wzz-multiplayer/npm-debug.log
+New player has connected: XVRvUU5K5tBCGIMaAAAe
+New player has connected: swgfbOBSB8HgNWPlAAAf
+on socket Player has disconnected: swgfbOBSB8HgNWPlAAAf
+New player has connected: Nykko16e6HZvUmHJAAAg
+on socket Player has disconnected: Nykko16e6HZvUmHJAAAg
+on socket Player has disconnected: XVRvUU5K5tBCGIMaAAAe
+New player has connected: iWJAhn_G03D34THMAAAh
+on socket Player has disconnected: iWJAhn_G03D34THMAAAh
+
+> wzz2022@1.0.0 start /var/www/wzz-multiplayer
+> node server.js
+
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module 'lodash'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:6:9)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/wzz-multiplayer/npm-debug.log
+New player has connected: 7pkMLalj1fwfZUHLAAAi
+on socket Player has disconnected: 7pkMLalj1fwfZUHLAAAi
+New player has connected: Su0oFm_16kt8SeT9AAAj
+on socket Player has disconnected: Su0oFm_16kt8SeT9AAAj
+New player has connected: sQL8sgZuMXORs7wLAAAk
+New player has connected: jHmSlxwG90ihhQNYAAAl
+on socket Player has disconnected: sQL8sgZuMXORs7wLAAAk
+on socket Player has disconnected: jHmSlxwG90ihhQNYAAAl
+New player has connected: jO_HRWI2xL8_1hroAAAm
+on socket Player has disconnected: jO_HRWI2xL8_1hroAAAm
+New player has connected: G0G8roN9hMVoRINBAAAn
+New player has connected: LtP6gOV8Fii_EirhAAAo
+on socket Player has disconnected: LtP6gOV8Fii_EirhAAAo
+New player has connected: w7tbjeR1julIeHueAAAp
+on socket Player has disconnected: w7tbjeR1julIeHueAAAp
+on socket Player has disconnected: G0G8roN9hMVoRINBAAAn
+New player has connected: _AIU5CU5Ubx3eZICAAAq
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:19:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+on socket Player has disconnected: _AIU5CU5Ubx3eZICAAAq
+New player has connected: xpwpmA2Y29VjE8QaAAAr
+on socket Player has disconnected: xpwpmA2Y29VjE8QaAAAr
+New player has connected: ozbR_fPFwR8QtZfIAAAs
+on socket Player has disconnected: ozbR_fPFwR8QtZfIAAAs
+New player has connected: TQv47F2U_Ha2YMdpAAAt
+on socket Player has disconnected: TQv47F2U_Ha2YMdpAAAt
+New player has connected: bEZZuJly-cj_RubdAAAu
+New player has connected: uvLqKeipW9tDm79hAAAv
+on socket Player has disconnected: bEZZuJly-cj_RubdAAAu
+on socket Player has disconnected: uvLqKeipW9tDm79hAAAv
+New player has connected: CoKyA7d5bzGLhJXIAAAw
+New player has connected: 26Ds8oiV3tnhenHTAAAx
+on socket Player has disconnected: 26Ds8oiV3tnhenHTAAAx
+New player has connected: vPKj8nu-Iv_RfEhoAAAy
+on socket Player has disconnected: vPKj8nu-Iv_RfEhoAAAy
+New player has connected: z2HM24Ntu2QPOf80AAAz
+on socket Player has disconnected: z2HM24Ntu2QPOf80AAAz
+on socket Player has disconnected: CoKyA7d5bzGLhJXIAAAw
+New player has connected: X6htb4QtXUaAnc9JAAA0
+on socket Player has disconnected: X6htb4QtXUaAnc9JAAA0
+New player has connected: vcSG_yPBPTleZCAKAAA1
+New player has connected: iHavrpoP8Xzr0qKFAAA2
+New player has connected: mE9VerFEy-ZyjolPAAA3
+on socket Player has disconnected: mE9VerFEy-ZyjolPAAA3
+New player has connected: O1wE-IlseuGLv5ayAAA4
+on socket Player has disconnected: O1wE-IlseuGLv5ayAAA4
+on socket Player has disconnected: iHavrpoP8Xzr0qKFAAA2
+New player has connected: sI56OeYgqgccDkc9AAA5
+on socket Player has disconnected: sI56OeYgqgccDkc9AAA5
+on socket Player has disconnected: vcSG_yPBPTleZCAKAAA1
+New player has connected: poV08TiZ1anLTO_mAAA6
+on socket Player has disconnected: poV08TiZ1anLTO_mAAA6
+Mon, 13 Apr 2015 19:15:10 GMT express deprecated res.sendfile: Use res.sendFile instead at server.js:15:7
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:30:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:23:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+IO { nsps: 
+   { '/': 
+      { name: '/',
+        server: [Circular],
+        sockets: [],
+        connected: {},
+        fns: [],
+        ids: 0,
+        acks: {},
+        adapter: [Object] } },
+  _path: '/socket.io',
+  _serveClient: true,
+  _adapter: [Function: Adapter],
+  _origins: '*:*',
+  sockets: 
+   { name: '/',
+     server: [Circular],
+     sockets: [],
+     connected: {},
+     fns: [],
+     ids: 0,
+     acks: {},
+     adapter: { nsp: [Circular], rooms: {}, sids: {}, encoder: {} } },
+  eio: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } },
+  httpServer: 
+   { domain: null,
+     _events: 
+      { connection: [Function: connectionListener],
+        clientError: [Function],
+        close: [Function],
+        upgrade: [Function],
+        request: [Function] },
+     _maxListeners: undefined,
+     _connections: 0,
+     _handle: null,
+     _usingSlaves: false,
+     _slaves: [],
+     allowHalfOpen: true,
+     pauseOnConnect: false,
+     httpAllowHalfOpen: false,
+     timeout: 120000 },
+  engine: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } } }
+io undefined
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:26:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+IO { nsps: 
+   { '/': 
+      { name: '/',
+        server: [Circular],
+        sockets: [],
+        connected: {},
+        fns: [],
+        ids: 0,
+        acks: {},
+        adapter: [Object] } },
+  _path: '/socket.io',
+  _serveClient: true,
+  _adapter: [Function: Adapter],
+  _origins: '*:*',
+  sockets: 
+   { name: '/',
+     server: [Circular],
+     sockets: [],
+     connected: {},
+     fns: [],
+     ids: 0,
+     acks: {},
+     adapter: { nsp: [Circular], rooms: {}, sids: {}, encoder: {} } },
+  eio: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } },
+  httpServer: 
+   { domain: null,
+     _events: 
+      { connection: [Function: connectionListener],
+        clientError: [Function],
+        close: [Function],
+        upgrade: [Function],
+        request: [Function] },
+     _maxListeners: undefined,
+     _connections: 0,
+     _handle: null,
+     _usingSlaves: false,
+     _slaves: [],
+     allowHalfOpen: true,
+     pauseOnConnect: false,
+     httpAllowHalfOpen: false,
+     timeout: 120000 },
+  engine: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } } }
+io undefined
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:26:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+stop: missing job name
+Try `stop --help' for more information.
+IO { nsps: 
+   { '/': 
+      { name: '/',
+        server: [Circular],
+        sockets: [],
+        connected: {},
+        fns: [],
+        ids: 0,
+        acks: {},
+        adapter: [Object] } },
+  _path: '/socket.io',
+  _serveClient: true,
+  _adapter: [Function: Adapter],
+  _origins: '*:*',
+  sockets: 
+   { name: '/',
+     server: [Circular],
+     sockets: [],
+     connected: {},
+     fns: [],
+     ids: 0,
+     acks: {},
+     adapter: { nsp: [Circular], rooms: {}, sids: {}, encoder: {} } },
+  eio: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } },
+  httpServer: 
+   { domain: null,
+     _events: 
+      { connection: [Function: connectionListener],
+        clientError: [Function],
+        close: [Function],
+        upgrade: [Function],
+        request: [Function] },
+     _maxListeners: undefined,
+     _connections: 0,
+     _handle: null,
+     _usingSlaves: false,
+     _slaves: [],
+     allowHalfOpen: true,
+     pauseOnConnect: false,
+     httpAllowHalfOpen: false,
+     timeout: 120000 },
+  engine: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } } }
+io undefined
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:26:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/wzz-multiplayer/index.html'
+    at Error (native)
+IO { nsps: 
+   { '/': 
+      { name: '/',
+        server: [Circular],
+        sockets: [],
+        connected: {},
+        fns: [],
+        ids: 0,
+        acks: {},
+        adapter: [Object] } },
+  _path: '/socket.io',
+  _serveClient: true,
+  _adapter: [Function: Adapter],
+  _origins: '*:*',
+  sockets: 
+   { name: '/',
+     server: [Circular],
+     sockets: [],
+     connected: {},
+     fns: [],
+     ids: 0,
+     acks: {},
+     adapter: { nsp: [Circular], rooms: {}, sids: {}, encoder: {} } },
+  eio: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } },
+  httpServer: 
+   { domain: null,
+     _events: 
+      { connection: [Function: connectionListener],
+        clientError: [Function],
+        close: [Function],
+        upgrade: [Function],
+        request: [Function] },
+     _maxListeners: undefined,
+     _connections: 0,
+     _handle: null,
+     _usingSlaves: false,
+     _slaves: [],
+     allowHalfOpen: true,
+     pauseOnConnect: false,
+     httpAllowHalfOpen: false,
+     timeout: 120000 },
+  engine: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } } }
+io undefined
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:25:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+IO { nsps: 
+   { '/': 
+      { name: '/',
+        server: [Circular],
+        sockets: [],
+        connected: {},
+        fns: [],
+        ids: 0,
+        acks: {},
+        adapter: [Object] } },
+  _path: '/socket.io',
+  _serveClient: true,
+  _adapter: [Function: Adapter],
+  _origins: '*:*',
+  sockets: 
+   { name: '/',
+     server: [Circular],
+     sockets: [],
+     connected: {},
+     fns: [],
+     ids: 0,
+     acks: {},
+     adapter: { nsp: [Circular], rooms: {}, sids: {}, encoder: {} } },
+  eio: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } },
+  httpServer: 
+   { domain: null,
+     _events: 
+      { connection: [Function: connectionListener],
+        clientError: [Function],
+        close: [Function],
+        upgrade: [Function],
+        request: [Function] },
+     _maxListeners: undefined,
+     _connections: 0,
+     _handle: null,
+     _usingSlaves: false,
+     _slaves: [],
+     allowHalfOpen: true,
+     pauseOnConnect: false,
+     httpAllowHalfOpen: false,
+     timeout: 120000 },
+  engine: 
+   { clients: {},
+     clientsCount: 0,
+     pingTimeout: 60000,
+     pingInterval: 25000,
+     upgradeTimeout: 10000,
+     maxHttpBufferSize: 100000000,
+     transports: [ 'polling', 'websocket' ],
+     allowUpgrades: true,
+     allowRequest: [Function],
+     cookie: 'io',
+     ws: 
+      { domain: null,
+        _events: {},
+        _maxListeners: undefined,
+        options: [Object],
+        path: null,
+        clients: [] },
+     _events: { connection: [Function] } } }
+io undefined
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:25:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/wzz-multiplayer/server.js:23:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/virtual-gallery/server.js:23:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+Error: ENOENT, stat '/var/www/virtual-gallery/index.html'
+    at Error (native)
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+listening on *:5000
+New player has connected: bqfzlj6oqf8-FyZ3AAAA
+New player has connected: bqfzlj6oqf8-FyZ3AAAA
+on socket Player has disconnected: bqfzlj6oqf8-FyZ3AAAA
+on socket Player has disconnected: bqfzlj6oqf8-FyZ3AAAA
+ on socket Player not found: bqfzlj6oqf8-FyZ3AAAA
+New player has connected: 8lTPB1ueGLr4XX8nAAAB
+New player has connected: 8lTPB1ueGLr4XX8nAAAB
+on socket Player has disconnected: 8lTPB1ueGLr4XX8nAAAB
+on socket Player has disconnected: 8lTPB1ueGLr4XX8nAAAB
+ on socket Player not found: 8lTPB1ueGLr4XX8nAAAB
+Killed
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+listening on *:5000
+New player has connected: ru42Tml-FE83xOgWAAAA
+on socket Player has disconnected: ru42Tml-FE83xOgWAAAA
+New player has connected: pFyAET7GaBjgRwrBAAAB
+New player has connected: pFyAET7GaBjgRwrBAAAB
+New player has connected: pFyAET7GaBjgRwrBAAAB
+New player has connected: pFyAET7GaBjgRwrBAAAB
+on socket Player has disconnected: pFyAET7GaBjgRwrBAAAB
+on socket Player has disconnected: pFyAET7GaBjgRwrBAAAB
+ on socket Player not found: pFyAET7GaBjgRwrBAAAB
+on socket Player has disconnected: pFyAET7GaBjgRwrBAAAB
+ on socket Player not found: pFyAET7GaBjgRwrBAAAB
+on socket Player has disconnected: pFyAET7GaBjgRwrBAAAB
+ on socket Player not found: pFyAET7GaBjgRwrBAAAB
+New player has connected: 41Y62O9J4M7rQX5kAAAC
+New player has connected: Ye0P_dCMho8TbRs1AAAD
+New player has connected: Ye0P_dCMho8TbRs1AAAD
+New player has connected: 41Y62O9J4M7rQX5kAAAC
+New player has connected: 41Y62O9J4M7rQX5kAAAC
+New player has connected: Ye0P_dCMho8TbRs1AAAD
+on socket Player has disconnected: Ye0P_dCMho8TbRs1AAAD
+on socket Player has disconnected: Ye0P_dCMho8TbRs1AAAD
+ on socket Player not found: Ye0P_dCMho8TbRs1AAAD
+on socket Player has disconnected: Ye0P_dCMho8TbRs1AAAD
+ on socket Player not found: Ye0P_dCMho8TbRs1AAAD
+New player has connected: -41zUnNssAs_1VoqAAAE
+New player has connected: 41Y62O9J4M7rQX5kAAAC
+on socket Player has disconnected: 41Y62O9J4M7rQX5kAAAC
+on socket Player has disconnected: 41Y62O9J4M7rQX5kAAAC
+ on socket Player not found: 41Y62O9J4M7rQX5kAAAC
+on socket Player has disconnected: 41Y62O9J4M7rQX5kAAAC
+ on socket Player not found: 41Y62O9J4M7rQX5kAAAC
+on socket Player has disconnected: 41Y62O9J4M7rQX5kAAAC
+ on socket Player not found: 41Y62O9J4M7rQX5kAAAC
+New player has connected: -41zUnNssAs_1VoqAAAE
+New player has connected: EJO2ucqZOcsd7IG8AAAF
+New player has connected: EJO2ucqZOcsd7IG8AAAF
+on socket Player has disconnected: EJO2ucqZOcsd7IG8AAAF
+on socket Player has disconnected: EJO2ucqZOcsd7IG8AAAF
+ on socket Player not found: EJO2ucqZOcsd7IG8AAAF
+on socket Player has disconnected: -41zUnNssAs_1VoqAAAE
+on socket Player has disconnected: -41zUnNssAs_1VoqAAAE
+ on socket Player not found: -41zUnNssAs_1VoqAAAE
+New player has connected: wFQE6ILdmsnOZZ4IAAAG
+New player has connected: bdMTqdBso59R4NQgAAAH
+on socket Player has disconnected: bdMTqdBso59R4NQgAAAH
+on socket Player has disconnected: wFQE6ILdmsnOZZ4IAAAG
+New player has connected: tm9Lw5_TculPIuomAAAI
+New player has connected: 4RSVtbgahBkACA8HAAAJ
+New player has connected: tm9Lw5_TculPIuomAAAI
+New player has connected: 4RSVtbgahBkACA8HAAAJ
+New player has connected: tm9Lw5_TculPIuomAAAI
+New player has connected: 4RSVtbgahBkACA8HAAAJ
+New player has connected: tm9Lw5_TculPIuomAAAI
+on socket Player has disconnected: 4RSVtbgahBkACA8HAAAJ
+on socket Player has disconnected: 4RSVtbgahBkACA8HAAAJ
+ on socket Player not found: 4RSVtbgahBkACA8HAAAJ
+on socket Player has disconnected: 4RSVtbgahBkACA8HAAAJ
+ on socket Player not found: 4RSVtbgahBkACA8HAAAJ
+on socket Player has disconnected: tm9Lw5_TculPIuomAAAI
+on socket Player has disconnected: tm9Lw5_TculPIuomAAAI
+ on socket Player not found: tm9Lw5_TculPIuomAAAI
+on socket Player has disconnected: tm9Lw5_TculPIuomAAAI
+ on socket Player not found: tm9Lw5_TculPIuomAAAI
+on socket Player has disconnected: tm9Lw5_TculPIuomAAAI
+ on socket Player not found: tm9Lw5_TculPIuomAAAI
+New player has connected: vWFcrI9TOqPX1KvuAAAK
+New player has connected: vWFcrI9TOqPX1KvuAAAK
+New player has connected: vWFcrI9TOqPX1KvuAAAK
+New player has connected: vWFcrI9TOqPX1KvuAAAK
+New player has connected: 2e7MmpSX8NPKO2zZAAAL
+New player has connected: 2e7MmpSX8NPKO2zZAAAL
+New player has connected: BK4dQ1IMdJN0sJ36AAAM
+New player has connected: 2e7MmpSX8NPKO2zZAAAL
+New player has connected: 2e7MmpSX8NPKO2zZAAAL
+New player has connected: BK4dQ1IMdJN0sJ36AAAM
+New player has connected: BK4dQ1IMdJN0sJ36AAAM
+New player has connected: BK4dQ1IMdJN0sJ36AAAM
+New player has connected: uXmQUYoGzXhbCJqUAAAN
+New player has connected: uXmQUYoGzXhbCJqUAAAN
+New player has connected: uXmQUYoGzXhbCJqUAAAN
+New player has connected: uXmQUYoGzXhbCJqUAAAN
+New player has connected: rn09I56SwzKZnQ2WAAAO
+New player has connected: rn09I56SwzKZnQ2WAAAO
+New player has connected: rn09I56SwzKZnQ2WAAAO
+on socket Player has disconnected: rn09I56SwzKZnQ2WAAAO
+on socket Player has disconnected: rn09I56SwzKZnQ2WAAAO
+ on socket Player not found: rn09I56SwzKZnQ2WAAAO
+on socket Player has disconnected: rn09I56SwzKZnQ2WAAAO
+ on socket Player not found: rn09I56SwzKZnQ2WAAAO
+New player has connected: LLy7iaSMmIWxRAa7AAAP
+on socket Player has disconnected: BK4dQ1IMdJN0sJ36AAAM
+on socket Player has disconnected: BK4dQ1IMdJN0sJ36AAAM
+ on socket Player not found: BK4dQ1IMdJN0sJ36AAAM
+on socket Player has disconnected: BK4dQ1IMdJN0sJ36AAAM
+ on socket Player not found: BK4dQ1IMdJN0sJ36AAAM
+on socket Player has disconnected: BK4dQ1IMdJN0sJ36AAAM
+ on socket Player not found: BK4dQ1IMdJN0sJ36AAAM
+on socket Player has disconnected: vWFcrI9TOqPX1KvuAAAK
+on socket Player has disconnected: vWFcrI9TOqPX1KvuAAAK
+ on socket Player not found: vWFcrI9TOqPX1KvuAAAK
+on socket Player has disconnected: vWFcrI9TOqPX1KvuAAAK
+ on socket Player not found: vWFcrI9TOqPX1KvuAAAK
+on socket Player has disconnected: vWFcrI9TOqPX1KvuAAAK
+ on socket Player not found: vWFcrI9TOqPX1KvuAAAK
+on socket Player has disconnected: uXmQUYoGzXhbCJqUAAAN
+on socket Player has disconnected: uXmQUYoGzXhbCJqUAAAN
+ on socket Player not found: uXmQUYoGzXhbCJqUAAAN
+on socket Player has disconnected: uXmQUYoGzXhbCJqUAAAN
+ on socket Player not found: uXmQUYoGzXhbCJqUAAAN
+on socket Player has disconnected: uXmQUYoGzXhbCJqUAAAN
+ on socket Player not found: uXmQUYoGzXhbCJqUAAAN
+New player has connected: LLy7iaSMmIWxRAa7AAAP
+New player has connected: LLy7iaSMmIWxRAa7AAAP
+on socket Player has disconnected: LLy7iaSMmIWxRAa7AAAP
+on socket Player has disconnected: LLy7iaSMmIWxRAa7AAAP
+ on socket Player not found: LLy7iaSMmIWxRAa7AAAP
+on socket Player has disconnected: LLy7iaSMmIWxRAa7AAAP
+ on socket Player not found: LLy7iaSMmIWxRAa7AAAP
+New player has connected: 8-F3RjHsGSzJUzjRAAAQ
+on socket Player has disconnected: 8-F3RjHsGSzJUzjRAAAQ
+New player has connected: RVzMdMf88fnqV2jlAAAR
+New player has connected: RVzMdMf88fnqV2jlAAAR
+New player has connected: RVzMdMf88fnqV2jlAAAR
+New player has connected: RVzMdMf88fnqV2jlAAAR
+on socket Player has disconnected: RVzMdMf88fnqV2jlAAAR
+on socket Player has disconnected: RVzMdMf88fnqV2jlAAAR
+ on socket Player not found: RVzMdMf88fnqV2jlAAAR
+on socket Player has disconnected: RVzMdMf88fnqV2jlAAAR
+ on socket Player not found: RVzMdMf88fnqV2jlAAAR
+on socket Player has disconnected: RVzMdMf88fnqV2jlAAAR
+ on socket Player not found: RVzMdMf88fnqV2jlAAAR
+on socket Player has disconnected: 2e7MmpSX8NPKO2zZAAAL
+on socket Player has disconnected: 2e7MmpSX8NPKO2zZAAAL
+ on socket Player not found: 2e7MmpSX8NPKO2zZAAAL
+on socket Player has disconnected: 2e7MmpSX8NPKO2zZAAAL
+ on socket Player not found: 2e7MmpSX8NPKO2zZAAAL
+on socket Player has disconnected: 2e7MmpSX8NPKO2zZAAAL
+ on socket Player not found: 2e7MmpSX8NPKO2zZAAAL
+New player has connected: bTgbj3rjolelMc30AAAS
+New player has connected: bTgbj3rjolelMc30AAAS
+New player has connected: bTgbj3rjolelMc30AAAS
+on socket Player has disconnected: bTgbj3rjolelMc30AAAS
+on socket Player has disconnected: bTgbj3rjolelMc30AAAS
+ on socket Player not found: bTgbj3rjolelMc30AAAS
+on socket Player has disconnected: bTgbj3rjolelMc30AAAS
+ on socket Player not found: bTgbj3rjolelMc30AAAS
+New player has connected: FhlGTvUUeYHVp11PAAAT
+New player has connected: FhlGTvUUeYHVp11PAAAT
+on socket Player has disconnected: FhlGTvUUeYHVp11PAAAT
+on socket Player has disconnected: FhlGTvUUeYHVp11PAAAT
+ on socket Player not found: FhlGTvUUeYHVp11PAAAT
+New player has connected: HXJcp2kixfZ5bJ6nAAAU
+on socket Player has disconnected: HXJcp2kixfZ5bJ6nAAAU
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/virtual-gallery/server.js:27:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log
+New player has connected: BCMff7vJvmfY5M1uAAAV
+New player has connected: vRSIvmzFakRuu4DWAAAW
+on socket Player has disconnected: vRSIvmzFakRuu4DWAAAW
+on socket Player has disconnected: BCMff7vJvmfY5M1uAAAV
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/virtual-gallery/server.js:27:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log
+New player has connected: QArWky_rNBZlxRgLAAAX
+New player has connected: xhryA9PsGuTpxRlKAAAY
+New player has connected: QArWky_rNBZlxRgLAAAX
+New player has connected: xhryA9PsGuTpxRlKAAAY
+New player has connected: xhryA9PsGuTpxRlKAAAY
+New player has connected: QArWky_rNBZlxRgLAAAX
+New player has connected: QArWky_rNBZlxRgLAAAX
+New player has connected: xhryA9PsGuTpxRlKAAAY
+on socket Player has disconnected: QArWky_rNBZlxRgLAAAX
+on socket Player has disconnected: QArWky_rNBZlxRgLAAAX
+ on socket Player not found: QArWky_rNBZlxRgLAAAX
+on socket Player has disconnected: QArWky_rNBZlxRgLAAAX
+ on socket Player not found: QArWky_rNBZlxRgLAAAX
+on socket Player has disconnected: QArWky_rNBZlxRgLAAAX
+ on socket Player not found: QArWky_rNBZlxRgLAAAX
+New player has connected: ladvpkpWqktVjPgWAAAZ
+on socket Player has disconnected: xhryA9PsGuTpxRlKAAAY
+on socket Player has disconnected: xhryA9PsGuTpxRlKAAAY
+ on socket Player not found: xhryA9PsGuTpxRlKAAAY
+on socket Player has disconnected: xhryA9PsGuTpxRlKAAAY
+ on socket Player not found: xhryA9PsGuTpxRlKAAAY
+on socket Player has disconnected: xhryA9PsGuTpxRlKAAAY
+ on socket Player not found: xhryA9PsGuTpxRlKAAAY
+New player has connected: 9dHseB91n_sLXV38AAAa
+New player has connected: 9dHseB91n_sLXV38AAAa
+New player has connected: 9dHseB91n_sLXV38AAAa
+New player has connected: 9dHseB91n_sLXV38AAAa
+on socket Player has disconnected: ladvpkpWqktVjPgWAAAZ
+New player has connected: 9-HnHFJvXGsfr4dRAAAb
+on socket Player has disconnected: 9-HnHFJvXGsfr4dRAAAb
+on socket Player has disconnected: 9dHseB91n_sLXV38AAAa
+on socket Player has disconnected: 9dHseB91n_sLXV38AAAa
+ on socket Player not found: 9dHseB91n_sLXV38AAAa
+on socket Player has disconnected: 9dHseB91n_sLXV38AAAa
+ on socket Player not found: 9dHseB91n_sLXV38AAAa
+on socket Player has disconnected: 9dHseB91n_sLXV38AAAa
+ on socket Player not found: 9dHseB91n_sLXV38AAAa
+New player has connected: JscCxjJk9dHZFptfAAAc
+on socket Player has disconnected: JscCxjJk9dHZFptfAAAc
+New player has connected: 5fDd1zusl7IVuPAAAAAd
+on socket Player has disconnected: 5fDd1zusl7IVuPAAAAAd
+New player has connected: qep0CKaLCMCBBGrqAAAe
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: listen EADDRINUSE
+    at exports._errnoException (util.js:746:11)
+    at Server._listen2 (net.js:1129:14)
+    at listen (net.js:1155:10)
+    at Server.listen (net.js:1240:5)
+    at Object.<anonymous> (/var/www/virtual-gallery/server.js:27:6)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Function.Module.runMain (module.js:501:10)
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log
+New player has connected: 60JgxrpLIFCLkVwYAAAf
+New player has connected: Bc6ot0bvux9PxAGDAAAg
+New player has connected: Bc6ot0bvux9PxAGDAAAg
+New player has connected: Bc6ot0bvux9PxAGDAAAg
+on socket Player has disconnected: Bc6ot0bvux9PxAGDAAAg
+on socket Player has disconnected: Bc6ot0bvux9PxAGDAAAg
+ on socket Player not found: Bc6ot0bvux9PxAGDAAAg
+on socket Player has disconnected: Bc6ot0bvux9PxAGDAAAg
+ on socket Player not found: Bc6ot0bvux9PxAGDAAAg
+on socket Player has disconnected: 60JgxrpLIFCLkVwYAAAf
+Killed
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log
+listening on *:5000
+New player has connected: -b6gMqDojteilh_SAAAA
+on socket Player has disconnected: -b6gMqDojteilh_SAAAA
+ on socket Player not found: -b6gMqDojteilh_SAAAA
+New player has connected: GKCskrQL6CviD7PLAAAB
+on socket Player has disconnected: GKCskrQL6CviD7PLAAAB
+ on socket Player not found: GKCskrQL6CviD7PLAAAB
+New player has connected: Dg0u47sLnsroimjYAAAC
+on socket Player has disconnected: Dg0u47sLnsroimjYAAAC
+ on socket Player not found: Dg0u47sLnsroimjYAAAC
+New player has connected: n78ibIWDYF38qPJ2AAAD
+New player has connected: n78ibIWDYF38qPJ2AAAD
+New player has connected: akJrU2ix-2J2Gcj5AAAE
+on socket Player has disconnected: n78ibIWDYF38qPJ2AAAD
+on socket Player has disconnected: n78ibIWDYF38qPJ2AAAD
+ on socket Player not found: n78ibIWDYF38qPJ2AAAD
+on socket Player has disconnected: akJrU2ix-2J2Gcj5AAAE
+New player has connected: FH_KBzWOxns4pT0TAAAF
+New player has connected: w8-WQKhMXd6BCtXCAAAG
+New player has connected: FH_KBzWOxns4pT0TAAAF
+New player has connected: w8-WQKhMXd6BCtXCAAAG
+New player has connected: FH_KBzWOxns4pT0TAAAF
+New player has connected: w8-WQKhMXd6BCtXCAAAG
+on socket Player has disconnected: w8-WQKhMXd6BCtXCAAAG
+on socket Player has disconnected: w8-WQKhMXd6BCtXCAAAG
+ on socket Player not found: w8-WQKhMXd6BCtXCAAAG
+on socket Player has disconnected: w8-WQKhMXd6BCtXCAAAG
+ on socket Player not found: w8-WQKhMXd6BCtXCAAAG
+on socket Player has disconnected: FH_KBzWOxns4pT0TAAAF
+on socket Player has disconnected: FH_KBzWOxns4pT0TAAAF
+ on socket Player not found: FH_KBzWOxns4pT0TAAAF
+on socket Player has disconnected: FH_KBzWOxns4pT0TAAAF
+ on socket Player not found: FH_KBzWOxns4pT0TAAAF
+New player has connected: wWlDFMj5pMSoBo0AAAAH
+New player has connected: J0zOI6umW6Kg5MhTAAAI
+on socket Player has disconnected: J0zOI6umW6Kg5MhTAAAI
+on socket Player has disconnected: wWlDFMj5pMSoBo0AAAAH
+ on socket Player not found: wWlDFMj5pMSoBo0AAAAH
+New player has connected: 0-L5TEjesvUNehrXAAAJ
+New player has connected: EAvtygfcI8dLyh6QAAAK
+New player has connected: STJX3itw8O0bjLrwAAAL
+New player has connected: 1YfVH-fRksZd5zYtAAAM
+New player has connected: STJX3itw8O0bjLrwAAAL
+New player has connected: 0-L5TEjesvUNehrXAAAJ
+New player has connected: 1YfVH-fRksZd5zYtAAAM
+New player has connected: STJX3itw8O0bjLrwAAAL
+New player has connected: a7Wt0X9P9dwfuVZxAAAO
+New player has connected: EAvtygfcI8dLyh6QAAAK
+New player has connected: -2k8_S5I1B8GpcN5AAAP
+on socket Player has disconnected: a7Wt0X9P9dwfuVZxAAAO
+New player has connected: 8fOfjR98zC_xnaAcAAAQ
+New player has connected: -2k8_S5I1B8GpcN5AAAP
+New player has connected: EAvtygfcI8dLyh6QAAAK
+New player has connected: 8fOfjR98zC_xnaAcAAAQ
+New player has connected: 1YfVH-fRksZd5zYtAAAM
+New player has connected: -2k8_S5I1B8GpcN5AAAP
+New player has connected: 0-L5TEjesvUNehrXAAAJ
+New player has connected: 0-L5TEjesvUNehrXAAAJ
+New player has connected: 8fOfjR98zC_xnaAcAAAQ
+New player has connected: K3SNz5BzruCk5pX1AAAR
+New player has connected: mLLCbQ0ezGQqK7FuAAAS
+New player has connected: EAvtygfcI8dLyh6QAAAK
+New player has connected: ATW0Nc7IO1mwPuErAAAT
+New player has connected: K3SNz5BzruCk5pX1AAAR
+New player has connected: 8fOfjR98zC_xnaAcAAAQ
+New player has connected: mLLCbQ0ezGQqK7FuAAAS
+New player has connected: ATW0Nc7IO1mwPuErAAAT
+New player has connected: K3SNz5BzruCk5pX1AAAR
+on socket Player has disconnected: STJX3itw8O0bjLrwAAAL
+on socket Player has disconnected: STJX3itw8O0bjLrwAAAL
+ on socket Player not found: STJX3itw8O0bjLrwAAAL
+on socket Player has disconnected: STJX3itw8O0bjLrwAAAL
+ on socket Player not found: STJX3itw8O0bjLrwAAAL
+New player has connected: mLLCbQ0ezGQqK7FuAAAS
+New player has connected: ATW0Nc7IO1mwPuErAAAT
+New player has connected: 3UPMnSAOPUeVe1oWAAAU
+New player has connected: ATW0Nc7IO1mwPuErAAAT
+New player has connected: Vykbpp2dy_mQGqtCAAAV
+New player has connected: Vykbpp2dy_mQGqtCAAAV
+New player has connected: mLLCbQ0ezGQqK7FuAAAS
+on socket Player has disconnected: 0-L5TEjesvUNehrXAAAJ
+on socket Player has disconnected: 0-L5TEjesvUNehrXAAAJ
+ on socket Player not found: 0-L5TEjesvUNehrXAAAJ
+on socket Player has disconnected: 0-L5TEjesvUNehrXAAAJ
+ on socket Player not found: 0-L5TEjesvUNehrXAAAJ
+on socket Player has disconnected: 0-L5TEjesvUNehrXAAAJ
+ on socket Player not found: 0-L5TEjesvUNehrXAAAJ
+New player has connected: ynpGNi_P52EA1fNaAAAW
+on socket Player has disconnected: EAvtygfcI8dLyh6QAAAK
+on socket Player has disconnected: EAvtygfcI8dLyh6QAAAK
+ on socket Player not found: EAvtygfcI8dLyh6QAAAK
+on socket Player has disconnected: EAvtygfcI8dLyh6QAAAK
+ on socket Player not found: EAvtygfcI8dLyh6QAAAK
+on socket Player has disconnected: EAvtygfcI8dLyh6QAAAK
+ on socket Player not found: EAvtygfcI8dLyh6QAAAK
+New player has connected: uQ1NQtcyjTY0KXt8AAAX
+on socket Player has disconnected: mLLCbQ0ezGQqK7FuAAAS
+on socket Player has disconnected: mLLCbQ0ezGQqK7FuAAAS
+ on socket Player not found: mLLCbQ0ezGQqK7FuAAAS
+on socket Player has disconnected: mLLCbQ0ezGQqK7FuAAAS
+ on socket Player not found: mLLCbQ0ezGQqK7FuAAAS
+on socket Player has disconnected: mLLCbQ0ezGQqK7FuAAAS
+ on socket Player not found: mLLCbQ0ezGQqK7FuAAAS
+New player has connected: Vykbpp2dy_mQGqtCAAAV
+New player has connected: uQ1NQtcyjTY0KXt8AAAX
+on socket Player has disconnected: K3SNz5BzruCk5pX1AAAR
+on socket Player has disconnected: K3SNz5BzruCk5pX1AAAR
+ on socket Player not found: K3SNz5BzruCk5pX1AAAR
+on socket Player has disconnected: K3SNz5BzruCk5pX1AAAR
+ on socket Player not found: K3SNz5BzruCk5pX1AAAR
+on socket Player has disconnected: ynpGNi_P52EA1fNaAAAW
+New player has connected: SK1WKavmWUgSecdaAAAY
+New player has connected: 5VEH_6u9NCIf7OLfAAAZ
+New player has connected: SK1WKavmWUgSecdaAAAY
+New player has connected: 5VEH_6u9NCIf7OLfAAAZ
+on socket Player has disconnected: ATW0Nc7IO1mwPuErAAAT
+on socket Player has disconnected: ATW0Nc7IO1mwPuErAAAT
+ on socket Player not found: ATW0Nc7IO1mwPuErAAAT
+on socket Player has disconnected: ATW0Nc7IO1mwPuErAAAT
+ on socket Player not found: ATW0Nc7IO1mwPuErAAAT
+on socket Player has disconnected: ATW0Nc7IO1mwPuErAAAT
+ on socket Player not found: ATW0Nc7IO1mwPuErAAAT
+New player has connected: 5VEH_6u9NCIf7OLfAAAZ
+on socket Player has disconnected: Vykbpp2dy_mQGqtCAAAV
+on socket Player has disconnected: Vykbpp2dy_mQGqtCAAAV
+ on socket Player not found: Vykbpp2dy_mQGqtCAAAV
+on socket Player has disconnected: Vykbpp2dy_mQGqtCAAAV
+ on socket Player not found: Vykbpp2dy_mQGqtCAAAV
+on socket Player has disconnected: 1YfVH-fRksZd5zYtAAAM
+on socket Player has disconnected: 1YfVH-fRksZd5zYtAAAM
+ on socket Player not found: 1YfVH-fRksZd5zYtAAAM
+on socket Player has disconnected: 1YfVH-fRksZd5zYtAAAM
+ on socket Player not found: 1YfVH-fRksZd5zYtAAAM
+New player has connected: jZwizOhvmTOCoo9xAAAa
+New player has connected: jZwizOhvmTOCoo9xAAAa
+New player has connected: jZwizOhvmTOCoo9xAAAa
+New player has connected: 1I5qTsTckhRE-IhtAAAb
+New player has connected: JYGpNSxOpQe0duWsAAAd
+New player has connected: bnhIapQyXZkykAm-AAAc
+New player has connected: 1I5qTsTckhRE-IhtAAAb
+on socket Player has disconnected: bnhIapQyXZkykAm-AAAc
+New player has connected: JYGpNSxOpQe0duWsAAAd
+New player has connected: ifpRTo9tf4KBAWe5AAAe
+on socket Player has disconnected: SK1WKavmWUgSecdaAAAY
+on socket Player has disconnected: SK1WKavmWUgSecdaAAAY
+ on socket Player not found: SK1WKavmWUgSecdaAAAY
+on socket Player has disconnected: 5VEH_6u9NCIf7OLfAAAZ
+on socket Player has disconnected: 5VEH_6u9NCIf7OLfAAAZ
+ on socket Player not found: 5VEH_6u9NCIf7OLfAAAZ
+on socket Player has disconnected: 5VEH_6u9NCIf7OLfAAAZ
+ on socket Player not found: 5VEH_6u9NCIf7OLfAAAZ
+on socket Player has disconnected: uQ1NQtcyjTY0KXt8AAAX
+on socket Player has disconnected: uQ1NQtcyjTY0KXt8AAAX
+ on socket Player not found: uQ1NQtcyjTY0KXt8AAAX
+on socket Player has disconnected: -2k8_S5I1B8GpcN5AAAP
+on socket Player has disconnected: -2k8_S5I1B8GpcN5AAAP
+ on socket Player not found: -2k8_S5I1B8GpcN5AAAP
+on socket Player has disconnected: -2k8_S5I1B8GpcN5AAAP
+ on socket Player not found: -2k8_S5I1B8GpcN5AAAP
+on socket Player has disconnected: jZwizOhvmTOCoo9xAAAa
+on socket Player has disconnected: jZwizOhvmTOCoo9xAAAa
+ on socket Player not found: jZwizOhvmTOCoo9xAAAa
+on socket Player has disconnected: jZwizOhvmTOCoo9xAAAa
+ on socket Player not found: jZwizOhvmTOCoo9xAAAa
+New player has connected: 1I5qTsTckhRE-IhtAAAb
+on socket Player has disconnected: 1I5qTsTckhRE-IhtAAAb
+on socket Player has disconnected: 1I5qTsTckhRE-IhtAAAb
+ on socket Player not found: 1I5qTsTckhRE-IhtAAAb
+on socket Player has disconnected: 1I5qTsTckhRE-IhtAAAb
+ on socket Player not found: 1I5qTsTckhRE-IhtAAAb
+New player has connected: JYGpNSxOpQe0duWsAAAd
+New player has connected: UwSyow29GzpfwPWiAAAf
+on socket Player has disconnected: ifpRTo9tf4KBAWe5AAAe
+on socket Player has disconnected: JYGpNSxOpQe0duWsAAAd
+on socket Player has disconnected: JYGpNSxOpQe0duWsAAAd
+ on socket Player not found: JYGpNSxOpQe0duWsAAAd
+on socket Player has disconnected: JYGpNSxOpQe0duWsAAAd
+ on socket Player not found: JYGpNSxOpQe0duWsAAAd
+on socket Player has disconnected: UwSyow29GzpfwPWiAAAf
+New player has connected: FtmKDadOCjt__4y8AAAg
+New player has connected: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: 8fOfjR98zC_xnaAcAAAQ
+on socket Player has disconnected: 8fOfjR98zC_xnaAcAAAQ
+ on socket Player not found: 8fOfjR98zC_xnaAcAAAQ
+on socket Player has disconnected: 8fOfjR98zC_xnaAcAAAQ
+ on socket Player not found: 8fOfjR98zC_xnaAcAAAQ
+on socket Player has disconnected: 8fOfjR98zC_xnaAcAAAQ
+ on socket Player not found: 8fOfjR98zC_xnaAcAAAQ
+New player has connected: FtmKDadOCjt__4y8AAAg
+New player has connected: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: FtmKDadOCjt__4y8AAAg
+ on socket Player not found: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: FtmKDadOCjt__4y8AAAg
+ on socket Player not found: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: FtmKDadOCjt__4y8AAAg
+ on socket Player not found: FtmKDadOCjt__4y8AAAg
+on socket Player has disconnected: 3UPMnSAOPUeVe1oWAAAU
+ on socket Player not found: 3UPMnSAOPUeVe1oWAAAU
+listening on *:5000
+New player has connected: IvXKP2_QPbzPrbWoAAAA
+New player has connected: A7uNtgQhMO0CqPb9AAAB
+on socket Player has disconnected: A7uNtgQhMO0CqPb9AAAB
+New player has connected: _7NGCUDby2pJHnosAAAC
+on socket Player has disconnected: _7NGCUDby2pJHnosAAAC
+on socket Player has disconnected: IvXKP2_QPbzPrbWoAAAA
+ on socket Player not found: IvXKP2_QPbzPrbWoAAAA
+New player has connected: YZKVkCmPRLVxppVTAAAD
+on socket Player has disconnected: YZKVkCmPRLVxppVTAAAD
+ on socket Player not found: YZKVkCmPRLVxppVTAAAD
+New player has connected: atz6Bhf1sOk2ygZRAAAE
+on socket Player has disconnected: atz6Bhf1sOk2ygZRAAAE
+ on socket Player not found: atz6Bhf1sOk2ygZRAAAE
+New player has connected: Kc7Y2GiQS2XDJz__AAAF
+on socket Player has disconnected: Kc7Y2GiQS2XDJz__AAAF
+ on socket Player not found: Kc7Y2GiQS2XDJz__AAAF
+New player has connected: ZYODodIXeY4aVwsuAAAG
+listening on *:5000
+New player has connected: aAzDe5ypq-ze9VxmAAAA
+on socket Player has disconnected: aAzDe5ypq-ze9VxmAAAA
+New player has connected: GA9GuuZJ5MVss-K0AAAB
+on socket Player has disconnected: GA9GuuZJ5MVss-K0AAAB
+ on socket Player not found: GA9GuuZJ5MVss-K0AAAB
+New player has connected: Upu5kSJzBGf-qlL_AAAC
+on socket Player has disconnected: Upu5kSJzBGf-qlL_AAAC
+New player has connected: 89oi2-jCuoFZijzKAAAD
+on socket Player has disconnected: 89oi2-jCuoFZijzKAAAD
+ on socket Player not found: 89oi2-jCuoFZijzKAAAD
+New player has connected: o0fUXdLka5Zci9ezAAAE
+New player has connected: o0fUXdLka5Zci9ezAAAE
+New player has connected: o0fUXdLka5Zci9ezAAAE
+on socket Player has disconnected: o0fUXdLka5Zci9ezAAAE
+on socket Player has disconnected: o0fUXdLka5Zci9ezAAAE
+ on socket Player not found: o0fUXdLka5Zci9ezAAAE
+on socket Player has disconnected: o0fUXdLka5Zci9ezAAAE
+ on socket Player not found: o0fUXdLka5Zci9ezAAAE
+New player has connected: EeZMNlSk2AHQHJWUAAAF
+on socket Player has disconnected: EeZMNlSk2AHQHJWUAAAF
+ on socket Player not found: EeZMNlSk2AHQHJWUAAAF
+New player has connected: dLYIW6d7jli82zwvAAAG
+on socket Player has disconnected: dLYIW6d7jli82zwvAAAG
+New player has connected: gCPKdqubv7V_fg6uAAAH
+New player has connected: gCPKdqubv7V_fg6uAAAH
+New player has connected: gCPKdqubv7V_fg6uAAAH
+New player has connected: gCPKdqubv7V_fg6uAAAH
+on socket Player has disconnected: gCPKdqubv7V_fg6uAAAH
+on socket Player has disconnected: gCPKdqubv7V_fg6uAAAH
+ on socket Player not found: gCPKdqubv7V_fg6uAAAH
+on socket Player has disconnected: gCPKdqubv7V_fg6uAAAH
+ on socket Player not found: gCPKdqubv7V_fg6uAAAH
+on socket Player has disconnected: gCPKdqubv7V_fg6uAAAH
+ on socket Player not found: gCPKdqubv7V_fg6uAAAH
+New player has connected: 2tn-0KTAQs4DFms6AAAI
+New player has connected: 2tn-0KTAQs4DFms6AAAI
+New player has connected: 8MS83qCXwovsti2aAAAJ
+New player has connected: 8MS83qCXwovsti2aAAAJ
+New player has connected: 8MS83qCXwovsti2aAAAJ
+New player has connected: 8MS83qCXwovsti2aAAAJ
+on socket Player has disconnected: 8MS83qCXwovsti2aAAAJ
+on socket Player has disconnected: 8MS83qCXwovsti2aAAAJ
+ on socket Player not found: 8MS83qCXwovsti2aAAAJ
+on socket Player has disconnected: 8MS83qCXwovsti2aAAAJ
+ on socket Player not found: 8MS83qCXwovsti2aAAAJ
+on socket Player has disconnected: 8MS83qCXwovsti2aAAAJ
+ on socket Player not found: 8MS83qCXwovsti2aAAAJ
+on socket Player has disconnected: 2tn-0KTAQs4DFms6AAAI
+on socket Player has disconnected: 2tn-0KTAQs4DFms6AAAI
+ on socket Player not found: 2tn-0KTAQs4DFms6AAAI
+New player has connected: 9noixf4d0sSBW3bKAAAK
+New player has connected: cJeXhHP32Asmrd4AAAAL
+New player has connected: iafBgAsbJdJXCRTtAAAM
+New player has connected: cJeXhHP32Asmrd4AAAAL
+New player has connected: 9noixf4d0sSBW3bKAAAK
+New player has connected: cJeXhHP32Asmrd4AAAAL
+New player has connected: 9noixf4d0sSBW3bKAAAK
+New player has connected: cJeXhHP32Asmrd4AAAAL
+New player has connected: 9noixf4d0sSBW3bKAAAK
+New player has connected: QM-TmAKA-SCpOg5wAAAN
+on socket Player has disconnected: QM-TmAKA-SCpOg5wAAAN
+New player has connected: nOC-yyBdW4R-5-p4AAAO
+on socket Player has disconnected: nOC-yyBdW4R-5-p4AAAO
+New player has connected: pDLiQbENS3-uNIh1AAAP
+on socket Player has disconnected: pDLiQbENS3-uNIh1AAAP
+New player has connected: yFggbu0BqYCnAtz8AAAQ
+on socket Player has disconnected: yFggbu0BqYCnAtz8AAAQ
+New player has connected: L-z1Og38ruLB3nn9AAAR
+on socket Player has disconnected: L-z1Og38ruLB3nn9AAAR
+New player has connected: etmwC5p9NXGVd9qwAAAS
+on socket Player has disconnected: 9noixf4d0sSBW3bKAAAK
+on socket Player has disconnected: 9noixf4d0sSBW3bKAAAK
+ on socket Player not found: 9noixf4d0sSBW3bKAAAK
+on socket Player has disconnected: 9noixf4d0sSBW3bKAAAK
+ on socket Player not found: 9noixf4d0sSBW3bKAAAK
+on socket Player has disconnected: 9noixf4d0sSBW3bKAAAK
+ on socket Player not found: 9noixf4d0sSBW3bKAAAK
+New player has connected: aXAaoEvsMLmGlIxvAAAT
+New player has connected: aXAaoEvsMLmGlIxvAAAT
+on socket Player has disconnected: etmwC5p9NXGVd9qwAAAS
+New player has connected: sRV-hcErAvT6J8ddAAAU
+on socket Player has disconnected: sRV-hcErAvT6J8ddAAAU
+New player has connected: aXAaoEvsMLmGlIxvAAAT
+New player has connected: gWlcaWeuPbrK_0MWAAAV
+on socket Player has disconnected: gWlcaWeuPbrK_0MWAAAV
+New player has connected: keCSxjfD4mX4A3fyAAAX
+on socket Player has disconnected: keCSxjfD4mX4A3fyAAAX
+New player has connected: d4-BttJdnUxJ2qCiAAAY
+on socket Player has disconnected: d4-BttJdnUxJ2qCiAAAY
+New player has connected: _veUkBHwOgbM2DfaAAAZ
+on socket Player has disconnected: _veUkBHwOgbM2DfaAAAZ
+New player has connected: emEVLE_vO0bTq2Q3AAAa
+New player has connected: emEVLE_vO0bTq2Q3AAAa
+New player has connected: emEVLE_vO0bTq2Q3AAAa
+New player has connected: aXAaoEvsMLmGlIxvAAAT
+on socket Player has disconnected: emEVLE_vO0bTq2Q3AAAa
+on socket Player has disconnected: emEVLE_vO0bTq2Q3AAAa
+ on socket Player not found: emEVLE_vO0bTq2Q3AAAa
+on socket Player has disconnected: emEVLE_vO0bTq2Q3AAAa
+ on socket Player not found: emEVLE_vO0bTq2Q3AAAa
+New player has connected: 40tjCBBYw5rsIpaSAAAb
+on socket Player has disconnected: 40tjCBBYw5rsIpaSAAAb
+on socket Player has disconnected: aXAaoEvsMLmGlIxvAAAT
+on socket Player has disconnected: aXAaoEvsMLmGlIxvAAAT
+ on socket Player not found: aXAaoEvsMLmGlIxvAAAT
+on socket Player has disconnected: aXAaoEvsMLmGlIxvAAAT
+ on socket Player not found: aXAaoEvsMLmGlIxvAAAT
+on socket Player has disconnected: aXAaoEvsMLmGlIxvAAAT
+ on socket Player not found: aXAaoEvsMLmGlIxvAAAT
+New player has connected: k9muBxLhOA0htpZSAAAc
+New player has connected: k9muBxLhOA0htpZSAAAc
+New player has connected: k9muBxLhOA0htpZSAAAc
+New player has connected: keveK4i2W1E_O8UQAAAd
+New player has connected: keveK4i2W1E_O8UQAAAd
+New player has connected: keveK4i2W1E_O8UQAAAd
+New player has connected: k9muBxLhOA0htpZSAAAc
+New player has connected: diQuqQxcDb3rb4_NAAAe
+New player has connected: diQuqQxcDb3rb4_NAAAe
+New player has connected: diQuqQxcDb3rb4_NAAAe
+New player has connected: diQuqQxcDb3rb4_NAAAe
+New player has connected: keveK4i2W1E_O8UQAAAd
+on socket Player has disconnected: k9muBxLhOA0htpZSAAAc
+on socket Player has disconnected: k9muBxLhOA0htpZSAAAc
+ on socket Player not found: k9muBxLhOA0htpZSAAAc
+on socket Player has disconnected: k9muBxLhOA0htpZSAAAc
+ on socket Player not found: k9muBxLhOA0htpZSAAAc
+on socket Player has disconnected: k9muBxLhOA0htpZSAAAc
+ on socket Player not found: k9muBxLhOA0htpZSAAAc
+New player has connected: sxebxwM8ySq6jn0OAAAf
+New player has connected: sxebxwM8ySq6jn0OAAAf
+New player has connected: sxebxwM8ySq6jn0OAAAf
+on socket Player has disconnected: sxebxwM8ySq6jn0OAAAf
+on socket Player has disconnected: sxebxwM8ySq6jn0OAAAf
+ on socket Player not found: sxebxwM8ySq6jn0OAAAf
+on socket Player has disconnected: sxebxwM8ySq6jn0OAAAf
+ on socket Player not found: sxebxwM8ySq6jn0OAAAf
+on socket Player has disconnected: keveK4i2W1E_O8UQAAAd
+on socket Player has disconnected: keveK4i2W1E_O8UQAAAd
+ on socket Player not found: keveK4i2W1E_O8UQAAAd
+on socket Player has disconnected: keveK4i2W1E_O8UQAAAd
+ on socket Player not found: keveK4i2W1E_O8UQAAAd
+on socket Player has disconnected: keveK4i2W1E_O8UQAAAd
+ on socket Player not found: keveK4i2W1E_O8UQAAAd
+New player has connected: RsTRDzg9U8HWUQElAAAg
+New player has connected: WrdIvUFZrZ4_18sMAAAh
+New player has connected: WrdIvUFZrZ4_18sMAAAh
+New player has connected: RsTRDzg9U8HWUQElAAAg
+New player has connected: xTTa8VCgEenWBLVIAAAi
+on socket Player has disconnected: xTTa8VCgEenWBLVIAAAi
+on socket Player has disconnected: WrdIvUFZrZ4_18sMAAAh
+on socket Player has disconnected: WrdIvUFZrZ4_18sMAAAh
+ on socket Player not found: WrdIvUFZrZ4_18sMAAAh
+on socket Player has disconnected: RsTRDzg9U8HWUQElAAAg
+on socket Player has disconnected: RsTRDzg9U8HWUQElAAAg
+ on socket Player not found: RsTRDzg9U8HWUQElAAAg
+New player has connected: N3pISrbor0aecCptAAAj
+New player has connected: N3pISrbor0aecCptAAAj
+New player has connected: YftVdmWrkqBb3cdQAAAk
+on socket Player has disconnected: iafBgAsbJdJXCRTtAAAM
+ on socket Player not found: iafBgAsbJdJXCRTtAAAM
+New player has connected: YftVdmWrkqBb3cdQAAAk
+on socket Player has disconnected: N3pISrbor0aecCptAAAj
+on socket Player has disconnected: N3pISrbor0aecCptAAAj
+ on socket Player not found: N3pISrbor0aecCptAAAj
+
+> wzz2022@1.0.0 start /var/www/virtual-gallery
+> node server.js
+
+listening on *:5000
+New player has connected: f73Y4ehFY2pNBg0gAAAA
+on socket Player has disconnected: f73Y4ehFY2pNBg0gAAAA
+New player has connected: 54_Xr68NNTTzb-bOAAAB
+on socket Player has disconnected: 54_Xr68NNTTzb-bOAAAB
+New player has connected: RgAXcBLwya1PGTJYAAAC
+on socket Player has disconnected: RgAXcBLwya1PGTJYAAAC
+New player has connected: 0XMtMzkTgmjB8G8FAAAD
+New player has connected: 0XMtMzkTgmjB8G8FAAAD
+New player has connected: q_EUcB-m8eKsSbFpAAAE
+New player has connected: q_EUcB-m8eKsSbFpAAAE
+New player has connected: 6rbJkZCVfu9B75SSAAAF
+New player has connected: 6rbJkZCVfu9B75SSAAAF
+on socket Player has disconnected: 6rbJkZCVfu9B75SSAAAF
+on socket Player has disconnected: 6rbJkZCVfu9B75SSAAAF
+ on socket Player not found: 6rbJkZCVfu9B75SSAAAF
+on socket Player has disconnected: q_EUcB-m8eKsSbFpAAAE
+on socket Player has disconnected: q_EUcB-m8eKsSbFpAAAE
+ on socket Player not found: q_EUcB-m8eKsSbFpAAAE
+New player has connected: 0XMtMzkTgmjB8G8FAAAD
+New player has connected: 0XMtMzkTgmjB8G8FAAAD
+on socket Player has disconnected: 0XMtMzkTgmjB8G8FAAAD
+on socket Player has disconnected: 0XMtMzkTgmjB8G8FAAAD
+ on socket Player not found: 0XMtMzkTgmjB8G8FAAAD
+on socket Player has disconnected: 0XMtMzkTgmjB8G8FAAAD
+ on socket Player not found: 0XMtMzkTgmjB8G8FAAAD
+on socket Player has disconnected: 0XMtMzkTgmjB8G8FAAAD
+ on socket Player not found: 0XMtMzkTgmjB8G8FAAAD
+New player has connected: h9wY3-3Btikr6Av6AAAG
+on socket Player has disconnected: h9wY3-3Btikr6Av6AAAG
+Killed
+
+npm ERR! Linux 3.13.0-43-generic
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.12.0
+npm ERR! npm  v2.5.1
+npm ERR! code ELIFECYCLE
+npm ERR! wzz2022@1.0.0 start: `node server.js`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the wzz2022@1.0.0 start script 'node server.js'.
+npm ERR! This is most likely a problem with the wzz2022 package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node server.js
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls wzz2022
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/www/virtual-gallery/npm-debug.log

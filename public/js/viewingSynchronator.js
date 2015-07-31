@@ -1,8 +1,8 @@
 
-artGame.viewingEnd = function(){};
+artGame.viewingSynchronator = function(){};
 
 
-artGame.viewingEnd.prototype = {
+artGame.viewingSynchronator.prototype = {
     preload: function(){
         $.ajax({
             url:'getPlayers',
@@ -19,20 +19,25 @@ artGame.viewingEnd.prototype = {
     create: function(){
         //remotePlayers = {};
 
-        socket = io(window.location.href+"viewingEnd");
+        socket = io(window.location.href+"viewingSynchronator");
 
-        setUpChat.bind(this)(socket);
+        setUpChat.call(this,socket);
+        $('.synchronator').show();
+
+
+
         this.facing = "left";
-        this.level = 'viewingEnd';
+        this.level = 'viewingSynchronator';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
 
-        //this.game.add.tileSprite(0, 0, 800, 608, 'viewingEnd-background');
-        this.map = this.game.add.tilemap('viewingEnd');
+        //this.game.add.tileSprite(0, 0, 800, 608, 'viewingSynchronator-background');
+        this.map = this.game.add.tilemap('viewingHorse');
 
-        this.map.addTilesetImage('viewingEnd');
-        this.map.setCollisionBetween(1707, 1714);
+        this.map.addTilesetImage('viewingHorse');
+
+       // this.map.setCollisionBetween(1707, 1714);
         this.map.setCollisionBetween(1504, 1545);
         this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554,1546, 1596, 1646, 1647, 1697, 1747, 1748, 1749, 1798, 1799, 1849, 1848, 1899]);
         this.layer = this.map.createLayer('Tile Layer 1');
@@ -52,7 +57,7 @@ artGame.viewingEnd.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 400;
         this.player.position.y = 520;
-        clientRoom = 'viewingEnd';
+        clientRoom = 'viewingSynchronator';
 
 
 
@@ -62,7 +67,7 @@ artGame.viewingEnd.prototype = {
         this.player.animations.add('idleLeft', [0], 5, true);
 
 
-        this.textMessages = game.add.group(); 
+        this.textMessages = this.game.add.group(); 
         this.textYBuffer = 0;
         this.textY = this.player.position.y-15;
         this.lastChatMessageWidth;
@@ -89,7 +94,7 @@ artGame.viewingEnd.prototype = {
         remotePlayers = {};
         for(var id in players){
             var player = players[id];
-            if(player.room==="viewingEnd" && clientId !== player.id){
+            if(player.room==="viewingSynchronator" && clientId !== player.id){
        
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -108,10 +113,10 @@ artGame.viewingEnd.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewingEnd', id: socket.id});
-    socket.emit('join room', {room:'viewing1', id: socket.id});
-    clientRoom = 'viewing1';
-    this.state.start('viewing1');
+    socket.emit('leave room', {room:'viewingSynchronator', id: socket.id});
+    socket.emit('join room', {room:'viewing2', id: socket.id});
+    clientRoom = 'viewing2';
+    this.state.start('viewing2');
 
 
 
@@ -145,6 +150,7 @@ artGame.viewingEnd.prototype = {
 
 
 
+
         for (var id in remotePlayers)
         {
 
@@ -157,7 +163,7 @@ artGame.viewingEnd.prototype = {
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+         playerMovementAndAnimation.call(this, socket, clientRoom);
     }
 };
 

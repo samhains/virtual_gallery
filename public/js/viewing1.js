@@ -21,8 +21,8 @@ artGame.viewing1.prototype = {
 
 
         socket = io(window.location.href+"viewing1");
+        setUpChat.call(this,socket);
 
-        setUpChat.bind(this)(socket);
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -45,7 +45,6 @@ artGame.viewing1.prototype = {
       
 
          if(music && !music.isPlaying){
-            console.log('playering');
                 music.play('', 0,1,true);
           }    
         //this.layer.resizeWorld();
@@ -79,7 +78,7 @@ artGame.viewing1.prototype = {
         this.createDoors();
 
           //text settings
-        //this.textMessages = game.add.group(); 
+        this.textMessages = this.game.add.group(); 
         this.textYBuffer = 0;
         this.textY = this.player.y-15;
         this.lastChatMessageWidth;
@@ -118,12 +117,13 @@ artGame.viewing1.prototype = {
   enterDoor: function(player, door) {
     //console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
+    $('form').off('submit');
     
 
-    if(door.targetTilemap==='viewingEnd'){
-        socket.emit('join room', {room:'viewingEnd', id: socket.id});
-        clientRoom = 'viewingEnd';
-        this.state.start('viewingEnd');
+    if(door.targetTilemap==='viewing2'){
+        socket.emit('join room', {room:'viewing2', id: socket.id});
+        clientRoom = 'viewing2';
+        this.state.start('viewing2');
 
     }
     if(door.targetTilemap==='entrance'){
@@ -162,7 +162,6 @@ artGame.viewing1.prototype = {
     update: function(){
 
 
-
         for (var id in remotePlayers)
         {
 
@@ -175,7 +174,7 @@ artGame.viewing1.prototype = {
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
-        playerMovementAndAnimation.bind(this)(socket, clientRoom);
+         playerMovementAndAnimation.call(this, socket, clientRoom);
     }
 
 };

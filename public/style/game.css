@@ -1,15 +1,45 @@
-body {
-	overflow: hidden;
+@font-face {
+  font-family: "Commander";
+  src: url('../assets/sam/Pxlvetica.ttf') format("truetype");
 }
+
+
 
 canvas {
 	display: block;
 }
+
+.synchronator{
+  position:absolute;
+  display:none;
+}
+
+#pt1{
+  top:190px;
+  left:400px;
+}
+#pt3{
+  left:220px;
+
+}
+#pt4{
+  top:200px;
+  left:140px;
+
+}
+
 .phaser-canvas{
   position:absolute;
   width:800px;
   height:600px;
   border:solid 10px;
+}
+
+#horse-video{
+  display:none;
+  position:absolute;
+  top: 36px;
+  left: 222px;
 }
 /*
 .chat-form{
@@ -26,8 +56,8 @@ canvas {
 
 }*/
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font: 13px Helvetica, Arial;}
+* { margin: 0; padding: 0; box-sizing: border-box; font: 12px Commander;  letter-spacing:1px; text-transform:uppercase;}
+  body { }
   form {
   background: #000;
   padding-top: 4px;
@@ -38,6 +68,7 @@ canvas {
   top: 608px;
 }
   form input {
+
     border: 0;
     bottom:0;
     padding: 10px;
