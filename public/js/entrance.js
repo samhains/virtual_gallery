@@ -104,7 +104,7 @@ artGame.entrance.prototype = {
         }
        
         if(!music.isPlaying){
-                music.play('', 0,1,true);
+                //music.play('', 0,1,true);
         }    
 
         this.initializeRemotePlayers();

@@ -6,6 +6,7 @@
 		<title>gallery</title>
 		<meta charset="utf-8">
 
+    <link rel='stylesheet' href='style/bootstrap/bootstrap.min.css'>
 		<link rel="stylesheet" href="style/reset.css">
 		<link rel="stylesheet" href="style/game.css">
 	</head>
@@ -19,6 +20,7 @@
 		<script src="js/chat.js"></script>
 		<script src="js/playerMovementAndAnimation.js"></script>
 		<script src="js/entrance.js"></script>
+    <script src='js/bootstrap/bootstrap.min.js'></script>
 		<script src="js/viewing1.js"></script>
 		<script src="js/viewing2.js"></script>
 		<script src="js/viewingHorse.js"></script>
@@ -40,6 +42,14 @@
 
 	<body>
 
+    <div id='welcome-modal'>
+      <form class='welcome-form'>
+        <label> what is your name ? </label>
+        <br>
+        <br>
+        <input id='name-form'>
+      </form>
+    </div>
 
 		<div>
 			<video id='horse-video' width="370" height="370"  autoplay loop='true'>
@@ -70,12 +80,11 @@
         <!--{% endblock %}-->
        </div>
 			
-		    <form action="">
-		      <input id="m" placeholder='....' autocomplete="off" />
+		    <form class="message-form" action="">
+		      <input class="chat-input" id="m" placeholder='....' autocomplete="off" />
 		    </form>
 		</div>
 		
-
 
 
 	</body>
