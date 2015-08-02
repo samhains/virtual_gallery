@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Commander";
-  src: url('../assets/sam/Pxlvetica.ttf') format("truetype");
-}
-
-
 
 canvas {
 	display: block;
@@ -56,7 +50,7 @@ canvas {
 
 }*/
 
-* { margin: 0; padding: 0; box-sizing: border-box; font: 12px Commander;  letter-spacing:1px; text-transform:uppercase;}
+* { margin: 0; padding: 0; box-sizing: border-box;  letter-spacing:1px}
   body { }
   form {
   background: #000;
@@ -103,6 +97,7 @@ canvas {
   .message-list{
 
 
+      position: absolute;
       overflow: scroll;
       height: 150px;
       padding-top: 20px;
@@ -112,8 +107,17 @@ canvas {
 
   form button { width: 9%; background: white; border: none; padding: 10px; }
   #messages { list-style-type: none; margin: 0; padding: 0; height:100px; }
-  #messages li { padding: 5px 10px; }
-  #messages li:nth-child(odd) { background: #eee; }
+  #messages li { 
+    padding: 5px 10px;
+    background: #eee;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10%;
+    margin-bottom: 4px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
 
 .chat-bar{
       top: -10px;

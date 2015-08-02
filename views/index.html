@@ -40,25 +40,34 @@
 
 	<body>
 
-		<div >
+
 		<div>
 			<video id='horse-video' width="370" height="370"  autoplay loop='true'>
 			  <source src="assets/sam/dredown.mp4" type="video/mp4">
 			</video>
 
-			<video class='synchronator' id="pt1" width="250" height="250"  autoplay loop='true'>
-			  <source src="assets/sam/pt1.mp4" type="video/mp4">
+			<!--<video class='synchronator' id="pt1" width="250" height="250"  autoplay loop='true'>-->
+				<!--<source src="assets/sam/pt1.mp4" type="video/mp4">-->
 
-			</video>
-			<video class='synchronator' id="pt3" width="200" height="200"  autoplay loop='true'>
-			  <source src="assets/sam/pt3.mp4" type="video/mp4">
+			<!--</video>-->
+			<!--<video class='synchronator' id="pt3" width="200" height="200"  autoplay loop='true'>-->
+				<!--<source src="assets/sam/pt3.mp4" type="video/mp4">-->
 
-			</video>
-			<video class='synchronator' id="pt4" width="200" height="200"  autoplay loop='true'>
-			  <source src="assets/sam/pt4.mp4" type="video/mp4">
+			<!--</video>-->
+			<!--<video class='synchronator' id="pt4" width="200" height="200"  autoplay loop='true'>-->
+				<!--<source src="assets/sam/pt4.mp4" type="video/mp4">-->
 
-			</video>
+			<!--</video>-->
 
+       <div class="message-list">
+						  {% block content %}
+			    <ul id="messages">
+
+			        {% for message in messages %}
+			        <li>{{ message.body }}</li>
+			        {% endfor %}
+			    </ul>
+    		{% endblock %}</div>
 			
 		    <form action="">
 		      <input id="m" autocomplete="off" /><button >SEND</button>
