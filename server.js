@@ -25,7 +25,7 @@ app.get('/', require('./routes'));
 
 
 http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on *:808');
+  console.log('listening on *:3000');
 });
 
 
@@ -104,6 +104,7 @@ function onSocketDisconnect() {
 
 	delete players[this.id];
 
+ 
 	this.broadcast.emit("remove player", {id: removePlayer.id, room: removePlayer.room});
 
 }
