@@ -63,10 +63,11 @@ canvas {
 }
   form input {
 
+    font-family: "Times New Roman", Times, serif;
     border: 0;
     bottom:0;
     padding: 10px;
-    width: 90%;
+    width: 99.4%;
     bottom:0;
     margin-right: .5%;
     -webkit-appearance:none;
@@ -106,7 +107,8 @@ canvas {
   }
 
   form button { width: 9%; background: white; border: none; padding: 10px; }
-  #messages { list-style-type: none; margin: 0; padding: 0; height:100px; }
+  #messages { 
+  list-style-type: none; margin: 0; padding: 0; height:100px; }
   #messages li { 
     padding: 5px 10px;
     background: #eee;
@@ -117,6 +119,12 @@ canvas {
     margin-bottom: 4px;
     padding-bottom: 3px;
     padding-top: 3px;
+    font-size: 12px;
+    display: inline;
+  }
+
+  #messages div {
+    margin-bottom: 13px;
   }
 
 .chat-bar{

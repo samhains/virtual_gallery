@@ -60,17 +60,18 @@
 			<!--</video>-->
 
        <div class="message-list">
-						  {% block content %}
+							<!--{% block content %}-->
 			    <ul id="messages">
 
-			        {% for message in messages %}
-			        <li>{{ message.body }}</li>
-			        {% endfor %}
+							<!--{% for message in messages %}-->
+							<!--<li>{{ message.body }}</li>-->
+							<!--{% endfor %}-->
 			    </ul>
-    		{% endblock %}</div>
+        <!--{% endblock %}-->
+       </div>
 			
 		    <form action="">
-		      <input id="m" autocomplete="off" /><button >SEND</button>
+		      <input id="m" placeholder='....' autocomplete="off" />
 		    </form>
 		</div>
 		
