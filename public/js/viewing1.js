@@ -4,20 +4,7 @@ artGame.viewing1 = function(){};
 
 
 artGame.viewing1.prototype = {
-    preload: function(){
-        $.ajax({
-            url:'getPlayers',
-            type: 'get',
-            async: false,
-            success: function(playerData){
-                players = playerData;
-            }
-        });
-
-
-
-    },
-
+    preload: getPlayers, 
     create: function(){
 
 
@@ -27,27 +14,20 @@ artGame.viewing1.prototype = {
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
-
         this.game.stage.backgroundColor = '#ffffff';
-
-        //this.game.add.tileSprite(0, 0, 800, 608, 'viewing1-background');
         this.map = this.game.add.tilemap('viewing1');
-
         this.map.addTilesetImage('viewing1');
+        this.layer = this.map.createLayer('Tile Layer 1');
+
+        if(music && !music.isPlaying){
+                music.play('', 0,1,true);
+         }    
 
         this.map.setCollisionBetween(1504, 1545);
         this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554, 1693, 1592, 1593, 1594, 1694, 1695,1643, 1644, 1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1642]);
-        this.layer = this.map.createLayer('Tile Layer 1');
 
 
-        //  Un-comment this on to see the collision tiles
-        //this.layer.debug = true;
-        //
-      
 
-         if(music && !music.isPlaying){
-                music.play('', 0,1,true);
-          }    
         //this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
@@ -80,11 +60,6 @@ artGame.viewing1.prototype = {
         this.createSigns();
 
           //text settings
-        this.textMessages = this.game.add.group(); 
-        this.textYBuffer = 0;
-        this.textY = this.player.y-15;
-        this.lastChatMessageWidth;
-
         setEventHandlers.bind(this)();
 
 

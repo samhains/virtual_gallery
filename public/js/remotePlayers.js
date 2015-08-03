@@ -1,7 +1,3 @@
-var socket;
-var remotePlayers = {};
-var players = {};
-
 
 
 
