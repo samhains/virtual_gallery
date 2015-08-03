@@ -1,3 +1,4 @@
+var lastOverlapped;
 
 artGame.viewing1 = function(){};
 
@@ -76,6 +77,7 @@ artGame.viewing1.prototype = {
          // Start listening for events
         this.initializeRemotePlayers();
         this.createDoors();
+        this.createSigns();
 
           //text settings
         this.textMessages = this.game.add.group(); 
@@ -104,6 +106,16 @@ artGame.viewing1.prototype = {
 
         }
     },
+     createSigns: function() {
+    //create signs
+        this.signs = this.game.add.group();
+        this.signs.enableBody = true;
+        result = this.findObjectsByType('sign', this.map, 'Object Layer 1');
+
+        result.forEach(function(element){
+          this.createFromTiledObject(element, this.signs);
+        }, this);
+  },
      createDoors: function() {
     //create doors
         this.doors = this.game.add.group();
@@ -130,14 +142,18 @@ artGame.viewing1.prototype = {
         clientRoom = 'entrance';
         this.state.start('entrance');
     }
-    
 
 
   },
 
+  touchSign: function(player, sign) {
+    lastOverlapped = game.time.now + 100;
+    showSign('A fine work of art ', 'acrylic on oil', 'Charlie Freedman');
+  },
+    
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
   findObjectsByType: function(type, map, layer) {
-    var result = new Array();
+    var result = [];
     map.objects[layer].forEach(function(element){
       if(element.properties.type === type) {
         //Phaser uses top left, Tiled bottom left so we have to adjust
@@ -172,8 +188,10 @@ artGame.viewing1.prototype = {
 
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
+        this.game.physics.arcade.overlap(this.player, this.signs, this.touchSign, null, this);
 
-         playerMovementAndAnimation.call(this, socket, clientRoom);
+        removeSign(lastOverlapped);
+        playerMovementAndAnimation.call(this, socket, clientRoom);
     }
 
 };

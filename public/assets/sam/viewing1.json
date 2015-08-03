@@ -18,9 +18,9 @@
          "objects":[
                 {
                  "gid":1520,
-                 "height":0,
+                 "height":16,
                  "id":2,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"entrance",
@@ -29,15 +29,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":304,
                  "y":496
                 }, 
                 {
                  "gid":1519,
-                 "height":0,
+                 "height":16,
                  "id":4,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"entrance",
@@ -46,15 +46,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":288,
                  "y":496
                 }, 
                 {
                  "gid":1532,
-                 "height":0,
+                 "height":16,
                  "id":9,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewing2",
@@ -63,15 +63,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":496,
                  "y":496
                 }, 
                 {
                  "gid":1533,
-                 "height":0,
+                 "height":16,
                  "id":11,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewing2",
@@ -80,8 +80,40 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":512,
+                 "y":496
+                }, 
+                {
+                 "gid":1488,
+                 "height":16,
+                 "id":24,
+                 "name":"sign",
+                 "properties":
+                    {
+                     "type":"sign"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":592,
+                 "y":480
+                }, 
+                {
+                 "gid":1538,
+                 "height":16,
+                 "id":26,
+                 "name":"sign",
+                 "properties":
+                    {
+                     "type":"sign"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":592,
                  "y":496
                 }],
          "opacity":1,
@@ -91,7 +123,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":22,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "properties":
     {

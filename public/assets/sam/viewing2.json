@@ -18,9 +18,9 @@
          "objects":[
                 {
                  "gid":1703,
-                 "height":0,
+                 "height":16,
                  "id":9,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewingHorse",
@@ -29,15 +29,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":32,
                  "y":560
                 }, 
                 {
                  "gid":1653,
-                 "height":0,
+                 "height":16,
                  "id":13,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewingHorse",
@@ -46,15 +46,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":32,
                  "y":544
                 }, 
                 {
                  "gid":1526,
-                 "height":0,
+                 "height":16,
                  "id":15,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewing1",
@@ -63,15 +63,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":400,
                  "y":496
                 }, 
                 {
                  "gid":1527,
-                 "height":0,
+                 "height":16,
                  "id":16,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewing1",
@@ -80,15 +80,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":416,
                  "y":496
                 }, 
                 {
                  "gid":1513,
-                 "height":0,
+                 "height":16,
                  "id":19,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewingSynchronator",
@@ -97,15 +97,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":192,
                  "y":496
                 }, 
                 {
                  "gid":1514,
-                 "height":0,
+                 "height":16,
                  "id":20,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewingSynchronator",
@@ -114,15 +114,15 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":208,
                  "y":496
                 }, 
                 {
                  "gid":1515,
-                 "height":0,
+                 "height":16,
                  "id":21,
-                 "name":"",
+                 "name":"door",
                  "properties":
                     {
                      "targetTilemap":"viewingSynchronator",
@@ -131,8 +131,40 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
+                 "width":16,
                  "x":224,
+                 "y":496
+                }, 
+                {
+                 "gid":1470,
+                 "height":16,
+                 "id":23,
+                 "name":"sign",
+                 "properties":
+                    {
+                     "type":"sign"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":480
+                }, 
+                {
+                 "gid":1520,
+                 "height":16,
+                 "id":24,
+                 "name":"sign",
+                 "properties":
+                    {
+                     "type":"sign"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":304,
                  "y":496
                 }],
          "opacity":1,
@@ -142,7 +174,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":22,
+ "nextobjectid":25,
  "orientation":"orthogonal",
  "properties":
     {

@@ -3,6 +3,7 @@ var clientId;
 var clientRoom;
 var clientName;
 var music;
+var bgScrollTimer;
 
 
 var destroyText= function(){
@@ -32,7 +33,7 @@ var welcomeScroll = function(speed){
   }
 
   //Calls the scrolling function repeatedly
-   setInterval(bgscroll, scrollSpeed);    
+   bgScrollTimer = setInterval(bgscroll, scrollSpeed);    
 };
 
 
@@ -54,9 +55,9 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
-         socket = new io.connect(window.location.href+"entrance");
+        socket = new io.connect(window.location.href+"entrance");
          
-         setUpChat.call(this,socket);
+        setUpChat.call(this,socket);
         var self = this;
 
 
@@ -134,7 +135,8 @@ artGame.entrance.prototype = {
               name = $('#name').val();
               if (name.length > 0 ) {
                 clientName = name;
-                $('#welcome-modal').hide();
+                $('#welcome-modal').remove();
+                clearInterval(bgScrollTimer);
                 $('.message-form').show();
                 music = that.game.add.audio('vacancy',1,true);
                 music.play('', 0, 1, true);
