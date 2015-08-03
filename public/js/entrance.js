@@ -126,11 +126,11 @@ artGame.entrance.prototype = {
         var that = this;
 
         if($('#welcome-modal').is(':visible')){
-          welcomeScroll(1);
     
 
           $( document ).ready(function(){
-
+            console.log('document is ready');
+            welcomeScroll(1);
             $('.welcome-form').submit(function(e){
               console.log('submitting welcome form');
               e.preventDefault();
