@@ -122,9 +122,9 @@ artGame.viewing2.prototype = {
     }
 
     if(door.targetTilemap==='viewingSynchronator'){
-        socket.emit('join room', {room:'viewingSynchronator', id: socket.id});
-        clientRoom = 'viewingSynchronator';
-        this.state.start('viewingSynchronator');
+        //socket.emit('join room', {room:'viewingSynchronator', id: socket.id});
+        //clientRoom = 'viewingSynchronator';
+        //this.state.start('viewingSynchronator');
 
     }
     if(door.targetTilemap==='viewing1'){
