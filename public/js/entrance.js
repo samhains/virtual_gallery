@@ -130,7 +130,7 @@ artGame.entrance.prototype = {
 
             $('#loading-message').hide();
             $('.welcome-form').show();
-            //welcomeScroll(1);
+            welcomeScroll(1);
             $('.welcome-form').submit(function(e){
               console.log('submitting welcome form');
               e.preventDefault();
