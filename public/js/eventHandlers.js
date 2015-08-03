@@ -1,4 +1,3 @@
-console.log('in event handlers');
 var setEventHandlers = function() {
 
     socket.on("connect", onSocketConnected.bind(this));
@@ -12,7 +11,6 @@ var setEventHandlers = function() {
 
 
 function onSocketConnected() {
-    console.log("Connected to socket server");
     clientId = socket.id;
 
 }
@@ -32,11 +30,7 @@ function leaveRoom(data){
 }
 
 function joinRoom(data){
-    console.log('joining room',  data);
 
-    // console.log("this player", data.data.id, "is joining",data.data.room);
-    // console.log('join data',data);
-    // console.log("YOU ARE THIS.PLAYER",clientId, "and you are IN", clientRoom);
 
 
     var players = data.players;
@@ -49,19 +43,16 @@ function joinRoom(data){
         }
 
         var joiningPlayer = new RemotePlayer(data.id,this.game, players[data.id].x,players[data.id].y);
-       // console.log('adding new joining player',joiningPlayer.id, data.room);
         remotePlayers[data.id] = joiningPlayer;
     }
 
 }
 
 function onSocketDisconnect() {
-    console.log("Disconnected from socket server");
 };
 
 function onNewPlayer(data) {
     //debugger;
-    console.log("New player connected: "+data.id, data.room);
     if(clientRoom === data.room){
         if(remotePlayers[data.id]){
             remotePlayers[data.id].destroy();
@@ -77,7 +68,6 @@ function onMovePlayer(data) {
     movePlayer = remotePlayers[data.id];
     if(clientRoom === data.room){
          if (!movePlayer) {
-            console.log("Move Player not found: "+data.id);
             return;
     }
     if(movePlayer.lastPosition.x> data.x){
