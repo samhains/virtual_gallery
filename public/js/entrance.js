@@ -132,6 +132,7 @@ artGame.entrance.prototype = {
           $( document ).ready(function(){
 
             $('.welcome-form').submit(function(e){
+              debugger;
               e.preventDefault();
               name = $('#name').val();
               if (name.length > 0 ) {
