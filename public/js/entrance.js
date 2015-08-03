@@ -128,8 +128,9 @@ artGame.entrance.prototype = {
         if($('#welcome-modal').is(':visible')){
     
 
-            console.log('document is ready');
-            welcomeScroll(1);
+            $('#loading-message').hide();
+            $('.welcome-form').show();
+            //welcomeScroll(1);
             $('.welcome-form').submit(function(e){
               console.log('submitting welcome form');
               e.preventDefault();

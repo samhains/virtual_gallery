@@ -120,6 +120,17 @@ canvas {
   input:hover{
 
   }
+
+  #loading-message{
+    color: white;
+    position: absolute;
+    width: 200px;
+    z-index: 9999;
+    top: 280px;
+    left: 200px;
+    font-size: 40px;
+  }
+
   .welcome-form {
     position: absolute;
     top: 220px;
@@ -138,6 +149,7 @@ canvas {
     padding-top: 26px;
     padding-left: 40px;
     padding-right: 40px;
+    display:none;
   }
 
   .welcome-form input{
