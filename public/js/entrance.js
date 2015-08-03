@@ -128,7 +128,6 @@ artGame.entrance.prototype = {
         if($('#welcome-modal').is(':visible')){
     
 
-          $( document ).ready(function(){
             console.log('document is ready');
             welcomeScroll(1);
             $('.welcome-form').submit(function(e){
@@ -145,7 +144,6 @@ artGame.entrance.prototype = {
               $('#name').val(''); 
 
             });
-          });
 
         }
 
