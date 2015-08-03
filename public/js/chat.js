@@ -11,16 +11,6 @@ var setUpChat = function(socket, room){
     $( document ).ready(function() {
         $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
 
-        $('.welcome-form').submit(function(e){
-          e.preventDefault();
-          name = $('#name').val();
-
-          if (name.length > 0 ) {
-            clientName = name;
-            $('#welcome-modal').hide();
-          }
-          $('#name').val(''); 
-        });
           
         //$('.minimized-bar').hide();
         $('.message-form').submit(function(e){

@@ -99,14 +99,32 @@ artGame.entrance.prototype = {
 
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
-        if(!music){
-             music = this.game.add.audio('vacancy',1,true);
+        var that = this;
+
+        $( document ).ready(function(){
+
+          $('.welcome-form').submit(function(e){
+            e.preventDefault();
+            name = $('#name').val();
+
+            if (name.length > 0 ) {
+              clientName = name;
+              $('#welcome-modal').hide();
+              music = that.game.add.audio('vacancy',1,true);
+              music.play('', 0, 1, true);
+            }
+            $('#name').val(''); 
+          });
+        });
+
+        //if(!music){
+             //music = this.game.add.audio('vacancy',1,true);
              
-        }
+        //}
        
-        if(!music.isPlaying){
-                //music.play('', 0,1,true);
-        }    
+        //if(!music.isPlaying){
+                ////music.play('', 0,1,true);
+        //}    
 
         this.initializeRemotePlayers();
         this.createDoors();

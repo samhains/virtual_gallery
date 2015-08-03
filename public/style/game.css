@@ -57,16 +57,19 @@ canvas {
 * { margin: 0; padding: 0; box-sizing: border-box;  letter-spacing:1px}
   body { }
   .message-form {
-  background: #000;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 4px;
-  position: fixed;
-  width: 800px;
-  top: 608px;
-  z-index: 1;
+    background: #000;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    position: fixed;
+    z-index: 1;
+    width: 330px;
+    top: 558px;
+    left: 400px;
+    font-size: 10px;
+    border-radius: 4px;
 
-}
+  }
   .chat-input{ 
 
     font-family: "Times New Roman", Times, serif;
@@ -95,7 +98,8 @@ canvas {
     z-index: 9999;
     position: absolute;
     width: 1000px;
-    background-color: black;
+    background-image: url('../assets/sam/stars.png');
+    background-attachment: fixed;
   }
 
   button:focus{
@@ -109,6 +113,13 @@ canvas {
     margin-left: 200px;
     margin-right: 500px;
     background-color: white;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-top: 18px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 5px;
   }
 
   .chat-bar.minimized-bar{
