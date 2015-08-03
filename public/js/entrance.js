@@ -1,6 +1,7 @@
 var socket;
 var clientId;
 var clientRoom;
+var clientName;
 var music;
 
 
