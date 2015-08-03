@@ -137,10 +137,12 @@ artGame.entrance.prototype = {
               if (name.length > 0 ) {
                 clientName = name;
                 $('#welcome-modal').hide();
+                $('.message-form').show();
                 music = that.game.add.audio('vacancy',1,true);
                 music.play('', 0, 1, true);
               }
               $('#name').val(''); 
+
             });
           });
 

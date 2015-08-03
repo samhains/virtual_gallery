@@ -68,6 +68,7 @@ canvas {
     left: 400px;
     font-size: 11px;
     border-radius: 4px;
+    display: none;
 
   }
   .chat-input{ 
