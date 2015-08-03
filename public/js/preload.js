@@ -1,3 +1,4 @@
+console.log('in preload');
 var artGame = artGame || {};
 
 

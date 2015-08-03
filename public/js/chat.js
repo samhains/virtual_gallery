@@ -1,3 +1,4 @@
+console.log('in chat');
 var appendMessage = function(msg, player, sender) {
   
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));

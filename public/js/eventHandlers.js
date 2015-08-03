@@ -1,3 +1,4 @@
+console.log('in event handlers');
 var setEventHandlers = function() {
 
     socket.on("connect", onSocketConnected.bind(this));
