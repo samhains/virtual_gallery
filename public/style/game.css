@@ -94,12 +94,13 @@ canvas {
     background-color: red;
   }
   #welcome-modal{
-    height: 1000px;
+    height: 620px;
     z-index: 9999;
     position: absolute;
-    width: 1000px;
+    width: 800px;
     background-image: url('../assets/sam/stars.png');
     background-attachment: fixed;
+
   }
 
   button:focus{
@@ -109,10 +110,10 @@ canvas {
 
   }
   .welcome-form {
-    margin-top: 300px;
-    margin-left: 200px;
-    margin-right: 500px;
+    position: absolute;
+    top: 220px;
     background-color: white;
+    left: 250px;
     padding-bottom: 15px;
     padding-left: 20px;
     padding-top: 18px;
@@ -120,6 +121,12 @@ canvas {
     border-color: black;
     border-width: 5px;
     border-radius: 5px;
+    width: 280px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    padding-top: 26px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .chat-bar.minimized-bar{

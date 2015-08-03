@@ -9,7 +9,31 @@ var destroyText= function(){
     chatText.destroy();
 };
 
+var welcomeScroll = function(speed){
 
+  name = $('#name').val();
+      
+  var scrollSpeed = 70;
+
+  // set the default position
+  var current = 0;
+
+  // set the direction
+  var direction = 'h';
+
+  function bgscroll(){
+
+      // 2 pixel row at a time
+      current -= speed;
+ 
+      // move the background with backgrond-position css properties
+      $('div#welcome-modal').css("backgroundPosition", (direction == 'h') ? current+"px 0" : "0 " + current+"px");
+ 
+  }
+
+  //Calls the scrolling function repeatedly
+   setInterval(bgscroll, scrollSpeed);    
+};
 
 
 artGame.entrance = function(){};
@@ -101,21 +125,27 @@ artGame.entrance.prototype = {
 
         var that = this;
 
-        $( document ).ready(function(){
+        if($('#welcome-modal').is(':visible')){
+          welcomeScroll(1);
+    
 
-          $('.welcome-form').submit(function(e){
-            e.preventDefault();
-            name = $('#name').val();
+          $( document ).ready(function(){
 
-            if (name.length > 0 ) {
-              clientName = name;
-              $('#welcome-modal').hide();
-              music = that.game.add.audio('vacancy',1,true);
-              music.play('', 0, 1, true);
-            }
-            $('#name').val(''); 
+            $('.welcome-form').submit(function(e){
+              e.preventDefault();
+              name = $('#name').val();
+              if (name.length > 0 ) {
+                clientName = name;
+                $('#welcome-modal').hide();
+                music = that.game.add.audio('vacancy',1,true);
+                music.play('', 0, 1, true);
+              }
+              $('#name').val(''); 
+            });
           });
-        });
+
+        }
+
 
         if(!music && clientName){
              music = this.game.add.audio('vacancy',1,true);
