@@ -54,11 +54,11 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
+      console.log('in create function');
          socket = new io.connect(window.location.href+"entrance");
          console.log('socket',socket);
          
          setUpChat.call(this,socket);
-        
         var self = this;
 
 
