@@ -3,7 +3,7 @@ var appendMessage = function(msg, player, sender) {
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));
   $('#messages').children(':last-child').css('margin-left', player.position.x);
   $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
-  $('#messages').children(':last-child').delay(5000).slideUp();
+  $('#messages').children(':last-child').delay(10000).slideUp();
 };
 
 var setUpChat = function(socket, room){
