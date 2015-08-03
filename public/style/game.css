@@ -129,6 +129,10 @@ canvas {
     padding-right: 40px;
   }
 
+  .welcome-form input{
+    border-radius: 4px;
+  }
+
   .chat-bar.minimized-bar{
     display:none;
     margin-left: 15px;
