@@ -117,15 +117,12 @@ artGame.entrance.prototype = {
           });
         });
 
-        //if(!music){
-             //music = this.game.add.audio('vacancy',1,true);
+        if(!music && clientName){
+             music = this.game.add.audio('vacancy',1,true);
+             music.play('', 0, 1, true);
              
-        //}
+        }
        
-        //if(!music.isPlaying){
-                ////music.play('', 0,1,true);
-        //}    
-
         this.initializeRemotePlayers();
         this.createDoors();
   
