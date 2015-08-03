@@ -138,10 +138,9 @@ artGame.viewing2.prototype = {
 
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
   findObjectsByType: function(type, map, layer) {
-    var result = new Array();
+    var result = [];
     map.objects[layer].forEach(function(element){
       if(element.properties.type === type) {
-        //console.log(element);
         //Phaser uses top left, Tiled bottom left so we have to adjust
         //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
         //so they might not be placed in the exact position as in Tiled

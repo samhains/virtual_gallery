@@ -1,4 +1,3 @@
-console.log('in chat');
 var appendMessage = function(msg, player, sender) {
   
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));
@@ -25,7 +24,6 @@ var setUpChat = function(socket, room){
           });
 
         socket.on('chat message', function(data){
-            console.log("heres my name", clientName);
             var remoteId = data.user;
             var msg = data.msg;
             var remotePlayer = remotePlayers[remoteId];

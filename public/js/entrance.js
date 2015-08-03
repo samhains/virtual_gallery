@@ -54,9 +54,7 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
-      console.log('in create function');
          socket = new io.connect(window.location.href+"entrance");
-         console.log('socket',socket);
          
          setUpChat.call(this,socket);
         var self = this;
@@ -132,7 +130,6 @@ artGame.entrance.prototype = {
             $('.welcome-form').show();
             welcomeScroll(1);
             $('.welcome-form').submit(function(e){
-              console.log('submitting welcome form');
               e.preventDefault();
               name = $('#name').val();
               if (name.length > 0 ) {

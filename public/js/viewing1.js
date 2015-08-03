@@ -115,20 +115,17 @@ artGame.viewing1.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    //console.log('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: socket.id});
     $('form').off('submit');
     
 
     if(door.targetTilemap==='viewing2'){
-        console.log('join room viewing2');
         socket.emit('join room', {room:'viewing2', id: socket.id});
         clientRoom = 'viewing2';
         this.state.start('viewing2');
 
     }
     if(door.targetTilemap==='entrance'){
-          console.log('join room entrance');
         socket.emit('join room', {room:'entrance', id: socket.id});
         clientRoom = 'entrance';
         this.state.start('entrance');
