@@ -8,6 +8,6 @@ artGame.game.state.add('viewing1', artGame.viewing1);
 artGame.game.state.add('viewing2', artGame.viewing2);
 artGame.game.state.add('viewingHorse', artGame.viewingHorse);
 
-artGame.game.state.add('viewingSynchronator', artGame.viewingSynchronator);
+artGame.game.state.add('viewingFilm2', artGame.viewingFilm2);
 
 artGame.game.state.start('Preload');

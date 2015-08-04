@@ -60,6 +60,7 @@ artGame.viewing1.prototype = {
         this.createSigns();
 
           //text settings
+
         setEventHandlers.bind(this)();
 
 

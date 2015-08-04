@@ -91,7 +91,7 @@
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingSynchronator",
+                     "targetTilemap":"viewingFilm2",
                      "type":"door"
                     },
                  "rotation":0,
@@ -108,7 +108,7 @@
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingSynchronator",
+                     "targetTilemap":"viewingFilm2",
                      "type":"door"
                     },
                  "rotation":0,
@@ -125,7 +125,7 @@
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingSynchronator",
+                     "targetTilemap":"viewingFilm2",
                      "type":"door"
                     },
                  "rotation":0,

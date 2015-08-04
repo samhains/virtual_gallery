@@ -8,6 +8,13 @@ canvas {
   display:none;
 }
 
+#tek-video{
+  position: absolute;
+  left: 223px;
+  top: 40px;
+  display: none;
+}
+
 .sign{
   position: absolute;
   background-color: rgb(188,188,188);

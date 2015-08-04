@@ -1,38 +1,27 @@
 
-artGame.viewingSynchronator = function(){};
+artGame.viewingFilm2 = function(){};
 
 
-artGame.viewingSynchronator.prototype = {
-    preload: function(){
-        $.ajax({
-            url:'getPlayers',
-            type: 'get',
-            async: false,
-            success: function(playerData){
-                players = playerData;
-            }
-        });
-
-
-    },
+artGame.viewingFilm2.prototype = {
+    preload: getPlayers, 
 
     create: function(){
         //remotePlayers = {};
 
-        socket = io(window.location.href+"viewingSynchronator");
+        socket = io(window.location.href+"viewingFilm2");
 
         setUpChat.call(this,socket);
-        $('.synchronator').show();
+        $('#tek-video').show();
 
 
 
         this.facing = "left";
-        this.level = 'viewingSynchronator';
+        this.level = 'viewingFilm2';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.game.stage.backgroundColor = '#ffffff';
 
-        //this.game.add.tileSprite(0, 0, 800, 608, 'viewingSynchronator-background');
+        //this.game.add.tileSprite(0, 0, 800, 608, 'viewingFilm2-background');
         this.map = this.game.add.tilemap('viewingHorse');
 
         this.map.addTilesetImage('viewingHorse');
@@ -57,7 +46,7 @@ artGame.viewingSynchronator.prototype = {
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 400;
         this.player.position.y = 520;
-        clientRoom = 'viewingSynchronator';
+        clientRoom = 'viewingFilm2';
 
 
 
@@ -94,7 +83,7 @@ artGame.viewingSynchronator.prototype = {
         remotePlayers = {};
         for(var id in players){
             var player = players[id];
-            if(player.room==="viewingSynchronator" && clientId !== player.id){
+            if(player.room==="viewingFilm2" && clientId !== player.id){
        
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -113,7 +102,7 @@ artGame.viewingSynchronator.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewingSynchronator', id: socket.id});
+    socket.emit('leave room', {room:'viewingFilm2', id: socket.id});
     socket.emit('join room', {room:'viewing2', id: socket.id});
     clientRoom = 'viewing2';
     this.state.start('viewing2');

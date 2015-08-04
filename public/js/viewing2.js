@@ -8,6 +8,7 @@ artGame.viewing2.prototype = {
     create: function(){
         //remotePlayers = {};
         $('#horse-video').hide();
+        $('#tek-video').hide();
 
         socket = io(window.location.href+"viewing2");
         setUpChat.call(this,socket);
@@ -109,10 +110,10 @@ artGame.viewing2.prototype = {
 
     }
 
-    if(door.targetTilemap==='viewingSynchronator'){
-        //socket.emit('join room', {room:'viewingSynchronator', id: socket.id});
-        //clientRoom = 'viewingSynchronator';
-        //this.state.start('viewingSynchronator');
+    if(door.targetTilemap==='viewingFilm2'){
+        socket.emit('join room', {room:'viewingFilm2', id: socket.id});
+        clientRoom = 'viewingFilm2';
+        this.state.start('viewingFilm2');
 
     }
     if(door.targetTilemap==='viewing1'){
