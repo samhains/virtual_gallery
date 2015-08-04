@@ -61,6 +61,7 @@ function onSocketConnection(socket) {
 
 
 function chatMessage(data){	
+  console.log('players when emiting message', players);
 	this.broadcast.emit('chat message', data);
   		
 }

@@ -17,9 +17,11 @@ var setUpChat = function(socket, room){
 
             var msg = $('#m').val();
             e.preventDefault();
-            appendMessage(msg, self.player, clientName);
+            if(msg.length>0 ){
+              appendMessage(msg, self.player, clientName);
+              socket.emit('chat message', {msg: msg, room: clientRoom, user: clientId, sender: clientName});
+            }
             $('#m').val('');
-            socket.emit('chat message', {msg: msg, room: clientRoom, user: clientId, sender: clientName});
             return false;
           });
 
