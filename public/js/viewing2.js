@@ -10,8 +10,11 @@ artGame.viewing2.prototype = {
         $('#horse-video').hide();
         $('#tek-video').hide();
 
+        $('#tek-video').prop('muted', true);
         socket = io(window.location.href+"viewing2");
         setUpChat.call(this,socket);
+
+        music.resume();
 
         this.facing = "left";
         this.level = 'viewing2';

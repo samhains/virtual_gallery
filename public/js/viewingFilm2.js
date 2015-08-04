@@ -11,10 +11,11 @@ artGame.viewingFilm2.prototype = {
         socket = io(window.location.href+"viewingFilm2");
 
         setUpChat.call(this,socket);
+        music.pause();
         $('#tek-video').show();
-
-
-
+        $('#tek-video').prop('muted', false);
+        var vid = document.getElementById('tek-video');
+        vid.volume = 0.5;
         this.facing = "left";
         this.level = 'viewingFilm2';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -60,10 +61,6 @@ artGame.viewingFilm2.prototype = {
         this.textYBuffer = 0;
         this.textY = this.player.position.y-15;
         this.lastChatMessageWidth;
-        if(music && !music.isPlaying){
-                music.play('', 0,1,true);
-       }    
-        
         this.game.camera.follow(this.player);
 
         this.cursors = this.game.input.keyboard.createCursorKeys();

@@ -43,6 +43,8 @@ var setEventHandlers = function() {
 	viewing2.on('connection',onSocketConnection);
 	var viewingHorse = io.of('/viewingHorse');
 	viewingHorse.on('connection',onSocketConnection);
+	var viewingFilm2 = io.of('/viewingFilm2');
+	viewingFilm2.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
