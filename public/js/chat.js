@@ -1,4 +1,5 @@
 var appendMessage = function(msg, player, sender) {
+var lastMessage;
   
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));
   $('#messages').children(':last-child').css('margin-left', player.position.x);
@@ -26,12 +27,18 @@ var setUpChat = function(socket, room){
           });
 
         socket.on('chat message', function(data){
-            var remoteId = data.user;
             var msg = data.msg;
-            var remotePlayer = remotePlayers[remoteId];
-            var senderName = data.sender;
-            appendMessage(msg, remotePlayer, senderName);
+
+            if(lastMessage != msg) {
+              var remoteId = data.user;
+              var remotePlayer = remotePlayers[remoteId];
+              var senderName = data.sender;
+              appendMessage(msg, remotePlayer, senderName);
+            }
+
+            lastMessage = msg;
         });              
+
 
     });
 };
