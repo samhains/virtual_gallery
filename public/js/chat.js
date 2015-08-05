@@ -1,5 +1,6 @@
-var appendMessage = function(msg, player, sender) {
+
 var lastMessage;
+var appendMessage = function(msg, player, sender) {
   
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));
   $('#messages').children(':last-child').css('margin-left', player.position.x);
@@ -28,7 +29,6 @@ var setUpChat = function(socket, room){
 
         socket.on('chat message', function(data){
             var msg = data.msg;
-
             if(lastMessage != msg) {
               var remoteId = data.user;
               var remotePlayer = remotePlayers[remoteId];
