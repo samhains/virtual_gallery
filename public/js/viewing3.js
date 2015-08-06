@@ -1,22 +1,22 @@
 var lastOverlapped;
 
-artGame.viewing1 = function(){};
+artGame.viewing3 = function(){};
 
 
-artGame.viewing1.prototype = {
+artGame.viewing3.prototype = {
     preload: getPlayers, 
     create: function(){
 
 
-        socket = io(window.location.href+"viewing1");
+        socket = io(window.location.href+"viewing3");
         setUpChat.call(this,socket);
 
         this.facing = "left";
-        this.level = 'viewing1';
+        this.level = 'viewing3';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.stage.backgroundColor = '#ffffff';
-        this.map = this.game.add.tilemap('viewing1');
-        this.map.addTilesetImage('viewing1');
+        this.map = this.game.add.tilemap('viewing3');
+        this.map.addTilesetImage('viewing3');
         this.layer = this.map.createLayer('Tile Layer 1');
 
         if(music && !music.isPlaying){
@@ -24,9 +24,11 @@ artGame.viewing1.prototype = {
          }    
 
         this.map.setCollisionBetween(1504, 1545);
-        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554, 1693, 1592, 1593, 1594, 1694, 1695,1643, 1644, 1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1642]);
+        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554,  1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1900]);
 
 
+
+        //this.layer.debug = true;
         //this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
@@ -35,9 +37,9 @@ artGame.viewing1.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 400;
+        this.player.position.x = 140;
         this.player.position.y = 520;
-        clientRoom = 'viewing1';
+        clientRoom = 'viewing3';
        
 
 
@@ -73,7 +75,7 @@ artGame.viewing1.prototype = {
             var player = players[id];
                 
 
-            if(player.room==="viewing1"  && clientId !== player.id){
+            if(player.room==="viewing3"  && clientId !== player.id){
                 
                 remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
             }
@@ -102,7 +104,8 @@ artGame.viewing1.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'entrance', id: socket.id});
+    socket.emit('leave room', {room:'viewing3', id: socket.id});
+    artGame.lastRoom = 'viewing3';
     $('form').off('submit');
     
 
@@ -112,10 +115,10 @@ artGame.viewing1.prototype = {
         this.state.start('viewing2');
 
     }
-    if(door.targetTilemap==='entrance'){
-        socket.emit('join room', {room:'entrance', id: socket.id});
-        clientRoom = 'entrance';
-        this.state.start('entrance');
+    if(door.targetTilemap==='viewingFilm3'){
+        socket.emit('join room', {room:'viewingFilm3', id: socket.id});
+        clientRoom = 'viewingFilm3';
+        this.state.start('viewingFilm3');
     }
 
 
@@ -123,7 +126,7 @@ artGame.viewing1.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('A fine work of art ', 'acrylic on oil', 'Charlie Freedman');
+    showSign('Two Photographs', 'photograph on Timber', 'Harry Hughes');
   },
     
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value

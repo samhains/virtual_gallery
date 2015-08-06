@@ -100,6 +100,7 @@ artGame.viewingFilm2.prototype = {
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingFilm2', id: socket.id});
+    artGame.lastRoom = 'viewingFilm2';
     socket.emit('join room', {room:'viewing2', id: socket.id});
     clientRoom = 'viewing2';
     this.state.start('viewing2');

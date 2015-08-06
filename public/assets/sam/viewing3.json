@@ -13,17 +13,17 @@
         }, 
         {
          "draworder":"topdown",
-         "height":0,
+         "height":38,
          "name":"Object Layer 1",
          "objects":[
                 {
                  "gid":1703,
                  "height":16,
-                 "id":9,
+                 "id":6,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingHorse",
+                     "targetTilemap":"viewing2",
                      "type":"door"
                     },
                  "rotation":0,
@@ -36,11 +36,11 @@
                 {
                  "gid":1653,
                  "height":16,
-                 "id":13,
+                 "id":9,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingHorse",
+                     "targetTilemap":"viewing2",
                      "type":"door"
                     },
                  "rotation":0,
@@ -51,47 +51,13 @@
                  "y":544
                 }, 
                 {
-                 "gid":1526,
-                 "height":16,
-                 "id":15,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing1",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":400,
-                 "y":496
-                }, 
-                {
-                 "gid":1527,
-                 "height":16,
-                 "id":16,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing1",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":416,
-                 "y":496
-                }, 
-                {
                  "gid":1513,
                  "height":16,
-                 "id":19,
+                 "id":10,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingFilm2",
+                     "targetTilemap":"viewingFilm3",
                      "type":"door"
                     },
                  "rotation":0,
@@ -104,11 +70,11 @@
                 {
                  "gid":1514,
                  "height":16,
-                 "id":20,
+                 "id":12,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingFilm2",
+                     "targetTilemap":"viewingFilm3",
                      "type":"door"
                     },
                  "rotation":0,
@@ -121,11 +87,11 @@
                 {
                  "gid":1515,
                  "height":16,
-                 "id":21,
+                 "id":14,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingFilm2",
+                     "targetTilemap":"viewingFilm3",
                      "type":"door"
                     },
                  "rotation":0,
@@ -138,7 +104,7 @@
                 {
                  "gid":1470,
                  "height":16,
-                 "id":23,
+                 "id":15,
                  "name":"sign",
                  "properties":
                     {
@@ -154,7 +120,7 @@
                 {
                  "gid":1520,
                  "height":16,
-                 "id":24,
+                 "id":16,
                  "name":"sign",
                  "properties":
                     {
@@ -166,66 +132,15 @@
                  "width":16,
                  "x":304,
                  "y":496
-                }, 
-                {
-                 "gid":1697,
-                 "height":16,
-                 "id":25,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing3",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":736,
-                 "y":544
-                }, 
-                {
-                 "gid":1747,
-                 "height":16,
-                 "id":26,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing3",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":736,
-                 "y":560
-                }, 
-                {
-                 "gid":1646,
-                 "height":16,
-                 "id":27,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing3",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":720,
-                 "y":528
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":0,
+         "width":50,
          "x":0,
          "y":0
         }],
- "nextobjectid":28,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "properties":
     {
@@ -236,11 +151,11 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"viewing2.png",
+         "image":"viewing3.png",
          "imageheight":608,
          "imagewidth":800,
          "margin":0,
-         "name":"viewing2",
+         "name":"viewing3",
          "properties":
             {
 

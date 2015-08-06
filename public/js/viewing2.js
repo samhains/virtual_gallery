@@ -104,12 +104,19 @@ artGame.viewing2.prototype = {
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewing2', id: socket.id});
+    artGame.lastRoom = 'viewing2';
      $('form').off('submit');
     
     if(door.targetTilemap==='viewingHorse'){
         socket.emit('join room', {room:'viewingHorse', id: socket.id});
         clientRoom = 'viewingHorse';
         this.state.start('viewingHorse');
+
+    }
+    if(door.targetTilemap==='viewing3'){
+        socket.emit('join room', {room:'viewing3', id: socket.id});
+        clientRoom = 'viewing3';
+        this.state.start('viewing3');
 
     }
 

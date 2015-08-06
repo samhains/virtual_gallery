@@ -1,7 +1,6 @@
 
 var lastMessage;
 var appendMessage = function(msg, player, sender) {
-  
   $('#messages').append($("<div><li><b class='bold-text'>"+sender+': </b>'+msg+'</li></div>'));
   $('#messages').children(':last-child').css('margin-left', player.position.x);
   $(".message-list").scrollTop($(".message-list")[0].scrollHeight);

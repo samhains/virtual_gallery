@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="38" tilewidth="16" tileheight="16" nextobjectid="28">
- <tileset firstgid="1" name="viewing2" tilewidth="16" tileheight="16">
-  <image source="viewing2.png" width="800" height="608"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="38" tilewidth="16" tileheight="16" nextobjectid="18">
+ <tileset firstgid="1" name="viewing3" tilewidth="16" tileheight="16">
+  <image source="viewing3.png" width="800" height="608"/>
  </tileset>
  <layer name="Tile Layer 1" width="50" height="38">
   <data encoding="base64" compression="zlib">
@@ -9,74 +9,44 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="9" name="door" gid="1703" x="32" y="560" width="16" height="16">
+  <object id="6" name="door" gid="1703" x="32" y="560" width="16" height="16">
    <properties>
-    <property name="targetTilemap" value="viewingHorse"/>
+    <property name="targetTilemap" value="viewing2"/>
     <property name="type" value="door"/>
    </properties>
   </object>
-  <object id="13" name="door" gid="1653" x="32" y="544" width="16" height="16">
+  <object id="9" name="door" gid="1653" x="32" y="544" width="16" height="16">
    <properties>
-    <property name="targetTilemap" value="viewingHorse"/>
+    <property name="targetTilemap" value="viewing2"/>
     <property name="type" value="door"/>
    </properties>
   </object>
-  <object id="15" name="door" gid="1526" x="400" y="496" width="16" height="16">
+  <object id="10" name="door" gid="1513" x="192" y="496" width="16" height="16">
    <properties>
-    <property name="targetTilemap" value="viewing1"/>
+    <property name="targetTilemap" value="viewingFilm3"/>
     <property name="type" value="door"/>
    </properties>
   </object>
-  <object id="16" name="door" gid="1527" x="416" y="496" width="16" height="16">
+  <object id="12" name="door" gid="1514" x="208" y="496" width="16" height="16">
    <properties>
-    <property name="targetTilemap" value="viewing1"/>
+    <property name="targetTilemap" value="viewingFilm3"/>
     <property name="type" value="door"/>
    </properties>
   </object>
-  <object id="19" name="door" gid="1513" x="192" y="496" width="16" height="16">
+  <object id="14" name="door" gid="1515" x="224" y="496" width="16" height="16">
    <properties>
-    <property name="targetTilemap" value="viewingFilm2"/>
+    <property name="targetTilemap" value="viewingFilm3"/>
     <property name="type" value="door"/>
    </properties>
   </object>
-  <object id="20" name="door" gid="1514" x="208" y="496" width="16" height="16">
-   <properties>
-    <property name="targetTilemap" value="viewingFilm2"/>
-    <property name="type" value="door"/>
-   </properties>
-  </object>
-  <object id="21" name="door" gid="1515" x="224" y="496" width="16" height="16">
-   <properties>
-    <property name="targetTilemap" value="viewingFilm2"/>
-    <property name="type" value="door"/>
-   </properties>
-  </object>
-  <object id="23" name="sign" gid="1470" x="304" y="480" width="16" height="16">
+  <object id="15" name="sign" gid="1470" x="304" y="480" width="16" height="16">
    <properties>
     <property name="type" value="sign"/>
    </properties>
   </object>
-  <object id="24" name="sign" gid="1520" x="304" y="496" width="16" height="16">
+  <object id="16" name="sign" gid="1520" x="304" y="496" width="16" height="16">
    <properties>
     <property name="type" value="sign"/>
-   </properties>
-  </object>
-  <object id="25" name="door" gid="1697" x="736" y="544" width="16" height="16">
-   <properties>
-    <property name="targetTilemap" value="viewing3"/>
-    <property name="type" value="door"/>
-   </properties>
-  </object>
-  <object id="26" name="door" gid="1747" x="736" y="560" width="16" height="16">
-   <properties>
-    <property name="targetTilemap" value="viewing3"/>
-    <property name="type" value="door"/>
-   </properties>
-  </object>
-  <object id="27" name="door" gid="1646" x="720" y="528" width="16" height="16">
-   <properties>
-    <property name="targetTilemap" value="viewing3"/>
-    <property name="type" value="door"/>
    </properties>
   </object>
  </objectgroup>

@@ -24,8 +24,8 @@ app.get('/', require('./routes'));
 
 
 
-http.listen(process.env.PORT || 80, function(){
-  console.log('listening on *:80');
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening on *:3000');
 });
 
 
@@ -41,10 +41,14 @@ var setEventHandlers = function() {
 	viewing1.on('connection',onSocketConnection);
 	var viewing2 = io.of('/viewing2');
 	viewing2.on('connection',onSocketConnection);
+	var viewing3 = io.of('/viewing3');
+	viewing3.on('connection',onSocketConnection);
 	var viewingHorse = io.of('/viewingHorse');
 	viewingHorse.on('connection',onSocketConnection);
 	var viewingFilm2 = io.of('/viewingFilm2');
 	viewingFilm2.on('connection',onSocketConnection);
+	var viewingFilm3 = io.of('/viewingFilm3');
+	viewingFilm3.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
