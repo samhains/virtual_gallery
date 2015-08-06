@@ -53,7 +53,7 @@ artGame.viewingHorse.prototype = {
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 400;
-        this.player.position.y = 520;
+        this.player.position.y = 510;
         clientRoom = 'viewingHorse';
 
 

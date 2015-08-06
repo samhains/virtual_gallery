@@ -7,6 +7,9 @@ artGame.viewing3.prototype = {
     preload: getPlayers, 
     create: function(){
 
+        $('#banana-video').hide();
+
+        $('#banana-video').prop('muted', true);
 
         socket = io(window.location.href+"viewing3");
         setUpChat.call(this,socket);
@@ -18,6 +21,8 @@ artGame.viewing3.prototype = {
         this.map = this.game.add.tilemap('viewing3');
         this.map.addTilesetImage('viewing3');
         this.layer = this.map.createLayer('Tile Layer 1');
+
+        if(music) music.resume();
 
         if(music && !music.isPlaying){
                 music.play('', 0,1,true);
@@ -37,8 +42,18 @@ artGame.viewing3.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 140;
+        this.player.position.x = 60;
         this.player.position.y = 520;
+
+        if(artGame.lastRoom == 'viewing2'){
+          this.player.position.x = 60;
+          this.player.position.y = 520;
+        }
+
+        else if(artGame.lastRoom == 'viewingFilm3'){
+          this.player.position.x = 199;
+          this.player.position.y = 500;
+        }
         clientRoom = 'viewing3';
        
 

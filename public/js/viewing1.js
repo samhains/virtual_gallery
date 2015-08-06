@@ -35,8 +35,17 @@ artGame.viewing1.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 400;
-        this.player.position.y = 520;
+
+        if(artGame.lastRoom == 'entrance'){
+          this.player.position.x = 295;
+          this.player.position.y = 510;
+        }
+
+        else if(artGame.lastRoom == 'viewing2'){
+          this.player.position.x = 495;
+          this.player.position.y = 510;
+        }
+
         clientRoom = 'viewing1';
        
 
@@ -102,7 +111,8 @@ artGame.viewing1.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'entrance', id: socket.id});
+    socket.emit('leave room', {room:'viewing1', id: socket.id});
+    artGame.lastRoom = 'viewing1';
     $('form').off('submit');
     
 

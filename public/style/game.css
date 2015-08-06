@@ -14,6 +14,12 @@ canvas {
   top: 40px;
   display: none;
 }
+#banana-video{
+  position: absolute;
+  left: 147px;
+  top: 40px;
+  display: none;
+}
 
 .sign{
   position: absolute;
@@ -193,12 +199,10 @@ canvas {
     }
   .message-list{
 
-
       position: absolute;
-      overflow: scroll;
+      overflow: hidden;
       height: 150px;
       padding-top: 20px;
-
 
   }
 

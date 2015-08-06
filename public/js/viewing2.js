@@ -14,7 +14,7 @@ artGame.viewing2.prototype = {
         socket = io(window.location.href+"viewing2");
         setUpChat.call(this,socket);
 
-        music.resume();
+        if(music) music.resume();
 
         this.facing = "left";
         this.level = 'viewing2';
@@ -38,8 +38,24 @@ artGame.viewing2.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 400;
-        this.player.position.y = 520;
+        
+        if(artGame.lastRoom == 'viewing1'){
+          this.player.position.x = 398;
+          this.player.position.y = 504;
+        }
+
+        else if(artGame.lastRoom == 'viewing3'){
+          this.player.position.x = 695;
+          this.player.position.y = 520;
+        }
+        else if(artGame.lastRoom == 'viewingHorse'){
+          this.player.position.x = 60;
+          this.player.position.y = 520;
+        }
+        else if(artGame.lastRoom == 'viewingFilm2'){
+          this.player.position.x = 170;
+          this.player.position.y = 494;
+        }
         clientRoom = 'viewing2';
 
 

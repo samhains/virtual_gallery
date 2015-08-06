@@ -11,11 +11,11 @@ artGame.viewingFilm3.prototype = {
         socket = io(window.location.href+"viewingFilm3");
 
         setUpChat.call(this,socket);
-        music.pause();
-        //$('#tek-video').show();
-        //$('#tek-video').prop('muted', false);
-        //var vid = document.getElementById('tek-video');
-        //vid.volume = 0.5;
+        if(music) music.pause();
+        $('#banana-video').show();
+        $('#banana-video').prop('muted', false);
+        var vid = document.getElementById('banana-video');
+        vid.volume = 0.5;
         this.facing = "left";
         this.level = 'viewingFilm3';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -46,7 +46,7 @@ artGame.viewingFilm3.prototype = {
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
         this.player.position.x = 400;
-        this.player.position.y = 520;
+        this.player.position.y = 510;
         clientRoom = 'viewingFilm3';
 
 

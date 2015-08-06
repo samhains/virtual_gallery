@@ -100,8 +100,15 @@ artGame.entrance.prototype = {
 
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
-        this.player.position.x = 50;
-        this.player.position.y = 550;
+
+        if(artGame.lastRoom == 'viewing1'){
+          this.player.position.x = 300;
+          this.player.position.y = 537;
+        }
+        else{
+          this.player.position.x = 50;
+          this.player.position.y = 550;
+        }
 
         clientRoom = "entrance";
         socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
