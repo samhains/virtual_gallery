@@ -9,6 +9,7 @@ artGame.viewingFilm2.prototype = {
         //remotePlayers = {};
 
         socket = io(window.location.href+"viewingFilm2");
+        socket.emit('join room', {room:'viewingFilm2', id: clientId});
 
         setUpChat.call(this,socket);
         if(music) music.pause();

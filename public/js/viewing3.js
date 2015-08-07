@@ -7,10 +7,11 @@ artGame.viewing3.prototype = {
     preload: getPlayers, 
     create: function(){
 
-        $('#banana-video').hide();
-        $('#banana-video').prop('muted', true);
+        $('#kill-video').hide();
+        $('#kill-video').prop('muted', true);
 
         socket = io(window.location.href+"viewing3");
+        socket.emit('join room', {room:'viewing3', id: clientId});
         setUpChat.call(this,socket);
 
         this.facing = "left";
@@ -124,13 +125,11 @@ artGame.viewing3.prototype = {
     
 
     if(door.targetTilemap==='viewing2'){
-        socket.emit('join room', {room:'viewing2', id: socket.id});
         clientRoom = 'viewing2';
         this.state.start('viewing2');
 
     }
     if(door.targetTilemap==='viewingFilm3'){
-        socket.emit('join room', {room:'viewingFilm3', id: socket.id});
         clientRoom = 'viewingFilm3';
         this.state.start('viewingFilm3');
     }

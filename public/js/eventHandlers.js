@@ -32,6 +32,7 @@ function leaveRoom(data){
 function joinRoom(data){
 
 
+  console.log('we are joining room with', data);
 
     var players = data.players;
     data = data.data;

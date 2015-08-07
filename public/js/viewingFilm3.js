@@ -10,11 +10,13 @@ artGame.viewingFilm3.prototype = {
 
         socket = io(window.location.href+"viewingFilm3");
 
+        socket.emit('join room', {room:'viewingFilm3', id: clientId});
+
         setUpChat.call(this,socket);
         if(music) music.pause();
-        $('#banana-video').show();
-        $('#banana-video').prop('muted', false);
-        var vid = document.getElementById('banana-video');
+        $('#kill-video').show();
+        $('#kill-video').prop('muted', false);
+        var vid = document.getElementById('kill-video');
         vid.volume = 0.5;
         this.facing = "left";
         this.level = 'viewingFilm3';
@@ -111,12 +113,11 @@ artGame.viewingFilm3.prototype = {
   },
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('banana porn', '', 'Charlie Freedman');
+    showSign("i'll kill u sam hains ", '', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingFilm3', id: socket.id});
     artGame.lastRoom = 'viewingFilm3';
-    socket.emit('join room', {room:'viewing3', id: socket.id});
     clientRoom = 'viewing3';
     this.state.start('viewing3');
 

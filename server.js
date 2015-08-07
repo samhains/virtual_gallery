@@ -71,24 +71,24 @@ function chatMessage(data){
 }
 
 function joinRoom(data){
-	console.log('joining with ', data);
-	var obj = {data: data, players: players};
+    //console.log('joining with ', data);
+    var obj = {data: data, players: players};
+    var joinPlayer = players[this.id];
+    //first set the server room information
+    if(joinPlayer){
+      joinPlayer.room = data.room;
+      //then transmit the join room message to everyone with data necessary
+      //for remote player update
+      //io.sockets.emit('join room', obj);
+      this.broadcast.emit('join room', obj);
+      //this.join(data.room);
+    }
+    else{
+      console.error('join player doesnt exist',data);
+    }
 
 
-	var joinPlayer = players[this.id];
-	//first set the server room information
-	if(joinPlayer){
-		joinPlayer.room = data.room;
-		//then transmit the join room message to everyone with data necessary
-		//for remote player update
 
-		this.broadcast.emit('join room', obj);
-		//this.join(data.room);
-
-	}
-	else{
-		console.error('join player doesnt exist',data);
-	}
 	
 }
 function leaveRoom(data){

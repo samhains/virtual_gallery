@@ -12,6 +12,7 @@ artGame.viewing2.prototype = {
 
         $('#tek-video').prop('muted', true);
         socket = io(window.location.href+"viewing2");
+        socket.emit('join room', {room:'viewing2', id: clientId});
         setUpChat.call(this,socket);
 
         if(music) music.resume();
@@ -124,26 +125,22 @@ artGame.viewing2.prototype = {
      $('form').off('submit');
     
     if(door.targetTilemap==='viewingHorse'){
-        socket.emit('join room', {room:'viewingHorse', id: socket.id});
         clientRoom = 'viewingHorse';
         this.state.start('viewingHorse');
 
     }
     if(door.targetTilemap==='viewing3'){
-        socket.emit('join room', {room:'viewing3', id: socket.id});
         clientRoom = 'viewing3';
         this.state.start('viewing3');
 
     }
 
     if(door.targetTilemap==='viewingFilm2'){
-        socket.emit('join room', {room:'viewingFilm2', id: socket.id});
         clientRoom = 'viewingFilm2';
         this.state.start('viewingFilm2');
 
     }
     if(door.targetTilemap==='viewing1'){
-        socket.emit('join room', {room:'viewing1', id: socket.id});
         clientRoom = 'viewing1';
         this.state.start('viewing1');
     }
