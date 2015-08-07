@@ -8,7 +8,6 @@ artGame.viewing3.prototype = {
     create: function(){
 
         $('#banana-video').hide();
-
         $('#banana-video').prop('muted', true);
 
         socket = io(window.location.href+"viewing3");
@@ -141,7 +140,7 @@ artGame.viewing3.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Two Photographs', 'photograph on Timber', 'Harry Hughes');
+    showSign('Untitled (Broken I) and Untitled (Broken II)', '', 'Harry Hughes');
   },
     
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value

@@ -80,6 +80,7 @@ artGame.viewingHorse.prototype = {
          // Start listening for events
         this.initializeRemotePlayers();
         this.createDoors();
+        this.createSigns();
         setEventHandlers.bind(this)();
 
 
@@ -98,6 +99,21 @@ artGame.viewingHorse.prototype = {
 
 
         }
+    }, 
+     createSigns: function() {
+    //create signs
+        this.signs = this.game.add.group();
+        this.signs.enableBody = true;
+        result = this.findObjectsByType('sign', this.map, 'Object Layer 1');
+
+        result.forEach(function(element){
+          this.createFromTiledObject(element, this.signs);
+        }, this);
+  },
+    touchSign: function(player, sign) {
+      console.log("hello touching sign");
+      lastOverlapped = game.time.now + 100;
+      showSign('Untitled (Central Park)', '', 'Harry Hughes');
     },
      createDoors: function() {
     //create doors
@@ -111,6 +127,7 @@ artGame.viewingHorse.prototype = {
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingHorse', id: socket.id});
+    artGame.lastRoom = 'viewingHorse';
     socket.emit('join room', {room:'viewing2', id: socket.id});
     clientRoom = 'viewing2';
     this.state.start('viewing2');
@@ -158,6 +175,8 @@ artGame.viewingHorse.prototype = {
 
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
+        this.game.physics.arcade.overlap(this.player, this.signs, this.touchSign, null, this);
+        removeSign(lastOverlapped);
 
          playerMovementAndAnimation.call(this, socket, clientRoom);
     }

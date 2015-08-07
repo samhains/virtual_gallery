@@ -4,6 +4,7 @@ var players = {};
 
 var showSign = function(title, description, author) {
   if(!$('.sign')[0]){
+  console.log('hey2');
     $('body').prepend("<div class='sign'><div class='bold-text title'>"+
         title+"</div><div>"+
         description+"</div><div class='author'>"+author+"</div></div>"); 

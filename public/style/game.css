@@ -34,6 +34,7 @@ canvas {
   padding-right: 20px;
   padding-left: 20px;
   font-size: 20px;
+  z-index:9999;
 }
 .title{
   padding-bottom: 10px;

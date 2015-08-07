@@ -69,6 +69,7 @@ artGame.viewingFilm3.prototype = {
          // Start listening for events
         this.initializeRemotePlayers();
         this.createDoors();
+        this.createSigns();
         setEventHandlers.bind(this)();
 
 
@@ -88,6 +89,16 @@ artGame.viewingFilm3.prototype = {
 
         }
     },
+     createSigns: function() {
+    //create signs
+        this.signs = this.game.add.group();
+        this.signs.enableBody = true;
+        result = this.findObjectsByType('sign', this.map, 'Object Layer 1');
+
+        result.forEach(function(element){
+          this.createFromTiledObject(element, this.signs);
+        }, this);
+  },
      createDoors: function() {
     //create doors
         this.doors = this.game.add.group();
@@ -97,6 +108,10 @@ artGame.viewingFilm3.prototype = {
         result.forEach(function(element){
           this.createFromTiledObject(element, this.doors);
         }, this);
+  },
+  touchSign: function(player, sign) {
+    lastOverlapped = game.time.now + 100;
+    showSign('banana porn', '', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingFilm3', id: socket.id});
@@ -148,6 +163,8 @@ artGame.viewingFilm3.prototype = {
 
         this.game.physics.arcade.collide(this.player, this.layer);
         this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
+        this.game.physics.arcade.overlap(this.player, this.signs, this.touchSign, null, this);
+        removeSign(lastOverlapped);
 
          playerMovementAndAnimation.call(this, socket, clientRoom);
     }
