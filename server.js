@@ -52,7 +52,7 @@ var setEventHandlers = function() {
 };
 
 function onSocketConnection(socket) {
-    console.log("New player has connected: "+socket.id);
+   // console.log("New player has connected: "+socket.id);
     socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
@@ -65,7 +65,7 @@ function onSocketConnection(socket) {
 
 
 function chatMessage(data){	
-  console.log('players when emiting message', players);
+  //console.log('players when emiting message', players);
 	this.broadcast.emit('chat message', data);
   		
 }
@@ -99,13 +99,13 @@ function leaveRoom(data){
 
 function onSocketDisconnect() {
 
-    console.log("on socket Player has disconnected: "+this.id);
+    //console.log("on socket Player has disconnected: "+this.id);
     //onRemovePlayer();
     //this.emit("remove player", {id: this.id});
     var removePlayer = players[this.id];
 
 	if (!removePlayer) {
-	    console.log(" on socket Player not found: "+this.id);
+	    //console.log(" on socket Player not found: "+this.id);
 	    return;
 	}
 
@@ -158,7 +158,7 @@ function onMovePlayer(socket) {
 	//console.log(movePlayer);
 
 	if (!movePlayer) {
-	    console.log("move Player not found: "+this.id);
+	    //console.log("move Player not found: "+this.id);
 	    return;
 	}
 	movePlayer.x = socket.x;

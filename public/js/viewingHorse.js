@@ -111,7 +111,6 @@ artGame.viewingHorse.prototype = {
         }, this);
   },
     touchSign: function(player, sign) {
-      console.log("hello touching sign");
       lastOverlapped = game.time.now + 100;
       showSign('Untitled (Central Park)', '', 'Harry Hughes');
     },
@@ -141,7 +140,6 @@ artGame.viewingHorse.prototype = {
     var result = new Array();
     map.objects[layer].forEach(function(element){
       if(element.properties.type === type) {
-        //console.log(element);
         //Phaser uses top left, Tiled bottom left so we have to adjust
         //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
         //so they might not be placed in the exact position as in Tiled
