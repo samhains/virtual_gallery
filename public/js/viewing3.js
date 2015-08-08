@@ -119,7 +119,7 @@ artGame.viewing3.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewing3', id: socket.id});
+    socket.emit('leave room', {room:'viewing3', id: clientId});
     artGame.lastRoom = 'viewing3';
     $('form').off('submit');
     

@@ -120,7 +120,7 @@ artGame.viewing2.prototype = {
     showSign('Death Tryptic', 'Digital Collage', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewing2', id: socket.id});
+    socket.emit('leave room', {room:'viewing2', id: clientId});
     artGame.lastRoom = 'viewing2';
      $('form').off('submit');
     

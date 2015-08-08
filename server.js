@@ -52,7 +52,7 @@ var setEventHandlers = function() {
 };
 
 function onSocketConnection(socket) {
-   // console.log("New player has connected: "+socket.id);
+    console.log("New player has connected: "+socket.id);
     socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
@@ -73,6 +73,7 @@ function chatMessage(data){
 function joinRoom(data){
     //console.log('joining with ', data);
     var obj = {data: data, players: players};
+    console.log('joining with', this.id, 'players', players);
     var joinPlayer = players[this.id];
     //first set the server room information
     if(joinPlayer){
@@ -98,8 +99,8 @@ function leaveRoom(data){
 }
 
 function onSocketDisconnect() {
-
-    //console.log("on socket Player has disconnected: "+this.id);
+    
+    console.log("on socket Player has disconnected: "+this.id);
     //onRemovePlayer();
     //this.emit("remove player", {id: this.id});
     var removePlayer = players[this.id];
@@ -125,6 +126,7 @@ function  onRemovePlayer(data){
 
 function onNewPlayer(data) {
 	//if the player doesnt already exist, and there is a valid ID
+  console.log('creating new player with', data);
 	if(!players[this.id] && this.id){
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;

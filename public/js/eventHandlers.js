@@ -1,31 +1,33 @@
 var setEventHandlers = function() {
 
-    socket.on("connect", onSocketConnected.bind(this));
+    socket.on("connect", onSocketConnected.bind(socket));
     socket.on("disconnect", onSocketDisconnect.bind(this));
     socket.on("new player", onNewPlayer.bind(this));
     socket.on("move player", onMovePlayer.bind(this));
     socket.on("remove player", onRemovePlayer.bind(this));
-    socket.on("leave room", leaveRoom.bind(this));
+    socket.on("leave room", leaveRoom.bind(socket));
     socket.on("join room", joinRoom.bind(this));
 };
 
 
 function onSocketConnected() {
     clientId = socket.id;
-
+    socket.emit('join room', {room:this.nsp.slice(1), id: clientId});
 }
 
 function leaveRoom(data){
     
+    console.log('remote players', remotePlayers);
+    console.log('client id', data.id);
 
     if(remotePlayers[data.id]){
         remotePlayers[data.id].destroy();
         delete remotePlayers[data.id];
 
     }
-    
-
-
+    else{
+      console.log("error with removing player", data.id, remotePlayers);
+    }
 
 }
 
@@ -50,17 +52,17 @@ function joinRoom(data){
 }
 
 function onSocketDisconnect() {
-};
+  console.log('disconnecting!');
+}
 
 function onNewPlayer(data) {
-    //debugger;
     if(clientRoom === data.room){
         if(remotePlayers[data.id]){
             remotePlayers[data.id].destroy();
             delete remotePlayers[data.id];
         }
         remotePlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
-        }
+      }
 
 };
 

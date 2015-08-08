@@ -115,13 +115,10 @@ artGame.viewingFilm2.prototype = {
     showSign('Tek Yon Vol 3.', '', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewingFilm2', id: socket.id});
+    socket.emit('leave room', {room:'viewingFilm2', id: clientId});
     artGame.lastRoom = 'viewingFilm2';
-    socket.emit('join room', {room:'viewing2', id: socket.id});
     clientRoom = 'viewing2';
     this.state.start('viewing2');
-
-
 
   },
 

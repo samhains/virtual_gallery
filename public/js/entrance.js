@@ -207,7 +207,7 @@ artGame.entrance.prototype = {
   },
   enterDoor: function(player, door) {
     //`('ENTER DOOR this.player id and level',clientId,clientRoom);
-    socket.emit('leave room', {room:'entrance', id: socket.id});
+    socket.emit('leave room', {room:'entrance', id: clientId});
     artGame.lastRoom = 'entrance';
 
     //socket.emit("remove player", {id: socket.id, room: 'entrance'});

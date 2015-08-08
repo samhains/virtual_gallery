@@ -9,8 +9,6 @@ artGame.viewing1.prototype = {
 
 
         socket = io(window.location.href+"viewing1");
-        socket.emit('join room', {room:'viewing1', id: clientId});
-
         setUpChat.call(this,socket);
 
         this.facing = "left";
@@ -49,6 +47,7 @@ artGame.viewing1.prototype = {
           this.player.position.y = 510;
         }
 
+        socket.emit("new player", {x: this.player.x, y: this.player.y, room:'viewing1'});
         clientRoom = 'viewing1';
        
 
@@ -114,7 +113,7 @@ artGame.viewing1.prototype = {
         }, this);
   },
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewing1', id: socket.id});
+    socket.emit('leave room', {room:'viewing1', id: clientId});
     artGame.lastRoom = 'viewing1';
     $('form').off('submit');
     
