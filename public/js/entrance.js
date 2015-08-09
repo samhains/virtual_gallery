@@ -138,15 +138,9 @@ artGame.entrance.prototype = {
     update: function(){
 
         
+        updateRemotePlayers(remotePlayers);
+        collisionSetUp.call(this, false);
 
-        for (var id in remotePlayers)
-        {
-
-            if (remotePlayers[id].alive)
-                remotePlayers[id].update();
-        }
-        this.game.physics.arcade.collide(this.player, this.layer);
-        this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
         playerMovementAndAnimation.call(this, socket, clientRoom);
     },

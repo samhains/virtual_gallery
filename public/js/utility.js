@@ -85,6 +85,16 @@ var initializeRemotePlayers= function(levelName){
     }
 };
 
+var updateRemotePlayers = function(remotePlayers){
+
+    for (var id in remotePlayers)
+    {
+
+        if (remotePlayers[id].alive)
+            remotePlayers[id].update();
+    }
+
+};
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value
   var findObjectsByType = function(type, map, layer) {
     var result = [];
@@ -132,6 +142,14 @@ var createDoors = function() {
   }, this);
 };
 
+var collisionSetUp = function(isSign){
+    this.game.physics.arcade.collide(this.player, this.layer);
+    this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
+
+    if(isSign){
+      this.game.physics.arcade.overlap(this.player, this.signs, this.touchSign, null, this);
+    }
+};
 var createFilmLevel = function(name, videoId, isMusic){
     socket.emit('join room', {room: name, id: clientId});
 

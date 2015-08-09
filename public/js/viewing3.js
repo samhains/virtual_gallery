@@ -107,18 +107,8 @@ artGame.viewing3.prototype = {
     update: function(){
 
 
-        for (var id in remotePlayers)
-        {
-
-            if (remotePlayers[id].alive)
-                //could this be done asyncronously?
-                remotePlayers[id].update();
-
-        }
-
-        this.game.physics.arcade.collide(this.player, this.layer);
-        this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
-        this.game.physics.arcade.overlap(this.player, this.signs, this.touchSign, null, this);
+        updateRemotePlayers(remotePlayers);
+        collisionSetUp.call(this, true);
 
         removeSign(lastOverlapped);
         playerMovementAndAnimation.call(this, socket, clientRoom);
