@@ -35,24 +35,26 @@ function init() {
 }
 
 var setEventHandlers = function() {
-	var entrance = io.of('/entrance');
-	entrance.on('connection', onSocketConnection);
-	var viewing1 = io.of('/viewing1');
-	viewing1.on('connection',onSocketConnection);
-	var viewing2 = io.of('/viewing2');
-	viewing2.on('connection',onSocketConnection);
-	var viewing3 = io.of('/viewing3');
-	viewing3.on('connection',onSocketConnection);
-	var viewingHorse = io.of('/viewingHorse');
-	viewingHorse.on('connection',onSocketConnection);
-	var viewingFilm2 = io.of('/viewingFilm2');
-	viewingFilm2.on('connection',onSocketConnection);
-	var viewingFilm3 = io.of('/viewingFilm3');
-	viewingFilm3.on('connection',onSocketConnection);
+   io.on('connection', onSocketConnection);
+	//var entrance = io.of('/entrance');
+	//entrance.on('connection', onSocketConnection);
+	//var viewing1 = io.of('/viewing1');
+	//viewing1.on('connection',onSocketConnection);
+	//var viewing2 = io.of('/viewing2');
+	//viewing2.on('connection',onSocketConnection);
+	//var viewing3 = io.of('/viewing3');
+	//viewing3.on('connection',onSocketConnection);
+	//var viewingHorse = io.of('/viewingHorse');
+	//viewingHorse.on('connection',onSocketConnection);
+	//var viewingFilm2 = io.of('/viewingFilm2');
+	//viewingFilm2.on('connection',onSocketConnection);
+	//var viewingFilm3 = io.of('/viewingFilm3');
+	//viewingFilm3.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
     console.log("New player has connected: "+socket.id);
+    socket.join('entrance');
     socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
     socket.on("new player", onNewPlayer);
@@ -66,14 +68,14 @@ function onSocketConnection(socket) {
 
 function chatMessage(data){	
   //console.log('players when emiting message', players);
-	this.broadcast.emit('chat message', data);
+	this.broadcast.to(data.room).emit('chat message', data);
   		
 }
 
 function joinRoom(data){
     //console.log('joining with ', data);
     var obj = {data: data, players: players};
-    console.log('joining with', this.id, 'players', players);
+    this.join(data.room);
     var joinPlayer = players[this.id];
     //first set the server room information
     if(joinPlayer){
@@ -81,7 +83,7 @@ function joinRoom(data){
       //then transmit the join room message to everyone with data necessary
       //for remote player update
       //io.sockets.emit('join room', obj);
-      this.broadcast.emit('join room', obj);
+      this.broadcast.to(data.room).emit('join room', obj);
       //this.join(data.room);
     }
     else{
@@ -93,9 +95,8 @@ function joinRoom(data){
 	
 }
 function leaveRoom(data){
-	this.broadcast.emit('leave room', data);
-	//this.emit('leave room');
-	//this.leave(data.room)
+	this.broadcast.to(data.room).emit('leave room', data);
+  this.leave(data.room);
 }
 
 function onSocketDisconnect() {
@@ -119,31 +120,32 @@ function onSocketDisconnect() {
 
 function  onRemovePlayer(data){
 
-	this.broadcast.emit("remove player", {id: data.id, room: data.room});
+	this.broadcast.to(data.room).emit("remove player", {id: data.id, room: data.room});
 
 }
 
 
 function onNewPlayer(data) {
 	//if the player doesnt already exist, and there is a valid ID
-  console.log('creating new player with', data);
+  console.log('new player', data);
 	if(!players[this.id] && this.id){
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;
 		//broadcast to all the open sockets/clients
 		//adding a new player for everyone else
-		this.broadcast.emit("new player",
+		this.broadcast.to(data.room).emit("new player",
 			{id: newPlayer.id, x: newPlayer.x,
 				y: newPlayer.y, room: 'entrance'});
 
 		//to this particular socket, update the existing player information
 		//this could probably be optimized as we only need to broadcast new player
-		var i, existingPlayer;
-		for (var player in players) {
-		    existingPlayer = players[player];
-		    if(data.room === players[player].room)
-		    	this.emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:players[player].room});
-		}
+		//var i, existingPlayer;
+		//for (var player in players) {
+				//existingPlayer = players[player];
+				//if(data.room === players[player].room && this.id !== existingPlayer.id )
+          //console.log('emitting new player', existingPlayer);
+					//this.to(data.room).emit("new player", {id: existingPlayer.id, x: existingPlayer.x, y: existingPlayer.y, room:players[player].room});
+		//}
 		players[this.id] = newPlayer;
 
 
@@ -166,7 +168,7 @@ function onMovePlayer(socket) {
 	movePlayer.x = socket.x;
 	movePlayer.y = socket.y;
 	movePlayer.room = socket.room;
-	this.broadcast.emit("move player", {id: movePlayer.id, x: movePlayer.x, y: movePlayer.y, room:movePlayer.room});
+	this.broadcast.to(movePlayer.room).emit("move player", {id: movePlayer.id, x: movePlayer.x, y: movePlayer.y, room:movePlayer.room});
 
 }
 

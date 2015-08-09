@@ -8,7 +8,6 @@ artGame.viewing1.prototype = {
     create: function(){
 
 
-        socket = io(window.location.href+"viewing1");
         setUpChat.call(this,socket);
 
         this.facing = "left";
@@ -18,6 +17,8 @@ artGame.viewing1.prototype = {
         this.map = this.game.add.tilemap('viewing1');
         this.map.addTilesetImage('viewing1');
         this.layer = this.map.createLayer('Tile Layer 1');
+
+        socket.emit('join room', {room:'viewing1', id: clientId});
 
 
         if(music && !music.isPlaying){
@@ -47,7 +48,6 @@ artGame.viewing1.prototype = {
           this.player.position.y = 510;
         }
 
-        socket.emit("new player", {x: this.player.x, y: this.player.y, room:'viewing1'});
         clientRoom = 'viewing1';
        
 

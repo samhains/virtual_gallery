@@ -8,7 +8,6 @@ artGame.viewingFilm3.prototype = {
     create: function(){
         //remotePlayers = {};
 
-        socket = io(window.location.href+"viewingFilm3");
 
         socket.emit('join room', {room:'viewingFilm3', id: clientId});
 

@@ -11,7 +11,6 @@ artGame.viewing2.prototype = {
         $('#tek-video').hide();
 
         $('#tek-video').prop('muted', true);
-        socket = io(window.location.href+"viewing2");
         socket.emit('join room', {room:'viewing2', id: clientId});
         setUpChat.call(this,socket);
 

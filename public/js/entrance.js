@@ -55,7 +55,7 @@ artGame.entrance.prototype = {
 
     },
     create: function(){
-        socket = new io.connect(window.location.href+"entrance");
+        socket = io(window.location.href);
          
         if(artGame.lastRoom){
           socket.emit('join room', {room:'entrance', id: clientId});
@@ -112,10 +112,10 @@ artGame.entrance.prototype = {
         else{
           this.player.position.x = 50;
           this.player.position.y = 550;
+          socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
         }
 
         clientRoom = "entrance";
-        socket.emit("new player", {x: this.player.x, y: this.player.y, room:'entrance'});
 
         this.player.animations.add('left', [0, 1, 2, 3, 4,5,6,7], 10, true);
         this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);

@@ -12,7 +12,6 @@ var setEventHandlers = function() {
 
 function onSocketConnected() {
     clientId = socket.id;
-    socket.emit('join room', {room:this.nsp.slice(1), id: clientId});
 }
 
 function leaveRoom(data){
@@ -64,9 +63,10 @@ function onNewPlayer(data) {
         remotePlayers[data.id] = new RemotePlayer(data.id,this.game,data.x,data.y);
       }
 
-};
+}
 
 function onMovePlayer(data) {
+    var room = data.room;
     var movePlayer;
     movePlayer = remotePlayers[data.id];
     if(clientRoom === data.room){

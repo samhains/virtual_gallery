@@ -10,7 +10,6 @@ artGame.viewing3.prototype = {
         $('#kill-video').hide();
         $('#kill-video').prop('muted', true);
 
-        socket = io(window.location.href+"viewing3");
         socket.emit('join room', {room:'viewing3', id: clientId});
         setUpChat.call(this,socket);
 

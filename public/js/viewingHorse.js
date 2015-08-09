@@ -19,7 +19,6 @@ artGame.viewingHorse.prototype = {
     create: function(){
         //remotePlayers = {};
 
-        socket = io(window.location.href+"viewingHorse");
         socket.emit('join room', {room:'viewingHorse', id: clientId});
 
         setUpChat.call(this,socket);
