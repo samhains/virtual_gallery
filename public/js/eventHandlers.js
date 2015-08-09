@@ -16,8 +16,6 @@ function onSocketConnected() {
 
 function leaveRoom(data){
     
-    console.log('remote players', remotePlayers);
-    console.log('client id', data.id);
 
     if(remotePlayers[data.id]){
         remotePlayers[data.id].destroy();
@@ -25,7 +23,7 @@ function leaveRoom(data){
 
     }
     else{
-      console.log("error with removing player", data.id, remotePlayers);
+      //console.log("error with removing player", data.id, remotePlayers);
     }
 
 }
@@ -33,7 +31,6 @@ function leaveRoom(data){
 function joinRoom(data){
 
 
-  console.log('we are joining room with', data);
 
     var players = data.players;
     data = data.data;
@@ -51,7 +48,7 @@ function joinRoom(data){
 }
 
 function onSocketDisconnect() {
-  console.log('disconnecting!');
+  //console.log('disconnecting!');
 }
 
 function onNewPlayer(data) {

@@ -133,7 +133,7 @@ artGame.viewing1.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('A fine work of art ', 'acrylic on oil', 'Charlie Freedman');
+    showSign('Untitled', '', 'Charlie Freedman');
   },
     
   //find objects in a Tiled layer that containt a property called "type" equal to a certain value

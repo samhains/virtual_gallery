@@ -116,7 +116,7 @@ artGame.viewing2.prototype = {
   },
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Death Tryptic', 'Digital Collage', 'Charlie Freedman');
+    showSign('Untitled', '', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewing2', id: clientId});

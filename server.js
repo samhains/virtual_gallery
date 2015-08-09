@@ -36,24 +36,9 @@ function init() {
 
 var setEventHandlers = function() {
    io.on('connection', onSocketConnection);
-	//var entrance = io.of('/entrance');
-	//entrance.on('connection', onSocketConnection);
-	//var viewing1 = io.of('/viewing1');
-	//viewing1.on('connection',onSocketConnection);
-	//var viewing2 = io.of('/viewing2');
-	//viewing2.on('connection',onSocketConnection);
-	//var viewing3 = io.of('/viewing3');
-	//viewing3.on('connection',onSocketConnection);
-	//var viewingHorse = io.of('/viewingHorse');
-	//viewingHorse.on('connection',onSocketConnection);
-	//var viewingFilm2 = io.of('/viewingFilm2');
-	//viewingFilm2.on('connection',onSocketConnection);
-	//var viewingFilm3 = io.of('/viewingFilm3');
-	//viewingFilm3.on('connection',onSocketConnection);
 };
 
 function onSocketConnection(socket) {
-    console.log("New player has connected: "+socket.id);
     socket.join('entrance');
     socket.emit('connected',socket.id);
     socket.on("disconnect", onSocketDisconnect);
@@ -101,7 +86,6 @@ function leaveRoom(data){
 
 function onSocketDisconnect() {
     
-    console.log("on socket Player has disconnected: "+this.id);
     //onRemovePlayer();
     //this.emit("remove player", {id: this.id});
     var removePlayer = players[this.id];
@@ -127,7 +111,6 @@ function  onRemovePlayer(data){
 
 function onNewPlayer(data) {
 	//if the player doesnt already exist, and there is a valid ID
-  console.log('new player', data);
 	if(!players[this.id] && this.id){
 		var newPlayer = new Player(data.x,data.y);
 		newPlayer.id = this.id;
