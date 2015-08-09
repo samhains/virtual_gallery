@@ -5,9 +5,6 @@ var io = require('socket.io')(http);
 var Player = require("./Player").Player;
 var socket,
     players;
-var models = require('./models');
-var Message = models.Message;
-var mongoose = require('mongoose');
 var swig = require('swig');
 
 //set up swig as render engine

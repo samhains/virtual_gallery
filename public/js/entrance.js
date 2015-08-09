@@ -1,59 +1,8 @@
-var socket;
-var clientId;
-var clientRoom;
-var clientName;
-var music;
-var bgScrollTimer;
-
-
-var destroyText= function(){
-    chatText.destroy();
-};
-
-var welcomeScroll = function(speed){
-
-  name = $('#name').val();
-      
-  var scrollSpeed = 70;
-
-  // set the default position
-  var current = 0;
-
-  // set the direction
-  var direction = 'h';
-
-  function bgscroll(){
-
-      // 2 pixel row at a time
-      current -= speed;
- 
-      // move the background with backgrond-position css properties
-      $('div#welcome-modal').css("backgroundPosition", (direction == 'h') ? current+"px 0" : "0 " + current+"px");
- 
-  }
-
-  //Calls the scrolling function repeatedly
-   bgScrollTimer = setInterval(bgscroll, scrollSpeed);    
-};
-
 
 artGame.entrance = function(){};
 
 artGame.entrance.prototype = {
-    preload: function(){
-        $.ajax({
-            url:'getPlayers',
-            type: 'get',
-            async: false,
-            success: function(playerData){
-                players = playerData;
-
-
-            }
-        });
-
-
-    },
+    preload: getPlayers,
     create: function(){
         socket = io(window.location.href);
          
@@ -162,11 +111,10 @@ artGame.entrance.prototype = {
         if(!music && clientName){
              music = this.game.add.audio('vacancy',1,true);
              music.play('', 0, 1, true);
-             
         }
        
-        this.initializeRemotePlayers();
-        this.createDoors();
+        initializeRemotePlayers('entrance');
+        createDoors.call(this);
   
         setEventHandlers.bind(this)();
 
@@ -175,36 +123,6 @@ artGame.entrance.prototype = {
 
 
     },
-    initializeRemotePlayers: function(){
-        for(var remotePlayerId in remotePlayers){
-
-            remotePlayers[remotePlayerId].destroy();
-        }
-        remotePlayers = {};
-    
-
-        for(var id in players){
-            var player = players[id];
-      
-           
-            if(player.room==="entrance" && player.id !== clientId ){
-               
-                remotePlayers[player.id] = new RemotePlayer(player.id,this.game,player.x,player.y);
-            }
-
-
-        }
-      
-    },
-    createDoors: function() {
-        this.doors = this.game.add.group();
-        this.doors.enableBody = true;
-        result = this.findObjectsByType('door', this.map, 'Object Layer 1');
-
-        result.forEach(function(element){
-          this.createFromTiledObject(element, this.doors);
-        }, this);
-  },
   enterDoor: function(player, door) {
     //`('ENTER DOOR this.player id and level',clientId,clientRoom);
     socket.emit('leave room', {room:'entrance', id: clientId});
@@ -216,30 +134,6 @@ artGame.entrance.prototype = {
     $('form').off('submit');
 
 
-  },
-
-  //find objects in a Tiled layer that containt a property called "type" equal to a certain value
-  findObjectsByType: function(type, map, layer) {
-    var result = new Array();
-    map.objects[layer].forEach(function(element){
-      if(element.properties.type === type) {
-        //Phaser uses top left, Tiled bottom left so we have to adjust
-        //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
-        //so they might not be placed in the exact position as in Tiled
-        element.y -= map.tileHeight;
-        result.push(element);
-      }
-    });
-    return result;
-  },
-  //create a sprite from an object
-  createFromTiledObject: function(element, group) {
-    var sprite = group.create(element.x, element.y, element.properties.sprite);
-
-      //copy all properties to the sprite
-      Object.keys(element.properties).forEach(function(key){
-        sprite[key] = element.properties[key];
-      });
   },
     update: function(){
 
