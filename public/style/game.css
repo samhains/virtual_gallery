@@ -8,12 +8,48 @@ canvas {
   display:none;
 }
 
+.info-header{
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+  margin-top: 80px;
+  font-size: xx-large;
+  font-weight: 600;
+  letter-spacing: 7px;
+
+}
+
+div#game-info{
+  color: white;
+  position: absolute;
+  z-index: 10000;
+  width: 800px;
+  height: 550;
+}
+
+.game-info-text{
+  margin-top: 70px;
+  line-height: 1.4;
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  margin-left: 160px;
+  letter-spacing: 2px;
+  margin-right: 160px;
+  padding: 40px;
+  border-width: 4px;
+  border-color: black;
+  border-style: solid;
+}
+
 #tek-video{
   position: absolute;
   left: 223px;
   top: 40px;
   display: none;
 }
+
 #kill-video{
   position: absolute;
   left: 92px;
@@ -175,7 +211,7 @@ canvas {
     padding-top: 18px;
     border-style: solid;
     border-color: black;
-    border-width: 5px;
+    border-width: 4px;
     border-radius: 5px;
     width: 280px;
     padding-left: 20px;
