@@ -89,7 +89,7 @@ artGame.entrance.prototype = {
 
             $('#loading-message').hide();
             $('.welcome-form').show();
-            welcomeScroll(1);
+            //welcomeScroll(1);
             $('.welcome-form').submit(function(e){
               e.preventDefault();
               name = $('#name').val();
