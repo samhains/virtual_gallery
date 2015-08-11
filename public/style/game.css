@@ -141,6 +141,7 @@ div#game-info{
   letter-spacing: 2px;
   padding: 3px;
   padding-left: 4px;
+  font-size: 14px;
 }
 
 .welcome-form-label{
