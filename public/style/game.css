@@ -9,14 +9,13 @@ canvas {
 }
 
 .info-header{
-  margin-left: 200px;
-  margin-right: 200px;
+  padding-bottom: 30px;
+  padding-top: 30px;
   text-align: center;
-  margin-top: 80px;
-  font-size: xx-large;
+  font-size: 55px;
   font-weight: 600;
-  letter-spacing: 7px;
-
+  letter-spacing: 12px;
+  text-align: center;
 }
 
 div#game-info{
@@ -28,16 +27,18 @@ div#game-info{
 }
 
 .game-info-text{
+  margin-left: 70px;
+  margin-right: 70px;
+  padding-bottom: 90px;
   margin-top: 70px;
-  line-height: 1.4;
+  line-height: 1.6;
   margin-top: 50px;
   border-radius: 5px;
   background-color: white;
   color: black;
-  margin-left: 160px;
-  letter-spacing: 2px;
-  margin-right: 160px;
-  padding: 40px;
+  letter-spacing: 3px;
+  padding: 50px;
+  padding-bottom: 55px;
   border-width: 4px;
   border-color: black;
   border-style: solid;
