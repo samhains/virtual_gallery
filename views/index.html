@@ -15,6 +15,9 @@
           $('#game-info').on('click', function(){
             $('#game-info').hide();
           });
+          $('#unauth-modal').on('click', function(){
+            $('#unauth-modal').hide();
+          });
        });
     </script>
 		<script src="http://cdn.jsdelivr.net/lodash/3.5.0/lodash.compat.min.js" defer></script>
@@ -53,9 +56,7 @@
 
     <div id='game-info'>
       <div class='game-info-text'> 
-      
         <h1 class='info-header' > 2022.gallery </h1>
-      
       2022 relies on the intuition of you, the cyber tourist, to interact with the space respectfully and engage with other users in the room. Patience is required to navigate this domain as it is evolving and under constant construction. The exhibition content and gallery structure are expected to change frequently, where users will be notified of forthcoming installation periods. The work exhibited inside is the rightful property of the artists accredited and not to be reproduced under any circumstance. </div>
     </div>
 
@@ -63,14 +64,25 @@
     </div>
 
     <div id='welcome-modal'>
-      <form class='welcome-form'>
+      <form id='welcome-form'>
         <label class='bold-text welcome-form-label'> what is your name ? </label>
         <br>
+        <input class='welcome-input' id='name' autocomplete='off'>
+
         <br>
-        <input id='name' autocomplete='off'>
+        <label class='bold-text welcome-form-label email-label'> and email ? </label>
+        <br>
+        <input class='welcome-input' id='email' autocomplete='off'>
+        <input type="submit" style="display:none"/>
       </form>
     </div>
 
+    <div id='unauth-modal'>
+      <div class='unauth-header'> You don't have an appointment!</div> 
+      <br>
+      <div class='unauth-desc'> Please go to appointments.2022.gallery to make one! </div>
+
+    </div>
       <video id='horse-video' width="370" height="370"  autoplay loop='true'>
         <source src="assets/sam/dredown.mp4" type="video/mp4">
       </video>

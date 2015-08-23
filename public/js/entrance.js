@@ -5,7 +5,7 @@ artGame.entrance.prototype = {
     preload: getPlayers,
     create: function(){
         socket = io(window.location.href);
-         
+
         if(artGame.lastRoom){
           socket.emit('join room', {room:'entrance', id: clientId});
         }
@@ -20,7 +20,7 @@ artGame.entrance.prototype = {
         this.facing = 'left';
         game = this.game;
 
-        
+
         this.level = 'entrance';
         this.stars = this.game.add.tileSprite(0,0,800,608,'stars');
         this.stars.autoScroll(-20,0);
@@ -30,13 +30,13 @@ artGame.entrance.prototype = {
         this.map.setCollisionBetween(1600, 1620);
         this.map.setCollision([1671, 1773]);
         this.map.setCollisionBetween(1824 , 1849);
-  
+
 
         //this.map.setCollisionBetween(9, 50);
 
 
         this.layer = this.map.createLayer('Tile Layer 1');
-        
+
         //  Un-comment this on to see the collision tiles
         //this.layer.debug = true;
 
@@ -69,10 +69,10 @@ artGame.entrance.prototype = {
         this.player.animations.add('left', [0, 1, 2, 3, 4,5,6,7], 10, true);
         this.player.animations.add('right', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);
         this.player.animations.add('idleRight', [8], 5, true);
-         this.player.animations.add('idleLeft', [0], 5, true); 
+         this.player.animations.add('idleLeft', [0], 5, true);
 
         //text settings
-        this.textMessages = game.add.group(); 
+        this.textMessages = game.add.group();
         this.textYBuffer = 0;
         this.textYBufferLineCount = 1;
         this.textY = this.player.y-15;
@@ -85,24 +85,45 @@ artGame.entrance.prototype = {
         var that = this;
 
         if($('#welcome-modal').is(':visible')){
-    
+
 
             $('#loading-message').hide();
-            $('.welcome-form').show();
+            $('#welcome-form').show();
             welcomeScroll(1);
-            $('.welcome-form').submit(function(e){
+            $('#welcome-form').submit(function(e){
               e.preventDefault();
-              name = $('#name').val();
-              if (name.length > 0 ) {
-                clientName = name;
-                $('#welcome-modal').remove();
-                clearInterval(bgScrollTimer);
-                $('.message-form').show();
-                music = that.game.add.audio('vacancy',1,true);
-                music.play('', 0, 1, true);
-              }
-              $('#name').val(''); 
+              $.ajax({
+                url: 'http://localhost:3000/approved-users',
+                type: 'GET',
+                crossDomain: true,
+                success: function(data){
+                  emails = data.emails;
+                  name = $('#name').val();
+                  email = $('#email').val();
+                  emailAuthenticated = emails.indexOf(email) !== -1;
+                  if(!emailAuthenticated){
+                    $('#unauth-modal').show();
+                  }
+                  if (name.length > 0 && emailAuthenticated) {
+                    clientName = name;
+                    $('#welcome-modal').remove();
+                    clearInterval(bgScrollTimer);
+                    $('.message-form').show();
+                    music = that.game.add.audio('vacancy',1,true);
+                    music.play('', 0, 1, true);
+                  }
+                  $('#name').val('');
+                  $('#email').val('');
 
+                },
+
+                error: function(data){
+                  console.log("error", data);
+                  $('#name').val('');
+                  $('#email').val('');
+                }
+
+              });
             });
 
         }
@@ -112,10 +133,10 @@ artGame.entrance.prototype = {
              music = this.game.add.audio('vacancy',1,true);
              music.play('', 0, 1, true);
         }
-       
+
         initializeRemotePlayers('entrance');
         createDoors.call(this);
-  
+
         setEventHandlers.bind(this)();
 
 
@@ -137,7 +158,7 @@ artGame.entrance.prototype = {
   },
     update: function(){
 
-        
+
         updateRemotePlayers(remotePlayers);
         collisionSetUp.call(this, false);
 
