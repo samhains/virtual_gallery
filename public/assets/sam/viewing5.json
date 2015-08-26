@@ -17,94 +17,43 @@
          "name":"Object Layer 1",
          "objects":[
                 {
-                 "gid":1703,
+                 "gid":1534,
                  "height":16,
-                 "id":6,
+                 "id":1,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewing2",
+                     "targetTilemap":"viewing4",
                      "type":"door"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":32,
-                 "y":560
-                }, 
-                {
-                 "gid":1653,
-                 "height":16,
-                 "id":9,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing2",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":32,
-                 "y":544
-                }, 
-                {
-                 "gid":1513,
-                 "height":16,
-                 "id":10,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewingFilm3",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":192,
+                 "x":528,
                  "y":496
                 }, 
                 {
-                 "gid":1514,
+                 "gid":1535,
                  "height":16,
-                 "id":12,
+                 "id":2,
                  "name":"door",
                  "properties":
                     {
-                     "targetTilemap":"viewingFilm3",
+                     "targetTilemap":"viewing4",
                      "type":"door"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":208,
+                 "x":544,
                  "y":496
                 }, 
                 {
-                 "gid":1515,
+                 "gid":1479,
                  "height":16,
-                 "id":14,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewingFilm3",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":224,
-                 "y":496
-                }, 
-                {
-                 "gid":1470,
-                 "height":16,
-                 "id":15,
+                 "id":3,
                  "name":"sign",
                  "properties":
                     {
@@ -114,13 +63,13 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":304,
+                 "x":448,
                  "y":480
                 }, 
                 {
-                 "gid":1520,
+                 "gid":1480,
                  "height":16,
-                 "id":16,
+                 "id":4,
                  "name":"sign",
                  "properties":
                     {
@@ -130,42 +79,40 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":304,
+                 "x":464,
+                 "y":480
+                }, 
+                {
+                 "gid":1529,
+                 "height":16,
+                 "id":5,
+                 "name":"sign",
+                 "properties":
+                    {
+                     "type":"sign"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":448,
                  "y":496
                 }, 
                 {
-                 "gid":1696,
+                 "gid":1530,
                  "height":16,
-                 "id":18,
-                 "name":"door",
+                 "id":6,
+                 "name":"sign",
                  "properties":
                     {
-                     "targetTilemap":"viewing4",
-                     "type":"door"
+                     "type":"sign"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":720,
-                 "y":544
-                }, 
-                {
-                 "gid":1747,
-                 "height":16,
-                 "id":21,
-                 "name":"door",
-                 "properties":
-                    {
-                     "targetTilemap":"viewing4",
-                     "type":"door"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":736,
-                 "y":560
+                 "x":464,
+                 "y":496
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -174,7 +121,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":24,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "properties":
     {
@@ -185,11 +132,11 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"viewing3.png",
+         "image":"viewing5.png",
          "imageheight":608,
          "imagewidth":800,
          "margin":0,
-         "name":"viewing3",
+         "name":"viewing5",
          "properties":
             {
 

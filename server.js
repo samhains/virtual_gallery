@@ -74,7 +74,6 @@ function joinRoom(data){
 
 
 
-	
 }
 function leaveRoom(data){
 	this.broadcast.to(data.room).emit('leave room', data);
@@ -82,7 +81,6 @@ function leaveRoom(data){
 }
 
 function onSocketDisconnect() {
-    
     //onRemovePlayer();
     //this.emit("remove player", {id: this.id});
     var removePlayer = players[this.id];
@@ -94,7 +92,6 @@ function onSocketDisconnect() {
 
 	delete players[this.id];
 
- 
 	this.broadcast.emit("remove player", {id: removePlayer.id, room: removePlayer.room});
 
 }

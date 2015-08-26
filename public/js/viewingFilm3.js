@@ -7,6 +7,7 @@ artGame.viewingFilm3.prototype = {
 
     create: function(){
         //remotePlayers = {};
+        $('.viewing3-imgs').hide();
 
         createFilmLevel.call(this, 'viewingFilm3', 'kill-video', true);
 

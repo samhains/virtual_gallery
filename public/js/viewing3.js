@@ -9,6 +9,9 @@ artGame.viewing3.prototype = {
 
         $('#kill-video').hide();
         $('#kill-video').prop('muted', true);
+        $('.viewing2-imgs').hide();
+        $('.viewing4-imgs').hide();
+        $('.viewing3-imgs').show();
 
         socket.emit('join room', {room:'viewing3', id: clientId});
         setUpChat.call(this,socket);
@@ -46,6 +49,10 @@ artGame.viewing3.prototype = {
 
         if(artGame.lastRoom == 'viewing2'){
           this.player.position.x = 60;
+          this.player.position.y = 520;
+        }
+        else if(artGame.lastRoom == 'viewing4'){
+          this.player.position.x = 670;
           this.player.position.y = 520;
         }
 
@@ -91,7 +98,12 @@ artGame.viewing3.prototype = {
         this.state.start('viewing2');
 
     }
-    if(door.targetTilemap==='viewingFilm3'){
+    else if(door.targetTilemap==='viewing4'){
+        clientRoom = 'viewing4';
+        this.state.start('viewing4');
+
+    }
+    else if(door.targetTilemap==='viewingFilm3'){
         clientRoom = 'viewingFilm3';
         this.state.start('viewingFilm3');
     }

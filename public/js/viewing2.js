@@ -7,6 +7,9 @@ artGame.viewing2.prototype = {
 
     create: function(){
         //remotePlayers = {};
+        $('.viewing1-imgs').hide();
+        $('.viewing3-imgs').hide();
+        $('.viewing2-imgs').show();
         $('#horse-video').hide();
         $('#tek-video').hide();
 

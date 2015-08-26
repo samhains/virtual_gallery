@@ -5,6 +5,7 @@ artGame.entrance.prototype = {
     preload: getPlayers,
     create: function(){
         socket = io(window.location.href);
+        $('.viewing1-imgs').hide();
 
         if(artGame.lastRoom){
           socket.emit('join room', {room:'entrance', id: clientId});
@@ -85,7 +86,6 @@ artGame.entrance.prototype = {
         var that = this;
 
         if($('#welcome-modal').is(':visible')){
-
 
             $('#loading-message').hide();
             $('#welcome-form').show();

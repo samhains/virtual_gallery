@@ -8,6 +8,7 @@ artGame.viewingHorse.prototype = {
     create: function(){
         //remotePlayers = {};
 
+        $('.viewing2-imgs').hide();
         createFilmLevel.call(this, 'viewingHorse', 'horse-video', false);
 
 

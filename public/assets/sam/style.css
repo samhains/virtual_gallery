@@ -1,0 +1,140 @@
+.background {
+	position: absolute;
+	width: 800px;
+	height: 608px;
+
+}
+
+body {
+	margin: 0px;
+}
+
+
+.harry-img-1 {
+	position: absolute;
+    width: 280;
+    left: 100;
+    top: 70px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.harry-img-2 {
+    position: absolute;
+    width: 280;
+    left: 400;
+    top: 70px;	
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.digpainting1 {
+	position: absolute;
+    width: 280px;
+    left: 100px;
+    top: 40px;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+
+}
+.digpainting2 {
+	position: absolute;
+    width: 130px;
+    left: 425px;
+    top: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+
+}
+ .digpainting3 {
+	position: absolute;
+    width: 200px;
+    left: 470px;
+    top: 220px;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+
+}
+ .digpainting4 {
+	position: absolute;
+    width: 130px;
+    left: 110;
+    top: 10;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+	
+
+	}
+.digpainting5 {
+	position: absolute;
+    width: 180;
+    left: 140;
+    top: 200;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+	
+
+    }
+.digpainting6 {
+	position: absolute;
+	width: 300;
+    left: 380;
+    top: 40px;
+    border-style: solid;
+    border-color: white;
+    border-width: 12px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 1px;
+
+        }
+.ratio {
+	position: absolute;
+	width: 270;
+    left: 410;
+    top: 40;
+ 	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+		}
+
+
+.psyche {
+	position: absolute;
+	width: 270;
+    left: 100;
+    top: 40;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+		}
+
+.unhappen {
+	position: absolute;
+	width: 300;
+    left: 190;
+    top: 25;
+  	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+		}

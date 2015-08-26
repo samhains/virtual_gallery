@@ -1,35 +1,39 @@
 var lastOverlapped;
 
-artGame.viewing1 = function(){};
+artGame.viewing4 = function(){};
 
 
-artGame.viewing1.prototype = {
+artGame.viewing4.prototype = {
     preload: getPlayers, 
     create: function(){
 
 
+        $('.viewing3-imgs').hide();
+        $('.viewing5-imgs').hide();
+        $('.viewing4-imgs').show();
+        socket.emit('join room', {room:'viewing4', id: clientId});
         setUpChat.call(this,socket);
 
-        $('.viewing1-imgs').show();
         this.facing = "left";
-        this.level = 'viewing1';
+        this.level = 'viewing4';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.stage.backgroundColor = '#ffffff';
-        this.map = this.game.add.tilemap('viewing1');
-        this.map.addTilesetImage('viewing1');
+        this.map = this.game.add.tilemap('viewing4');
+        this.map.addTilesetImage('viewing4');
         this.layer = this.map.createLayer('Tile Layer 1');
 
-        socket.emit('join room', {room:'viewing1', id: clientId});
-
+        if(music) music.resume();
 
         if(music && !music.isPlaying){
                 music.play('', 0,1,true);
-         }    
+         }
 
         this.map.setCollisionBetween(1504, 1545);
-        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554, 1693, 1592, 1593, 1594, 1694, 1695,1643, 1644, 1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1642]);
+        this.map.setCollision([1851, 1852, 1802, 1752, 1703, 1653, 1604, 1554,  1649, 1699, 1546, 1596, 1647, 1697, 1748, 1749, 1799, 1849, 1900]);
 
 
+
+        //this.layer.debug = true;
         //this.layer.resizeWorld();
 
         this.player = this.game.add.sprite(32, 32, 'dude');
@@ -38,21 +42,19 @@ artGame.viewing1.prototype = {
         this.player.body.drag.set(0.2);
         this.player.body.collideWorldBounds = true;
         this.player.body.setSize(5, 32, 5, 16);
+        this.player.position.x = 60;
+        this.player.position.y = 520;
 
-        if(artGame.lastRoom == 'entrance'){
-          this.player.position.x = 295;
-          this.player.position.y = 510;
+        if(artGame.lastRoom == 'viewing3'){
+          this.player.position.x = 60;
+          this.player.position.y = 520;
         }
 
-        else if(artGame.lastRoom == 'viewing2'){
-          this.player.position.x = 495;
-          this.player.position.y = 510;
+        else if(artGame.lastRoom == 'viewing5'){
+          this.player.position.x = 530;
+          this.player.position.y = 508;
         }
-
-        clientRoom = 'viewing1';
-       
-
-
+        clientRoom = 'viewing4';
 
 
         this.player.animations.add('left', [0, 1, 2, 3,4,5,6,7], 5, true);
@@ -66,7 +68,7 @@ artGame.viewing1.prototype = {
         // jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
          // Start listening for events
-        initializeRemotePlayers('viewing1');
+        initializeRemotePlayers('viewing4');
         createDoors.call(this);
         createSigns.call(this);
 
@@ -76,21 +78,19 @@ artGame.viewing1.prototype = {
 
 
     },
-
   enterDoor: function(player, door) {
-    socket.emit('leave room', {room:'viewing1', id: clientId});
-    artGame.lastRoom = 'viewing1';
+    socket.emit('leave room', {room:'viewing4', id: clientId});
+    artGame.lastRoom = 'viewing4';
     $('form').off('submit');
-    
 
-    if(door.targetTilemap==='viewing2'){
-        clientRoom = 'viewing2';
-        this.state.start('viewing2');
+    if(door.targetTilemap==='viewing5'){
+        clientRoom = 'viewing5';
+        this.state.start('viewing5');
 
     }
-    if(door.targetTilemap==='entrance'){
-        clientRoom = 'entrance';
-        this.state.start('entrance');
+    else if(door.targetTilemap==='viewing3'){
+        clientRoom = 'viewing3';
+        this.state.start('viewing3');
     }
 
 
@@ -98,17 +98,17 @@ artGame.viewing1.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Untitled', '', 'Charlie Freedman');
+    showSign('Untitled (Broken I) and<br> Untitled (Broken II)', '', 'Harry Hughes');
   },
-    
-  update: function(){
+    update: function(){
 
 
-      updateRemotePlayers(remotePlayers);
-      collisionSetUp.call(this, true);
-      removeSign(lastOverlapped);
-      playerMovementAndAnimation.call(this, socket, clientRoom);
-  }
+        updateRemotePlayers(remotePlayers);
+        collisionSetUp.call(this, true);
+
+        removeSign(lastOverlapped);
+        playerMovementAndAnimation.call(this, socket, clientRoom);
+    }
 
 };
 

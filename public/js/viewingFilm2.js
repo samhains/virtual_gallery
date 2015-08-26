@@ -6,6 +6,8 @@ artGame.viewingFilm2.prototype = {
     preload: getPlayers, 
 
     create: function(){
+
+      $('.viewing2-imgs').hide();
       createFilmLevel.call(this, 'viewingFilm2', 'tek-video', true);
 
     },

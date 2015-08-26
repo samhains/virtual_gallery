@@ -28,6 +28,10 @@ artGame.Preload.prototype = {
 
         this.game.load.tilemap('viewing3', 'assets/sam/viewing3.json', null, Phaser.Tilemap.TILED_JSON);
         this.game.load.image('viewing3', 'assets/sam/viewing3.png');
+        this.game.load.tilemap('viewing4', 'assets/sam/viewing4.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.image('viewing4', 'assets/sam/viewing4.png');
+        this.game.load.tilemap('viewing5', 'assets/sam/viewing5.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.image('viewing5', 'assets/sam/viewing5.png');
        
         //this.game.load.image('door', 'assets/sam/door.png');
         
