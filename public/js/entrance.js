@@ -93,7 +93,7 @@ artGame.entrance.prototype = {
             $('#welcome-form').submit(function(e){
               e.preventDefault();
               $.ajax({
-                url: 'http://localhost:3000/approved-users',
+                url: 'http://appointments2022.herokuapp.com/approved-users',
                 type: 'GET',
                 crossDomain: true,
                 success: function(data){
