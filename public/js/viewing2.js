@@ -84,7 +84,7 @@ artGame.viewing2.prototype = {
     },
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Untitled', '', 'Charlie Freedman');
+    showSign('Tekraft #4, Tekraft #5,<br> Tekraft #6', '', 'Charlie Freedman');
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewing2', id: clientId});

@@ -113,7 +113,7 @@ artGame.viewing3.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Untitled (Broken I) and<br> Untitled (Broken II)', '', 'Harry Hughes');
+    showSign('Untitled (Broken I),<br> Untitled (Broken II)', '', 'Harry Hughes');
   },
     
     update: function(){

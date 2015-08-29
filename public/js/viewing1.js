@@ -99,7 +99,7 @@ artGame.viewing1.prototype = {
 
   touchSign: function(player, sign) {
     lastOverlapped = game.time.now + 100;
-    showSign('Untitled', '', 'Charlie Freedman');
+    showSign('Tekraft #1, Tekraft #2,<br> Tekraft #3', '', 'Charlie Freedman');
   },
     
   update: function(){
