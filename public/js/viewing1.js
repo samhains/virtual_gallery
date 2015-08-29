@@ -11,6 +11,7 @@ artGame.viewing1.prototype = {
         setUpChat.call(this,socket);
 
         $('.viewing1-imgs').show();
+        $('.viewing2-imgs').hide();
         this.facing = "left";
         this.level = 'viewing1';
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
