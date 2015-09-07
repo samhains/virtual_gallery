@@ -18,7 +18,6 @@ var setUpChat = function(socket, room){
             e.preventDefault();
             if(msg.length>0 ){
               appendMessage(msg, self.player, clientName);
-              console.log(clientId, 'sending message');
               socket.emit('chat message', {msg: msg, room: clientRoom, user: clientId, sender: clientName});
             }
             $('#m').val('');
@@ -29,7 +28,6 @@ var setUpChat = function(socket, room){
             var msg = data.msg;
             if(lastMessage != msg) {
               var remoteId = data.user;
-              console.log(remoteId, 'sends message to you');
               var remotePlayer = remotePlayers[remoteId];
               var senderName = data.sender;
               appendMessage(msg, remotePlayer, senderName);
