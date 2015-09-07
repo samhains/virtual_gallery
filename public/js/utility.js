@@ -152,7 +152,6 @@ var collisionSetUp = function(isSign){
 };
 var createFilmLevel = function(name, videoId, isMusic){
     socket.emit('join room', {room: name, id: clientId});
-
     setUpChat.call(this,socket);
 
     if(isMusic){

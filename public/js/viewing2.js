@@ -15,7 +15,6 @@ artGame.viewing2.prototype = {
 
         $('#tek-video').prop('muted', true);
         socket.emit('join room', {room:'viewing2', id: clientId});
-        setUpChat.call(this,socket);
 
         if(music) music.resume();
 
@@ -36,6 +35,7 @@ artGame.viewing2.prototype = {
 
 
         this.player = this.game.add.sprite(32, 32, 'dude');
+        setUpChat.call(this, socket, this);
         this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.lastPosition = { x: this.player.x, y: this.player.y };
         this.player.body.drag.set(0.2);

@@ -17,6 +17,7 @@ artGame.viewingHorse.prototype = {
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingHorse', id: socket.id});
     artGame.lastRoom = 'viewingHorse';
+    $('.message-form').off("submit");
     socket.emit('join room', {room:'viewing2', id: socket.id});
     clientRoom = 'viewing2';
     this.state.start('viewing2');

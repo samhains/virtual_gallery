@@ -19,6 +19,7 @@ artGame.viewingFilm3.prototype = {
 
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingFilm3', id: socket.id});
+    $('form').off('submit');
     artGame.lastRoom = 'viewingFilm3';
     clientRoom = 'viewing3';
     this.state.start('viewing3');

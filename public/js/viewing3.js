@@ -91,7 +91,6 @@ artGame.viewing3.prototype = {
     socket.emit('leave room', {room:'viewing3', id: clientId});
     artGame.lastRoom = 'viewing3';
     $('form').off('submit');
-    
 
     if(door.targetTilemap==='viewing2'){
         clientRoom = 'viewing2';

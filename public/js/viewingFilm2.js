@@ -3,7 +3,7 @@ artGame.viewingFilm2 = function(){};
 
 
 artGame.viewingFilm2.prototype = {
-    preload: getPlayers, 
+    preload: getPlayers,
 
     create: function(){
 
@@ -17,6 +17,7 @@ artGame.viewingFilm2.prototype = {
   },
   enterDoor: function(player, door) {
     socket.emit('leave room', {room:'viewingFilm2', id: clientId});
+    $('.message-form').off("submit");
     artGame.lastRoom = 'viewingFilm2';
     clientRoom = 'viewing2';
     this.state.start('viewing2');
