@@ -92,38 +92,16 @@ artGame.entrance.prototype = {
             welcomeScroll(1);
             $('#welcome-form').submit(function(e){
               e.preventDefault();
-              $.ajax({
-                url: 'http://appointments2022.herokuapp.com/approved-users',
-                type: 'GET',
-                crossDomain: true,
-                success: function(data){
-                  emails = data.emails;
-                  name = $('#name').val();
-                  email = $('#email').val();
-                  emailAuthenticated = emails.indexOf(email) !== -1;
-                  if(!emailAuthenticated){
-                    $('#unauth-modal').show();
-                  }
-                  if (name.length > 0 && emailAuthenticated) {
-                    clientName = name;
-                    $('#welcome-modal').remove();
-                    clearInterval(bgScrollTimer);
-                    $('.message-form').show();
-                    music = that.game.add.audio('vacancy',1,true);
-                    music.play('', 0, 1, true);
-                  }
-                  $('#name').val('');
-                  $('#email').val('');
-
-                },
-
-                error: function(data){
-                  console.log("error", data);
-                  $('#name').val('');
-                  $('#email').val('');
-                }
-
-              });
+              name = $('#name').val();
+              if (name.length > 0) {
+                clientName = name;
+                $('#welcome-modal').remove();
+                clearInterval(bgScrollTimer);
+                $('.message-form').show();
+                music = that.game.add.audio('vacancy',1,true);
+                music.play('', 0, 1, true);
+              }
+              $('#name').val('');
             });
 
         }
